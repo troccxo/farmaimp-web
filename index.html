@@ -960,49 +960,52 @@
     <div class="register-form">
       <h3>Solicitar acceso</h3>
       <p>Completa el formulario y nos pondremos en contacto contigo para activar tu cuenta.</p>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nombre</label>
-          <input type="text" placeholder="Tu nombre" />
+      <form action="https://formspree.io/f/xlgavooz" method="POST" id="form-registro">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label>Apellido</label>
+            <input type="text" name="apellido" placeholder="Tu apellido" required />
+          </div>
         </div>
         <div class="form-group">
-          <label>Apellido</label>
-          <input type="text" placeholder="Tu apellido" />
+          <label>Email</label>
+          <input type="email" name="email" placeholder="correo@farmacia.cl" required />
         </div>
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="correo@farmacia.cl" />
-      </div>
-      <div class="form-group">
-        <label>Teléfono</label>
-        <input type="tel" placeholder="+56 9 XXXX XXXX" />
-      </div>
-      <div class="form-group">
-        <label>Nombre de la farmacia o negocio</label>
-        <input type="text" placeholder="Farmacia San Juan" />
-      </div>
-      <div class="form-group">
-        <label>Plan de interés</label>
-        <select>
-          <option value="">Seleccionar plan...</option>
-          <option>Solo comparador de precios</option>
-          <option>Comparador + Inventario</option>
-          <option>Suite completa farmacia</option>
-          <option>Personalizado — quiero cotizar</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>¿Cómo nos conociste?</label>
-        <select>
-          <option value="">Seleccionar...</option>
-          <option>Recomendación de un colega</option>
-          <option>Redes sociales</option>
-          <option>Búsqueda en Google</option>
-          <option>Otro</option>
-        </select>
-      </div>
-      <button class="form-submit">Enviar solicitud</button>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" />
+        </div>
+        <div class="form-group">
+          <label>Nombre de la farmacia o negocio</label>
+          <input type="text" name="negocio" placeholder="Farmacia San Juan" required />
+        </div>
+        <div class="form-group">
+          <label>Plan de interés</label>
+          <select name="plan">
+            <option value="">Seleccionar plan...</option>
+            <option>Solo comparador de precios</option>
+            <option>Comparador + Inventario</option>
+            <option>Suite completa farmacia</option>
+            <option>Personalizado — quiero cotizar</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>¿Cómo nos conociste?</label>
+          <select name="como_nos_conociste">
+            <option value="">Seleccionar...</option>
+            <option>Recomendación de un colega</option>
+            <option>Redes sociales</option>
+            <option>Búsqueda en Google</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">Enviar solicitud</button>
+        <p id="registro-ok" style="display:none;color:var(--green);font-size:0.85rem;margin-top:0.75rem;text-align:center;">✓ Solicitud enviada. Te contactaremos pronto.</p>
+      </form>
     </div>
     <div class="register-info">
       <div class="section-title">¿Cómo funciona?</div>
@@ -1038,17 +1041,20 @@
       <div class="section-sub">Escríbenos y te respondemos a la brevedad. También puedes usar este formulario para contarnos cómo te enteraste de FarmaIMP.</div>
     </div>
     <div class="contact-form fade-up">
-      <input type="text" placeholder="Tu nombre" />
-      <input type="email" placeholder="Tu email" />
-      <select>
-        <option value="">¿Cómo te enteraste de FarmaIMP?</option>
-        <option>Redes sociales</option>
-        <option>Recomendación de un colega</option>
-        <option>Búsqueda en Google</option>
-        <option>Otro</option>
-      </select>
-      <textarea placeholder="Tu mensaje..."></textarea>
-      <button type="submit">Enviar mensaje</button>
+      <form action="https://formspree.io/f/xlgavooz" method="POST" id="form-contacto">
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Tu email" required />
+        <select name="como_nos_conociste">
+          <option value="">¿Cómo te enteraste de FarmaIMP?</option>
+          <option>Redes sociales</option>
+          <option>Recomendación de un colega</option>
+          <option>Búsqueda en Google</option>
+          <option>Otro</option>
+        </select>
+        <textarea name="mensaje" placeholder="Tu mensaje..." required></textarea>
+        <button type="submit">Enviar mensaje</button>
+        <p id="contacto-ok" style="display:none;color:rgba(255,255,255,0.8);font-size:0.85rem;text-align:center;">✓ Mensaje enviado. Te responderemos pronto.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -1063,13 +1069,32 @@
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
+      if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Formspree handlers
+  async function handleForm(formId, okId) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.reset();
+        document.getElementById(okId).style.display = 'block';
+      }
+    });
+  }
+
+  handleForm('form-registro', 'registro-ok');
+  handleForm('form-contacto', 'contacto-ok');
 </script>
 </body>
 </html>
