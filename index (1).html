@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farma IMP — Software para Farmacias Independientes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #1a6b3a;
+      --green-light: #2d9e57;
+      --green-pale: #e8f5ed;
+      --green-dark: #0f4424;
+      --white: #ffffff;
+      --off-white: #f8faf9;
+      --gray: #6b7280;
+      --gray-light: #f3f4f6;
+      --text: #1a1a1a;
+      --border: #e5e7eb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+
+    .logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: -0.5px;
+    }
+
+    .logo span { color: var(--green-light); }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--gray);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav ul a:hover { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green);
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-dark) !important; color: white !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 5% 60px;
+      background: linear-gradient(135deg, var(--off-white) 0%, var(--green-pale) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(26,107,58,0.08) 0%, transparent 70%);
+      right: -100px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      max-width: 620px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green);
+      border: 1px solid rgba(26,107,58,0.2);
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--green);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px rgba(26,107,58,0.25);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--green);
+      padding: 0.9rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1.5px solid var(--green);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: var(--green-pale);
+      transform: translateY(-1px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(26,107,58,0.15);
+    }
+
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
+    /* SECTIONS */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray);
+      max-width: 540px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* QUIÉNES SOMOS */
+    .about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-top: 60px;
+    }
+
+    .about-visual {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      border-radius: 20px;
+      padding: 50px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-visual::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 50%;
+      right: -80px;
+      bottom: -80px;
+    }
+
+    .about-visual h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-style: italic;
+    }
+
+    .about-visual p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+
+    .about-points {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .about-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .about-point-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .about-point-text strong {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .about-point-text span {
+      font-size: 0.82rem;
+      opacity: 0.75;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    /* CARACTERÍSTICAS */
+    .features { background: var(--off-white); }
+
+    .features-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: all 0.25s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--green-light);
+      box-shadow: 0 10px 40px rgba(26,107,58,0.1);
+      transform: translateY(-3px);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--green-pale);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .feature-card.highlight {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+
+    .feature-card.highlight .feature-icon {
+      background: rgba(255,255,255,0.15);
+    }
+
+    .feature-card.highlight h3 { color: white; }
+    .feature-card.highlight p { color: rgba(255,255,255,0.8); }
+
+    /* PRECIOS */
+    .pricing { background: var(--white); }
+
+    .pricing-header { text-align: center; margin-bottom: 60px; }
+    .pricing-header .section-sub { margin: 0 auto; }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.25s;
+    }
+
+    .price-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 15px 50px rgba(26,107,58,0.12);
+    }
+
+    .price-card.featured {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+      position: relative;
+    }
+
+    .price-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green-light);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .price-type {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-card.featured .price-type { color: rgba(255,255,255,0.7); }
+
+    .price-amount {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-card.featured .price-amount { color: white; }
+
+    .price-period {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+    }
+
+    .price-card.featured .price-period { color: rgba(255,255,255,0.7); }
+
+    .price-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--gray);
+    }
+
+    .price-card.featured .price-features li { color: rgba(255,255,255,0.85); }
+
+    .price-features li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .price-card.featured .price-features li::before { color: rgba(255,255,255,0.9); }
+
+    .price-cta {
+      display: block;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 10px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .price-cta-outline {
+      background: transparent;
+      border: 1.5px solid var(--green);
+      color: var(--green);
+    }
+
+    .price-cta-outline:hover { background: var(--green-pale); }
+
+    .price-cta-solid {
+      background: white;
+      color: var(--green);
+    }
+
+    .price-cta-solid:hover { background: var(--green-pale); }
+
+    /* REGISTRO */
+    .register {
+      background: var(--off-white);
+    }
+
+    .register-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 60px;
+    }
+
+    .register-form {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .register-form h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .register-form p {
+      font-size: 0.88rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: white;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--green);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 0.9rem;
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover {
+      background: var(--green-dark);
+      box-shadow: 0 8px 25px rgba(26,107,58,0.25);
+    }
+
+    .register-info h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .register-info p {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .info-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .info-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .info-item p {
+      font-size: 0.88rem;
+      margin: 0;
+      color: var(--gray);
+    }
+
+    /* CONTACTO */
+    .contact {
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact .section-label { color: rgba(255,255,255,0.5); }
+    .contact .section-title { color: white; }
+    .contact .section-sub { color: rgba(255,255,255,0.65); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: white;
+      font-size: 0.9rem;
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.4); }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: var(--green-light);
+    }
+
+    .contact-form select option { background: var(--green-dark); color: white; }
+
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+
+    .contact-form button {
+      padding: 0.9rem;
+      background: var(--green-light);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .contact-form button:hover {
+      background: white;
+      color: var(--green);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0a2918;
+      color: rgba(255,255,255,0.5);
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+    }
+
+    footer .logo { color: rgba(255,255,255,0.8); font-size: 1.1rem; }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .about-grid, .register-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Farma<span>IMP</span></div>
+  <ul>
+    <li><a href="#about">Quiénes somos</a></li>
+    <li><a href="#features">Características</a></li>
+    <li><a href="#pricing">Precios</a></li>
+    <li><a href="#contact">Contacto</a></li>
+    <li><a href="#register" class="nav-cta">Comenzar</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Software para Farmacias Independientes</div>
+    <h1>Gestiona tu farmacia con <em>inteligencia</em></h1>
+    <p>Compara precios entre proveedores, gestiona tu inventario y controla tus ventas desde una sola plataforma diseñada especialmente para farmacias independientes en Chile.</p>
+    <div class="hero-btns">
+      <a href="#register" class="btn-primary">Solicitar acceso</a>
+      <a href="#features" class="btn-secondary">Ver características</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Local y seguro</div>
+      </div>
+      <div>
+        <div class="stat-num">Modular</div>
+        <div class="stat-label">Pagas solo lo que usas</div>
+      </div>
+      <div>
+        <div class="stat-num">~1.5 UF</div>
+        <div class="stat-label">Precio referencial / mes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section class="about" id="about">
+  <div class="fade-up">
+    <div class="section-label">Quiénes somos</div>
+    <div class="about-grid">
+      <div class="about-visual">
+        <h3>Nacimos del mundo farmacéutico</h3>
+        <p>FarmaIMP es un software desarrollado junto a químicos farmacéuticos para resolver los problemas reales del día a día en farmacias independientes. Entendemos el rubro porque trabajamos con él.</p>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="about-point-icon">💊</div>
+            <div class="about-point-text">
+              <strong>Desarrollado con farmacéuticos</strong>
+              <span>Cada función fue validada por profesionales del área</span>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">🔒</div>
+            <div class="about-point-text">
+              <strong>Tus datos son tuyos</strong>
+              <span>Todo funciona de forma local en tu computador</span>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-point-icon">🇨🇱</div>
+            <div class="about-point-text">
+              <strong>Hecho en Chile para Chile</strong>
+              <span>Adaptado a la normativa y proveedores locales</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-title">Software pensado para el farmacéutico independiente</div>
+        <p>Las farmacias independientes enfrentan una competencia creciente de las grandes cadenas. FarmaIMP nace para nivelar el campo de juego, entregando herramientas de gestión profesionales a un precio accesible.</p>
+        <p>Desde comparar precios entre tus proveedores hasta gestionar tu inventario y ventas, todo desde una plataforma simple, rápida y que funciona sin depender de internet para lo esencial.</p>
+        <p>Somos un equipo pequeño y comprometido con el crecimiento de las farmacias independientes en Chile. Tu éxito es nuestro éxito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARACTERÍSTICAS -->
+<section class="features" id="features">
+  <div class="features-header fade-up">
+    <div>
+      <div class="section-label">Características</div>
+      <div class="section-title">Todo lo que necesitas en un solo lugar</div>
+    </div>
+    <div class="section-sub">Funcionalidades diseñadas específicamente para el flujo de trabajo de una farmacia independiente.</div>
+  </div>
+  <div class="features-grid fade-up">
+    <div class="feature-card highlight">
+      <div class="feature-icon">📊</div>
+      <h3>Comparador de precios</h3>
+      <p>Procesa listas de precios en Excel de tus proveedores y compara automáticamente. Identifica siempre el precio más conveniente para tu farmacia.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📦</div>
+      <h3>Gestión de inventario</h3>
+      <p>Controla tu stock en tiempo real, recibe alertas de stock crítico y vencimiento próximo para nunca quedarte sin medicamentos clave.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧾</div>
+      <h3>Punto de venta</h3>
+      <p>Genera boletas electrónicas, acepta múltiples medios de pago y lleva el registro de todas tus ventas integrado con el SII.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📈</div>
+      <h3>Reportes financieros</h3>
+      <p>Estado de resultados mensual, margen de ganancia, flujo de caja y registro de mermas. Toda la información para tomar mejores decisiones.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔫</div>
+      <h3>Escáner de código de barras</h3>
+      <p>Compatible con pistolas lectoras de código de barras para agilizar la entrada de medicamentos al inventario y el proceso de venta.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👥</div>
+      <h3>Gestión de clientes</h3>
+      <p>Registro de clientes con historial de compras y posibilidad de asignar descuentos personalizados para fidelizar a tus mejores clientes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header fade-up">
+    <div class="section-label">Precios</div>
+    <div class="section-title">Modular y a tu medida</div>
+    <div class="section-sub">Pagas solo por los módulos que necesitas. El precio se evalúa según el tamaño y necesidades de tu negocio.</div>
+  </div>
+
+  <div class="fade-up" style="max-width:800px;margin:0 auto;">
+    <div style="background:var(--green);border-radius:20px;padding:3rem;color:white;text-align:center;margin-bottom:2rem;">
+      <div style="font-size:0.8rem;font-weight:500;letter-spacing:2px;opacity:0.7;margin-bottom:0.5rem;">PRECIO REFERENCIAL</div>
+      <div style="font-family:'Fraunces',serif;font-size:3.5rem;font-weight:700;line-height:1;">~1.5 UF</div>
+      <div style="opacity:0.75;margin-bottom:1.5rem;font-size:0.9rem;">por mes · sujeto a evaluación del negocio</div>
+      <p style="opacity:0.85;font-size:0.95rem;line-height:1.7;max-width:500px;margin:0 auto 2rem;">El valor final depende de los módulos que necesites y el tamaño de tu operación. Puedes comenzar con lo esencial y agregar funcionalidades a medida que crezcas.</p>
+      <a href="#register" style="display:inline-block;background:white;color:var(--green);padding:0.85rem 2.5rem;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.95rem;transition:all 0.2s;" onmouseover="this.style.background='var(--green-pale)'" onmouseout="this.style.background='white'">Solicitar cotización</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
+      <div style="background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.5rem;">📊</div>
+        <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.3rem;">Comparador de precios</div>
+        <div style="font-size:0.82rem;color:var(--gray);">Procesa y compara listas Excel de tus proveedores automáticamente.</div>
+      </div>
+      <div style="background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.5rem;">📦</div>
+        <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.3rem;">Gestión de inventario</div>
+        <div style="font-size:0.82rem;color:var(--gray);">Control de stock, alertas de vencimiento y registro de mermas.</div>
+      </div>
+      <div style="background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.5rem;">🧾</div>
+        <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.3rem;">Punto de venta</div>
+        <div style="font-size:0.82rem;color:var(--gray);">Boletas electrónicas, múltiples medios de pago e integración SII.</div>
+      </div>
+      <div style="background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.5rem;">📈</div>
+        <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.3rem;">Reportes financieros</div>
+        <div style="font-size:0.82rem;color:var(--gray);">Estado de resultados, margen, flujo de caja y más.</div>
+      </div>
+      <div style="background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.5rem;">👥</div>
+        <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.3rem;">Gestión de clientes</div>
+        <div style="font-size:0.82rem;color:var(--gray);">Historial de compras y descuentos personalizados.</div>
+      </div>
+      <div style="background:var(--off-white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;">
+        <div style="font-size:1.3rem;margin-bottom:0.5rem;">🔫</div>
+        <div style="font-weight:600;font-size:0.9rem;margin-bottom:0.3rem;">Escáner de barras</div>
+        <div style="font-size:0.82rem;color:var(--gray);">Compatible con pistolas lectoras para agilizar tu operación.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRO -->
+<section class="register" id="register">
+  <div class="section-label">Registro</div>
+  <div class="register-grid fade-up">
+    <div class="register-form">
+      <h3>Solicitar acceso</h3>
+      <p>Completa el formulario y nos pondremos en contacto contigo para activar tu cuenta.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre" />
+        </div>
+        <div class="form-group">
+          <label>Apellido</label>
+          <input type="text" placeholder="Tu apellido" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="correo@farmacia.cl" />
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="tel" placeholder="+56 9 XXXX XXXX" />
+      </div>
+      <div class="form-group">
+        <label>Nombre de la farmacia o negocio</label>
+        <input type="text" placeholder="Farmacia San Juan" />
+      </div>
+      <div class="form-group">
+        <label>Plan de interés</label>
+        <select>
+          <option value="">Seleccionar plan...</option>
+          <option>Solo comparador de precios</option>
+          <option>Comparador + Inventario</option>
+          <option>Suite completa farmacia</option>
+          <option>Personalizado — quiero cotizar</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>¿Cómo nos conociste?</label>
+        <select>
+          <option value="">Seleccionar...</option>
+          <option>Recomendación de un colega</option>
+          <option>Redes sociales</option>
+          <option>Búsqueda en Google</option>
+          <option>Otro</option>
+        </select>
+      </div>
+      <button class="form-submit">Enviar solicitud</button>
+    </div>
+    <div class="register-info">
+      <div class="section-title">¿Cómo funciona?</div>
+      <p>El acceso a FarmaIMP es controlado para garantizar la calidad del servicio. Al solicitar acceso, uno de nuestros ejecutivos te contactará para completar el proceso de activación.</p>
+      <div class="info-items">
+        <div class="info-item">
+          <div class="info-dot"></div>
+          <p><strong>1. Completa el formulario</strong> con tus datos y el plan que te interesa.</p>
+        </div>
+        <div class="info-item">
+          <div class="info-dot"></div>
+          <p><strong>2. Te contactamos</strong> en menos de 24 horas para coordinar el pago y la activación.</p>
+        </div>
+        <div class="info-item">
+          <div class="info-dot"></div>
+          <p><strong>3. Descarga e instala</strong> la aplicación con tus credenciales personales.</p>
+        </div>
+        <div class="info-item">
+          <div class="info-dot"></div>
+          <p><strong>4. Comienza a usar</strong> FarmaIMP y optimiza la gestión de tu farmacia desde el primer día.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div class="fade-up">
+      <div class="section-label">Contacto</div>
+      <div class="section-title">¿Tienes preguntas?</div>
+      <div class="section-sub">Escríbenos y te respondemos a la brevedad. También puedes usar este formulario para contarnos cómo te enteraste de FarmaIMP.</div>
+    </div>
+    <div class="contact-form fade-up">
+      <input type="text" placeholder="Tu nombre" />
+      <input type="email" placeholder="Tu email" />
+      <select>
+        <option value="">¿Cómo te enteraste de FarmaIMP?</option>
+        <option>Redes sociales</option>
+        <option>Recomendación de un colega</option>
+        <option>Búsqueda en Google</option>
+        <option>Otro</option>
+      </select>
+      <textarea placeholder="Tu mensaje..."></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Farma<span style="color:var(--green-light)">IMP</span></div>
+  <div>© 2026 FarmaIMP. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
