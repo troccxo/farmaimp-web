@@ -7,177 +7,196 @@
    elegido al :root de styles.css y eliminá este script de los HTML.
    ============================================================================ */
 
+// Helper: define un preset light. Los paneles destacados usan el color de acento
+// como fondo (look clásico verde sobre blanco).
+function light(name, desc, p) {
+  return {
+    id: p.id, name, desc,
+    vars: {
+      '--green':       p.green,
+      '--green-light': p.greenLight,
+      '--green-pale':  p.greenPale,
+      '--green-dark':  p.greenDark,
+      '--white':       p.white,
+      '--off-white':   p.offWhite,
+      '--gray':        p.gray,
+      '--gray-dark':   p.grayDark,
+      '--text':        p.text,
+      '--border':      p.border,
+      // Paneles destacados = acento (verde clásico)
+      '--panel-bg':           p.green,
+      '--panel-bg-end':       p.greenDark,
+      '--panel-text':         '#ffffff',
+      '--panel-text-soft':    'rgba(255,255,255,0.85)',
+      '--panel-text-mute':    'rgba(255,255,255,0.7)',
+      '--panel-text-faint':   'rgba(255,255,255,0.5)',
+      '--panel-border':       'rgba(255,255,255,0.15)',
+      '--panel-icon-bg':      'rgba(255,255,255,0.15)',
+      '--panel-cta-bg':       '#ffffff',
+      '--panel-cta-color':    p.green,
+      '--panel-cta-hover':    p.greenPale,
+      '--panel-deep-bg':      p.greenDark,
+      '--panel-deep-input-bg':     'rgba(255,255,255,0.08)',
+      '--panel-deep-input-border': 'rgba(255,255,255,0.15)',
+    },
+  };
+}
+
+// Helper: define un preset dark. Los paneles destacados usan "surface elevada"
+// (gris oscuro un poco más claro que el fondo base), NO el acento como fondo
+// grande. El acento queda solo para botones, links e iconos pequeños.
+function dark(name, desc, p) {
+  return {
+    id: p.id, name, desc,
+    vars: {
+      '--green':       p.accent,
+      '--green-light': p.accentLight,
+      '--green-pale':  p.surfaceLow,
+      '--green-dark':  p.surfaceHigh,
+      '--white':       p.bg,
+      '--off-white':   p.surfaceLow,
+      '--gray':        p.muted,
+      '--gray-dark':   p.textSecondary,
+      '--text':        p.text,
+      '--border':      p.border,
+      // Paneles destacados = surface elevada (NO acento brillante)
+      '--panel-bg':           p.surfaceHigh,
+      '--panel-bg-end':       p.surfaceHighest,
+      '--panel-text':         p.text,
+      '--panel-text-soft':    p.textSecondary,
+      '--panel-text-mute':    p.muted,
+      '--panel-text-faint':   p.mutedDim,
+      '--panel-border':       p.border,
+      '--panel-icon-bg':      p.surfaceLow,
+      '--panel-cta-bg':       p.accent,
+      '--panel-cta-color':    p.bg,
+      '--panel-cta-hover':    p.accentLight,
+      '--panel-deep-bg':      p.surfaceLow,
+      '--panel-deep-input-bg':     p.surfaceHigh,
+      '--panel-deep-input-border': p.border,
+      // El ámbar fijo del quiosco también se atenúa en dark
+      '--quiosco-accent':      p.accent,
+      '--quiosco-accent-pale': p.surfaceLow,
+    },
+  };
+}
+
 const PRESETS = [
-  {
+  light('Verde Clásico', 'Default actual', {
     id: 'verde-clasico',
-    name: 'Verde Clásico',
-    desc: 'Default actual',
-    vars: {
-      '--green':       '#1a6b3a',
-      '--green-light': '#2d9e57',
-      '--green-pale':  '#e8f5ed',
-      '--green-dark':  '#0f4424',
-      '--white':       '#ffffff',
-      '--off-white':   '#f8faf9',
-      '--gray':        '#6b7280',
-      '--gray-dark':   '#374151',
-      '--text':        '#1a1a1a',
-      '--border':      '#e5e7eb',
-    },
-  },
-  {
+    green: '#1a6b3a', greenLight: '#2d9e57', greenPale: '#e8f5ed', greenDark: '#0f4424',
+    white: '#ffffff', offWhite: '#f8faf9',
+    gray: '#6b7280', grayDark: '#374151',
+    text: '#1a1a1a', border: '#e5e7eb',
+  }),
+  light('Crema Suave', 'Beige cálido, descansa la vista', {
     id: 'crema',
-    name: 'Crema Suave',
-    desc: 'Beige cálido, descansa la vista',
-    vars: {
-      '--green':       '#1a6b3a',
-      '--green-light': '#2d9e57',
-      '--green-pale':  '#eaf3ec',
-      '--green-dark':  '#0f4424',
-      '--white':       '#faf6ef',
-      '--off-white':   '#f3ede0',
-      '--gray':        '#75695a',
-      '--gray-dark':   '#4a4337',
-      '--text':        '#2b2620',
-      '--border':      '#e8dfcd',
-    },
-  },
-  {
+    green: '#1a6b3a', greenLight: '#2d9e57', greenPale: '#eaf3ec', greenDark: '#0f4424',
+    white: '#faf6ef', offWhite: '#f3ede0',
+    gray: '#75695a', grayDark: '#4a4337',
+    text: '#2b2620', border: '#e8dfcd',
+  }),
+  light('Slate Sutil', 'Azul-gris muy suave', {
     id: 'slate',
-    name: 'Slate Sutil',
-    desc: 'Azul-gris muy suave',
-    vars: {
-      '--green':       '#1a6b3a',
-      '--green-light': '#2d9e57',
-      '--green-pale':  '#dde9e2',
-      '--green-dark':  '#0f4424',
-      '--white':       '#f4f6f8',
-      '--off-white':   '#e9edf1',
-      '--gray':        '#5d6b7a',
-      '--gray-dark':   '#37434f',
-      '--text':        '#1c2630',
-      '--border':      '#d4dae0',
-    },
-  },
-  {
+    green: '#1a6b3a', greenLight: '#2d9e57', greenPale: '#dde9e2', greenDark: '#0f4424',
+    white: '#f4f6f8', offWhite: '#e9edf1',
+    gray: '#5d6b7a', grayDark: '#37434f',
+    text: '#1c2630', border: '#d4dae0',
+  }),
+  light('Sepia', 'Tono papel envejecido', {
     id: 'sepia',
-    name: 'Sepia',
-    desc: 'Tono papel envejecido',
-    vars: {
-      '--green':       '#5a6e2f',
-      '--green-light': '#7d9542',
-      '--green-pale':  '#ece4d0',
-      '--green-dark':  '#3d4a1f',
-      '--white':       '#f5ecd9',
-      '--off-white':   '#ebe0c8',
-      '--gray':        '#7a6a52',
-      '--gray-dark':   '#52462f',
-      '--text':        '#2e251a',
-      '--border':      '#dcccaf',
-    },
-  },
-  {
+    green: '#5a6e2f', greenLight: '#7d9542', greenPale: '#ece4d0', greenDark: '#3d4a1f',
+    white: '#f5ecd9', offWhite: '#ebe0c8',
+    gray: '#7a6a52', grayDark: '#52462f',
+    text: '#2e251a', border: '#dcccaf',
+  }),
+  light('Indigo', 'Acento violeta moderno', {
     id: 'indigo',
-    name: 'Indigo',
-    desc: 'Acento violeta moderno',
-    vars: {
-      '--green':       '#4f46e5',
-      '--green-light': '#7c70f3',
-      '--green-pale':  '#ebe9fd',
-      '--green-dark':  '#312a99',
-      '--white':       '#fbfbfd',
-      '--off-white':   '#f1f1f7',
-      '--gray':        '#6b7280',
-      '--gray-dark':   '#374151',
-      '--text':        '#1a1a1a',
-      '--border':      '#e2e1ec',
-    },
-  },
-  {
+    green: '#4f46e5', greenLight: '#7c70f3', greenPale: '#ebe9fd', greenDark: '#312a99',
+    white: '#fbfbfd', offWhite: '#f1f1f7',
+    gray: '#6b7280', grayDark: '#374151',
+    text: '#1a1a1a', border: '#e2e1ec',
+  }),
+  light('Teal', 'Verde-azulado, más oceánico', {
     id: 'teal',
-    name: 'Teal',
-    desc: 'Verde-azulado, más oceánico',
-    vars: {
-      '--green':       '#0d6e6e',
-      '--green-light': '#2ba0a0',
-      '--green-pale':  '#dff2f2',
-      '--green-dark':  '#054444',
-      '--white':       '#f7fafa',
-      '--off-white':   '#ecf3f3',
-      '--gray':        '#5d7575',
-      '--gray-dark':   '#374a4a',
-      '--text':        '#1a2424',
-      '--border':      '#d8e3e3',
-    },
-  },
-  {
-    id: 'midnight',
-    name: 'Midnight',
-    desc: 'Dark mode azul profundo',
-    vars: {
-      '--green':       '#4ade80',
-      '--green-light': '#6ee7a0',
-      '--green-pale':  '#1f3027',
-      '--green-dark':  '#22c55e',
-      '--white':       '#0d1117',
-      '--off-white':   '#161b22',
-      '--gray':        '#8b95a8',
-      '--gray-dark':   '#c9d1d9',
-      '--text':        '#f0f6fc',
-      '--border':      '#2a313c',
-    },
-  },
-  {
-    id: 'mint-dark',
-    name: 'Mint Dark',
-    desc: 'Dark mode verde menta',
-    vars: {
-      '--green':       '#34d399',
-      '--green-light': '#6ee7b7',
-      '--green-pale':  '#1a2e26',
-      '--green-dark':  '#10b981',
-      '--white':       '#0f1411',
-      '--off-white':   '#171f1a',
-      '--gray':        '#8a9a92',
-      '--gray-dark':   '#c4d0c9',
-      '--text':        '#e8f0eb',
-      '--border':      '#26302b',
-    },
-  },
-  {
-    id: 'sunset',
-    name: 'Sunset Dark',
-    desc: 'Dark mode con acento ámbar',
-    vars: {
-      '--green':       '#fbbf24',
-      '--green-light': '#fcd34d',
-      '--green-pale':  '#332617',
-      '--green-dark':  '#d97706',
-      '--white':       '#1a1410',
-      '--off-white':   '#241c16',
-      '--gray':        '#a89684',
-      '--gray-dark':   '#d4c5b3',
-      '--text':        '#f5ede0',
-      '--border':      '#3a2e22',
-    },
-  },
-  {
+    green: '#0d6e6e', greenLight: '#2ba0a0', greenPale: '#dff2f2', greenDark: '#054444',
+    white: '#f7fafa', offWhite: '#ecf3f3',
+    gray: '#5d7575', grayDark: '#374a4a',
+    text: '#1a2424', border: '#d8e3e3',
+  }),
+  light('Rosé Pastel', 'Suave con acento rosa', {
     id: 'rose',
-    name: 'Rosé Pastel',
-    desc: 'Suave con acento rosa',
-    vars: {
-      '--green':       '#be185d',
-      '--green-light': '#db2777',
-      '--green-pale':  '#fce7f0',
-      '--green-dark':  '#831843',
-      '--white':       '#fdf6f8',
-      '--off-white':   '#f7e9ee',
-      '--gray':        '#7a6671',
-      '--gray-dark':   '#4d3d46',
-      '--text':        '#2b1d24',
-      '--border':      '#ecd6dd',
-    },
-  },
+    green: '#be185d', greenLight: '#db2777', greenPale: '#fce7f0', greenDark: '#831843',
+    white: '#fdf6f8', offWhite: '#f7e9ee',
+    gray: '#7a6671', grayDark: '#4d3d46',
+    text: '#2b1d24', border: '#ecd6dd',
+  }),
+
+  /* ───────── DARK PRESETS ─────────
+     En modo oscuro, los paneles destacados (about-visual, feature highlight,
+     pricing-hero, contact) usan tonos "surface elevada" oscuros en vez del
+     acento brillante. Así no hay bloques verdes/ámbar fuertes que choquen
+     con el fondo. */
+
+  dark('Midnight', 'Dark mode azul profundo', {
+    id: 'midnight',
+    bg:            '#0d1117',  // fondo base, "--white"
+    surfaceLow:    '#161b22',  // sección alterna, "--off-white"
+    surfaceHigh:   '#21262d',  // panel destacado
+    surfaceHighest:'#2d333b',  // fin del gradient
+    accent:        '#4ade80',  // acento (botones, links, iconos)
+    accentLight:   '#6ee7a0',
+    text:          '#f0f6fc',  // texto principal claro
+    textSecondary: '#c9d1d9',
+    muted:         '#8b95a8',
+    mutedDim:      '#6e7681',
+    border:        '#2a313c',
+  }),
+
+  dark('Mint Dark', 'Dark mode verde menta', {
+    id: 'mint-dark',
+    bg:            '#0f1411',
+    surfaceLow:    '#171f1a',
+    surfaceHigh:   '#232b26',
+    surfaceHighest:'#2e3832',
+    accent:        '#34d399',
+    accentLight:   '#6ee7b7',
+    text:          '#e8f0eb',
+    textSecondary: '#c4d0c9',
+    muted:         '#8a9a92',
+    mutedDim:      '#6b7872',
+    border:        '#26302b',
+  }),
+
+  dark('Sunset Dark', 'Dark mode con acento ámbar', {
+    id: 'sunset',
+    bg:            '#1a1410',
+    surfaceLow:    '#241c16',
+    surfaceHigh:   '#302721',
+    surfaceHighest:'#3d322a',
+    accent:        '#fbbf24',
+    accentLight:   '#fcd34d',
+    text:          '#f5ede0',
+    textSecondary: '#d4c5b3',
+    muted:         '#a89684',
+    mutedDim:      '#7d6e5e',
+    border:        '#3a2e22',
+  }),
+
+  dark('Carbon', 'Dark gris puro, acento verde', {
+    id: 'carbon',
+    bg:            '#101010',
+    surfaceLow:    '#191919',
+    surfaceHigh:   '#252525',
+    surfaceHighest:'#303030',
+    accent:        '#4ade80',
+    accentLight:   '#6ee7a0',
+    text:          '#ededed',
+    textSecondary: '#c5c5c5',
+    muted:         '#909090',
+    mutedDim:      '#6a6a6a',
+    border:        '#2c2c2c',
+  }),
 ];
 
 const STORAGE_KEY = 'imp-theme-preset';
