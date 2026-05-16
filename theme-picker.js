@@ -7,6 +7,16 @@
    elegido al :root de styles.css y eliminá este script de los HTML.
    ============================================================================ */
 
+// Helper para mezclar un hex con alpha en formato rgba(...)
+function hexA(hex, alpha) {
+  const h = hex.replace('#', '');
+  const full = h.length === 3 ? h.split('').map(c => c + c).join('') : h;
+  const r = parseInt(full.slice(0,2), 16);
+  const g = parseInt(full.slice(2,4), 16);
+  const b = parseInt(full.slice(4,6), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
 // Helper: define un preset light. Los paneles destacados usan el color de acento
 // como fondo (look clásico verde sobre blanco).
 function light(name, desc, p) {
@@ -38,6 +48,11 @@ function light(name, desc, p) {
       '--panel-deep-bg':      p.greenDark,
       '--panel-deep-input-bg':     'rgba(255,255,255,0.08)',
       '--panel-deep-input-border': 'rgba(255,255,255,0.15)',
+      // Header / cards / inputs / texto sobre acento
+      '--header-bg':  hexA(p.white, 0.95),
+      '--card-bg':    p.white,
+      '--input-bg':   p.white,
+      '--on-accent':  '#ffffff',
     },
   };
 }
@@ -77,6 +92,11 @@ function dark(name, desc, p) {
       // El ámbar fijo del quiosco también se atenúa en dark
       '--quiosco-accent':      p.accent,
       '--quiosco-accent-pale': p.surfaceLow,
+      // Header semi-transparente sobre el bg base + cards = surface elevada
+      '--header-bg':  hexA(p.surfaceLow, 0.92),
+      '--card-bg':    p.surfaceLow,
+      '--input-bg':   p.surfaceLow,
+      '--on-accent':  p.bg,    // texto sobre acento brillante = bg oscuro (mejor que blanco)
     },
   };
 }
@@ -200,31 +220,125 @@ const PRESETS = [
 ];
 
 const STORAGE_KEY = 'imp-theme-preset';
+const STORAGE_OVERRIDES = 'imp-theme-overrides';
 
-function applyPreset(preset) {
+// Vars que el usuario puede override libremente con los color pickers.
+// Si el usuario elige un color de fondo personalizado, también ajustamos
+// --off-white (sección alterna) a un tono levemente distinto para no perder
+// el contraste entre secciones.
+const CUSTOM_VARS = {
+  text:    { label: 'Color de la fuente', vars: ['--text'] },
+  header:  { label: 'Color del header',   vars: ['--header-bg'] },
+  bg:      { label: 'Color del fondo',    vars: ['--white'] },
+};
+
+function getOverrides() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_OVERRIDES) || '{}'); }
+  catch { return {}; }
+}
+
+function setOverrides(obj) {
+  if (!obj || Object.keys(obj).length === 0) localStorage.removeItem(STORAGE_OVERRIDES);
+  else localStorage.setItem(STORAGE_OVERRIDES, JSON.stringify(obj));
+}
+
+function applyPreset(preset, opts = {}) {
   const root = document.documentElement;
   Object.entries(preset.vars).forEach(([k, v]) => root.style.setProperty(k, v));
-  localStorage.setItem(STORAGE_KEY, preset.id);
-  // Re-renderiza el panel para marcar el activo
+  if (!opts.skipSave) localStorage.setItem(STORAGE_KEY, preset.id);
+  // Aplica overrides custom DESPUÉS para que tengan prioridad
+  applyOverrides();
+  // Marcar activo en la UI
   const active = document.querySelector('.tp-preset.active');
   if (active) active.classList.remove('active');
   const next = document.querySelector(`.tp-preset[data-id="${preset.id}"]`);
   if (next) next.classList.add('active');
+  // Sincronizar pickers (muestran el valor efectivo después de overrides)
+  syncPickers();
+}
+
+function applyOverrides() {
+  const root = document.documentElement;
+  const overrides = getOverrides();
+  Object.entries(overrides).forEach(([key, color]) => {
+    const def = CUSTOM_VARS[key];
+    if (!def || !color) return;
+    def.vars.forEach(v => {
+      // El header en CSS usa rgba(...). Si el usuario elige un color sólido,
+      // lo aplicamos con alpha 0.95 para mantener el efecto de blur.
+      if (v === '--header-bg') root.style.setProperty(v, hexA(color, 0.95));
+      else root.style.setProperty(v, color);
+    });
+  });
+}
+
+function setOverride(key, color) {
+  const overrides = getOverrides();
+  if (!color) delete overrides[key];
+  else overrides[key] = color;
+  setOverrides(overrides);
+  applyOverrides();
+}
+
+function clearOverrides() {
+  setOverrides({});
+  // Re-aplica el preset actual para limpiar los overrides aplicados
+  const saved = localStorage.getItem(STORAGE_KEY) || 'verde-clasico';
+  const preset = PRESETS.find(p => p.id === saved) || PRESETS[0];
+  applyPreset(preset);
+  syncPickers();
 }
 
 function resetTheme() {
   const root = document.documentElement;
-  Object.keys(PRESETS[0].vars).forEach(k => root.style.removeProperty(k));
+  // Borra TODAS las vars (preset + overrides)
+  const allKeys = new Set();
+  PRESETS.forEach(p => Object.keys(p.vars).forEach(k => allKeys.add(k)));
+  allKeys.forEach(k => root.style.removeProperty(k));
   localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(STORAGE_OVERRIDES);
   document.querySelectorAll('.tp-preset').forEach(el => el.classList.remove('active'));
   document.querySelector('.tp-preset[data-id="verde-clasico"]')?.classList.add('active');
+  syncPickers();
 }
 
 function loadSaved() {
   const saved = localStorage.getItem(STORAGE_KEY);
-  if (!saved) return;
-  const preset = PRESETS.find(p => p.id === saved);
-  if (preset) applyPreset(preset);
+  if (saved) {
+    const preset = PRESETS.find(p => p.id === saved);
+    if (preset) applyPreset(preset, { skipSave: true });
+  } else {
+    applyOverrides();  // por si hay overrides sin preset guardado
+  }
+}
+
+// Lee el valor computado de una variable CSS y lo devuelve como hex (#rrggbb)
+// para que se pueda mostrar en un <input type="color">.
+function readVarAsHex(varName) {
+  const root = document.documentElement;
+  let v = getComputedStyle(root).getPropertyValue(varName).trim();
+  if (!v) return '#000000';
+  // rgba(r,g,b,a) → ignoramos alpha
+  const m = v.match(/rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+  if (m) {
+    return '#' + [m[1], m[2], m[3]].map(n => parseInt(n).toString(16).padStart(2, '0')).join('');
+  }
+  // Si ya es #hex, devolver tal cual (normalizado a 6 caracteres)
+  if (v.startsWith('#')) {
+    if (v.length === 4) return '#' + v.slice(1).split('').map(c => c+c).join('');
+    return v.slice(0, 7);
+  }
+  return '#000000';
+}
+
+function syncPickers() {
+  Object.keys(CUSTOM_VARS).forEach(key => {
+    const input = document.querySelector(`.tp-picker[data-key="${key}"]`);
+    if (!input) return;
+    const overrides = getOverrides();
+    const value = overrides[key] || readVarAsHex(CUSTOM_VARS[key].vars[0]);
+    if (value && /^#[0-9a-f]{6}$/i.test(value)) input.value = value;
+  });
 }
 
 function buildUI() {
@@ -334,24 +448,68 @@ function buildUI() {
     }
     .tp-preset.active .tp-check { opacity: 1; }
 
+    .tp-section-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .tp-pickers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .tp-picker-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      padding: 0.4rem 0.6rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+    }
+    .tp-picker-label {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.85);
+      flex: 1;
+    }
+    .tp-picker {
+      width: 36px; height: 24px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      cursor: pointer;
+      background: transparent;
+      padding: 0;
+    }
+    .tp-picker::-webkit-color-swatch-wrapper { padding: 0; }
+    .tp-picker::-webkit-color-swatch { border: none; border-radius: 3px; }
+    .tp-picker::-moz-color-swatch { border: none; border-radius: 3px; }
+
     .tp-footer {
       margin-top: 1rem;
       padding-top: 0.75rem;
       border-top: 1px solid rgba(255,255,255,0.08);
       display: flex;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
     .tp-btn {
       flex: 1;
+      min-width: 0;
       padding: 0.5rem;
       background: rgba(255,255,255,0.05);
       color: rgba(255,255,255,0.85);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 6px;
       cursor: pointer;
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-family: 'DM Sans', sans-serif;
       transition: all 0.15s;
+      white-space: nowrap;
     }
     .tp-btn:hover { background: rgba(255,255,255,0.1); color: white; }
     .tp-btn.danger:hover { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.4); color: #fca5a5; }
@@ -370,10 +528,17 @@ function buildUI() {
   panel.className = 'tp-panel';
   panel.innerHTML = `
     <div class="tp-header">Paleta de prueba</div>
-    <div class="tp-sub">Probá distintas combinaciones. Tu elección se guarda y se mantiene al navegar entre páginas.</div>
+    <div class="tp-sub">Tocá un preset o ajustá colores libremente. Tu elección se guarda y se mantiene al navegar entre páginas.</div>
+
+    <div class="tp-section-title">Presets</div>
     <div class="tp-grid"></div>
+
+    <div class="tp-section-title">Personalizar</div>
+    <div class="tp-pickers"></div>
+
     <div class="tp-footer">
-      <button class="tp-btn tp-reset danger">Reset</button>
+      <button class="tp-btn tp-clear-overrides">Limpiar custom</button>
+      <button class="tp-btn tp-reset danger">Reset todo</button>
       <button class="tp-btn tp-close">Cerrar</button>
     </div>
   `;
@@ -399,13 +564,29 @@ function buildUI() {
     grid.appendChild(btn);
   });
 
+  // Color pickers libres
+  const pickersContainer = panel.querySelector('.tp-pickers');
+  Object.entries(CUSTOM_VARS).forEach(([key, def]) => {
+    const row = document.createElement('div');
+    row.className = 'tp-picker-row';
+    row.innerHTML = `
+      <span class="tp-picker-label">${def.label}</span>
+      <input type="color" class="tp-picker" data-key="${key}" />
+    `;
+    pickersContainer.appendChild(row);
+    const input = row.querySelector('.tp-picker');
+    input.addEventListener('input', (e) => setOverride(key, e.target.value));
+  });
+
   // Toggle abrir/cerrar
   toggle.addEventListener('click', (e) => {
     e.stopPropagation();
     panel.classList.toggle('open');
+    if (panel.classList.contains('open')) syncPickers();
   });
   panel.querySelector('.tp-close').addEventListener('click', () => panel.classList.remove('open'));
   panel.querySelector('.tp-reset').addEventListener('click', resetTheme);
+  panel.querySelector('.tp-clear-overrides').addEventListener('click', clearOverrides);
 
   // Click fuera cierra
   document.addEventListener('click', (e) => {
@@ -414,9 +595,10 @@ function buildUI() {
     }
   });
 
-  // Marcar el preset actual (default = verde-clasico si no hay nada guardado)
+  // Marcar el preset actual y sincronizar pickers
   const current = localStorage.getItem(STORAGE_KEY) || 'verde-clasico';
   document.querySelector(`.tp-preset[data-id="${current}"]`)?.classList.add('active');
+  syncPickers();
 }
 
 // Init
