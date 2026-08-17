@@ -188,6 +188,16 @@ nav ul a:hover { color: var(--green); }
 
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
+/* Línea bajo los botones del hero: versión, peso y fecha del último instalador.
+   La rellena descarga.js leyendo el release más reciente de GitHub. */
+.hero-descarga {
+  margin-top: 0.85rem;
+  font-size: 0.82rem;
+  opacity: 0.6;
+  font-weight: 300;
+}
+a[data-descarga] { cursor: pointer; }
+
 .btn-primary {
   background: var(--green);
   color: var(--on-accent);

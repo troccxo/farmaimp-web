@@ -6,7 +6,7 @@
   <title>Mantención IMP — Software para empresas de mantención de locales comerciales</title>
 
   <!-- SEO BASE -->
-  <meta name="description" content="Software de gestión para empresas chilenas de mantención de locales comerciales (eléctrico, pintura, gasfitería, estanterías). Tickets de servicio, cotizaciones, bodega real, facturación y factoring en una sola plataforma.">
+  <meta name="description" content="Software de gestión para empresas chilenas de mantención de locales comerciales (eléctrico, pintura, gasfitería, climatización). Tickets de servicio, motor de costeo de cotizaciones, bodega con código de barras, subcontratistas, facturación y factoring en una sola plataforma.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://troccxo.github.io/farmaimp-web/mantencion.html">
 
@@ -18,7 +18,7 @@
 
   <!-- OPEN GRAPH -->
   <meta property="og:title" content="Mantención IMP — Software para empresas de mantención en Chile">
-  <meta property="og:description" content="Tickets, cotizaciones con materiales y mano de obra, bodega FEFO, facturación y factoring. Pensado para empresas que mantienen locales comerciales.">
+  <meta property="og:description" content="Tickets por tienda, motor de costeo que calcula el precio real de cada trabajo, bodega con código de barras, subcontratistas, facturación y factoring. Pensado para empresas que mantienen locales comerciales.">
   <meta property="og:image" content="">
   <meta property="og:url" content="https://troccxo.github.io/farmaimp-web/mantencion.html">
   <meta property="og:type" content="website">
@@ -26,7 +26,7 @@
   <!-- TWITTER -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Mantención IMP — Software para empresas de mantención">
-  <meta name="twitter:description" content="Workflow de tickets, cotizaciones, bodega, facturación y factoring. Para empresas de mantención de locales comerciales.">
+  <meta name="twitter:description" content="Workflow de tickets, costeo real de cotizaciones, bodega con código de barras, facturación y factoring. Para empresas de mantención de locales comerciales.">
 
   <!-- BRANDING -->
   <meta name="author" content="IMP Systems">
@@ -41,7 +41,7 @@
     "name": "Mantención IMP",
     "operatingSystem": "Windows",
     "applicationCategory": "BusinessApplication",
-    "description": "Software de gestión para empresas chilenas de mantención de locales comerciales. Workflow de tickets de servicio por tienda y contrato, cotizaciones con materiales y mano de obra, bodega real con reservas FEFO, facturación de venta, factoring y maestros asignados con trazabilidad por ticket.",
+    "description": "Software de gestión para empresas chilenas de mantención de locales comerciales. Workflow de tickets de servicio por tienda, contrato y módulo; motor de costeo de cotizaciones con mano de obra, gastos generales, materiales, subcontratistas, consumibles, arriendos y transporte; bodega con herramientas y consumibles por código de barras; facturación de venta, factoring y roles configurables.",
     "url": "https://troccxo.github.io/farmaimp-web/mantencion.html",
     "image": "",
     "author": {
@@ -79,11 +79,12 @@
   <div class="hero-content">
     <div class="hero-badge">Para Empresas de Mantención · Locales Comerciales</div>
     <h1>Tus tickets, cotizaciones y bodega <em>en orden, trazables, sin perderse nada</em></h1>
-    <p>Workflow de tickets por tienda y contrato, cotizaciones con materiales y mano de obra, bodega real con reservas FEFO, facturación de venta y factoring. Diseñado con una empresa real de mantención que lo usa todos los días.</p>
+    <p>Workflow de tickets por tienda y contrato, motor de costeo que calcula el precio real de cada trabajo, bodega con herramientas y consumibles por código de barras, facturación de venta y factoring. Diseñado con una empresa real de mantención que lo usa todos los días.</p>
     <div class="hero-btns">
       <a href="#register" class="btn-primary">Solicitar acceso</a>
-      <a href="#features" class="btn-secondary">Ver características</a>
+      <a data-descarga="mantencion-imp-" class="btn-secondary">Descargar aplicación</a>
     </div>
+    <p class="hero-descarga" data-descarga-info>Windows</p>
     <div class="hero-stats">
       <div>
         <div class="stat-num">🎫</div>
@@ -137,6 +138,7 @@
         <div class="section-title">Pensado para empresas que viven del servicio en terreno</div>
         <p>Tu negocio no se parece a una farmacia ni a un quiosco. Recibes solicitudes por correo, mandas maestros a cada tienda, cotizas, esperas la aprobación, reservas materiales, ejecutas y recién después facturas. Cada paso puede atascarse en cualquier momento.</p>
         <p>Mantención IMP modela exactamente ese flujo: cada ticket tiene su estado y su historial, cada cotización deja rastro, cada salida de bodega queda asignada al maestro y al ticket, y cada factura emitida puede tener pago directo o factoring con descuento.</p>
+        <p>Y lo más difícil de todo —saber cuánto cobrar— deja de ser una estimación. La app calcula lo que cuesta cada trabajo: las jornadas de tus maestros, tus gastos generales repartidos por hora, los materiales con su merma, el transporte, los viáticos y lo que cobra el subcontratista. Sobre ese número aplica tu margen y te dice si la cotización te conviene antes de mandarla.</p>
         <p>Y si manejas muchos clientes con muchas tiendas y muchos contratos, todo está organizado para que sepas qué se le hizo a cuál sucursal y cuánto te queda por cobrar.</p>
       </div>
     </div>
@@ -159,19 +161,29 @@
       <p>Cada solicitud es un ticket con estados (recibido, cotizado, aprobado, en bodega, ejecutado, facturado, pagado). Avance automático con cada acción, sin pasos manuales que se olviden.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">📝</div>
-      <h3>Cotizaciones detalladas</h3>
-      <p>Materiales sacados directo del inventario más mano de obra editable. Neto, IVA 19% y total se calculan solos. Aprobada con cambios reabre la edición sin perder el historial.</p>
+      <div class="feature-icon">🧮</div>
+      <h3>Motor de costeo real</h3>
+      <p>El precio no se adivina. Se arma con mano de obra, costo de producción por hora, materiales, subcontratistas, consumibles, arriendos y transporte — cada uno con su recargo — y el margen se aplica encima. Un semáforo te avisa cuando una cotización va bajo el piso, sin bloquearte.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-icon">📦</div>
-      <h3>Bodega real con reservas</h3>
-      <p>Al aprobar una cotización, los materiales se reservan automáticamente. Salidas FEFO por lote, asignadas al maestro y al ticket. Si faltan materiales, te avisa qué falta y por cuánto.</p>
+      <div class="feature-icon">📝</div>
+      <h3>Dos vistas de la cotización</h3>
+      <p>La interna con el costeo completo, para saber cuánto ganas de verdad. La del cliente resumida, sin costos ni márgenes a la vista. Se descargan como Excel y como PDF, y el precio final siempre lo decides tú.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔧</div>
+      <h3>Bodega con código de barras</h3>
+      <p>Cada herramienta tiene su código único: sabes quién la tiene, desde cuándo y si volvió. Los consumibles salen escaneando. Los materiales se reservan solos al aprobar la cotización y salen por FEFO, asignados al maestro y al ticket.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">🏢</div>
-      <h3>Clientes, tiendas y contratos</h3>
-      <p>Cada cliente tiene sus tiendas, cada tienda sus contratos. Filtras tickets por cualquiera de esos niveles. Ideal para clientes con muchas sucursales.</p>
+      <h3>Clientes, tiendas y módulos</h3>
+      <p>Cada cliente tiene sus tiendas, cada tienda sus contratos y sus módulos —los counters de marca dentro del local—. Filtras tickets por cliente, por tienda, por región o por módulo. Pensado para carteras de cientos de locales.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤝</div>
+      <h3>Subcontratistas</h3>
+      <p>Cuando el trabajo lo hace un tercero, guardas su precio de referencia por tipo de servicio y la app te muestra la desviación contra lo que estás cotizando. El recargo de coordinación se calcula aparte y no se confunde con tu utilidad.</p>
     </div>
     <div class="feature-card">
       <div class="feature-icon">💼</div>
@@ -179,9 +191,14 @@
       <p>Facturas de venta con SII, registro de factoring con tasa de descuento y pagos parciales. Reporte de aging de cuentas por cobrar para saber qué está atrasado.</p>
     </div>
     <div class="feature-card">
+      <div class="feature-icon">🔑</div>
+      <h3>Roles que armas tú</h3>
+      <p>No hay roles fijos impuestos por el sistema. Creas los que necesites con el nombre que quieras y marcas qué módulos ve cada uno. Ver precios, por ejemplo, es un permiso que das o no das.</p>
+    </div>
+    <div class="feature-card">
       <div class="feature-icon">👷</div>
       <h3>Maestros con trazabilidad</h3>
-      <p>Cada salida de bodega queda asignada al maestro que la ejecutó. Vista por maestro de qué tickets tiene activos. Bodeguero no ve precios — control de acceso por rol.</p>
+      <p>Cada salida de bodega queda asignada al maestro que la ejecutó, y su valor por jornada se calcula desde su sueldo, no a mano. Vista por maestro de qué tickets tiene activos y con qué especialidades.</p>
     </div>
   </div>
 </section>
@@ -398,5 +415,6 @@
   handleForm('form-contacto', 'contacto-ok');
 </script>
 <script src="theme-picker.js"></script>
+<script src="descarga.js"></script>
 </body>
 </html>
