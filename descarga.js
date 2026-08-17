@@ -1,35 +1,95 @@
-// Botón de descarga que siempre apunta al último release publicado.
+// Botón "Descargar aplicación" de las landings de vertical.
 //
-// Los instaladores viven en el repo PÚBLICO troccxo/farma-imp-releases. El
-// código de la app (farma-comparador2) es privado y no se toca desde acá.
+// Dos comportamientos, según lo que declare el HTML:
 //
-// NO hay que hacer nada extra al publicar una versión: el flujo de siempre
-// —crear el release con tag vX.Y.Z y adjuntar los 3 .exe— ya alcanza. Esta
-// página lee el release más reciente y arma el link sola.
+//   · Descarga habilitada (hoy sólo Mantención): consulta el último release y
+//     el botón baja el .exe directamente.
+//   · Descarga bloqueada (Farma y Quiosco): el botón no descarga nada, abre un
+//     aviso que invita a pedir acceso.
+//
+// REGLA: nunca se manda al visitante al repositorio de GitHub. Si la API falla
+// o el instalador no está en el último release, se muestra el mismo aviso. El
+// único link a github.com que puede existir es el del .exe en sí.
 //
 // Uso en el HTML:
-//   <a class="btn-primary" data-descarga="mantencion-imp-">Descargar</a>
-//   <span data-descarga-info></span>
+//   <a data-descarga="mantencion-imp-" data-descarga-nombre="Mantención IMP">Descargar aplicación</a>
+//   <p class="hero-descarga" data-descarga-info>Windows</p>
+//
+// Agregando `data-descarga-bloqueada` queda deshabilitado:
+//   <a data-descarga="farma-imp-" data-descarga-bloqueada data-descarga-nombre="Farma IMP">…</a>
 //
 // El prefijo es el del .exe de cada vertical:
-//   farma-imp-        →  farma-imp-2.6.0.exe
-//   imp-quiosco-      →  imp-quiosco-2.6.0.exe
-//   mantencion-imp-   →  mantencion-imp-2.6.0.exe
+//   farma-imp-  ·  imp-quiosco-  ·  mantencion-imp-
 
 const DESCARGA_REPO = 'troccxo/farma-imp-releases';
-const DESCARGA_PAGINA = `https://github.com/${DESCARGA_REPO}/releases/latest`;
+
+// ─── Aviso ───────────────────────────────────────────────────────────────────
+
+function mostrarAvisoDescarga(nombre) {
+  const previo = document.querySelector('.descarga-modal');
+  if (previo) previo.remove();
+
+  const modal = document.createElement('div');
+  modal.className = 'descarga-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.innerHTML = `
+    <div class="descarga-modal-fondo" data-cerrar></div>
+    <div class="descarga-modal-caja">
+      <div class="descarga-modal-icono">🛠️</div>
+      <h3>Descarga en mantenimiento</h3>
+      <p>La descarga directa de <strong>${nombre}</strong> está temporalmente deshabilitada
+      mientras preparamos la próxima versión.</p>
+      <p>Escríbenos y te damos acceso de inmediato, con la instalación acompañada.</p>
+      <div class="descarga-modal-btns">
+        <a href="#register" class="btn-primary" data-cerrar>Solicitar acceso</a>
+        <button type="button" class="btn-secondary" data-cerrar>Cerrar</button>
+      </div>
+    </div>`;
+
+  const cerrar = () => {
+    modal.remove();
+    document.removeEventListener('keydown', alPresionar);
+  };
+  const alPresionar = (e) => { if (e.key === 'Escape') cerrar(); };
+
+  modal.querySelectorAll('[data-cerrar]').forEach(el => el.addEventListener('click', cerrar));
+  document.addEventListener('keydown', alPresionar);
+  document.body.appendChild(modal);
+  modal.querySelector('.btn-primary')?.focus();
+}
+
+// ─── Resolución del botón ────────────────────────────────────────────────────
 
 async function resolverDescarga() {
   const boton = document.querySelector('[data-descarga]');
   if (!boton) return;
 
   const prefijo = boton.dataset.descarga;
+  const nombre = boton.dataset.descargaNombre || 'la aplicación';
   const info = document.querySelector('[data-descarga-info]');
 
-  // Fallback desde el arranque: si la API de GitHub falla, o el visitante agotó
-  // su cuota anónima (60 llamadas por hora por IP), el botón igual lleva a la
-  // página de releases y la descarga sigue siendo posible a mano.
-  boton.href = DESCARGA_PAGINA;
+  // Deja el botón en modo "aviso". Es el estado por defecto y también al que se
+  // vuelve si algo falla, para que nunca quede apuntando a ninguna otra parte.
+  const bloquear = (texto) => {
+    boton.removeAttribute('href');
+    boton.classList.add('btn-no-disponible');
+    if (info) info.textContent = texto;
+  };
+
+  boton.addEventListener('click', (e) => {
+    if (boton.classList.contains('btn-no-disponible')) {
+      e.preventDefault();
+      mostrarAvisoDescarga(nombre);
+    }
+  });
+
+  if ('descargaBloqueada' in boton.dataset) {
+    bloquear('Descarga temporalmente no disponible');
+    return;
+  }
+
+  bloquear('Windows · buscando la última versión…');
 
   try {
     const res = await fetch(`https://api.github.com/repos/${DESCARGA_REPO}/releases/latest`, {
@@ -40,18 +100,12 @@ async function resolverDescarga() {
     const release = await res.json();
     const asset = (release.assets || [])
       .find(a => a.name.startsWith(prefijo) && a.name.endsWith('.exe'));
+    if (!asset) throw new Error(`el release ${release.tag_name} no trae ${prefijo}*.exe`);
 
-    // No todos los releases traen los tres instaladores. Si este vertical no
-    // salió en el último release, se esconde el botón en vez de mandar al
-    // visitante a una página donde su .exe no está. Vuelve a aparecer solo
-    // cuando se publique un release que sí lo incluya.
-    if (!asset) {
-      boton.hidden = true;
-      if (info) info.hidden = true;
-      return;
-    }
-
+    // Sin atributo `download`: es cross-origin y el navegador lo ignora.
+    // GitHub sirve el .exe con Content-Disposition: attachment, así que baja igual.
     boton.href = asset.browser_download_url;
+    boton.classList.remove('btn-no-disponible');
 
     if (info) {
       const mb = Math.round(asset.size / (1024 * 1024));
@@ -61,10 +115,9 @@ async function resolverDescarga() {
       info.textContent = `Versión ${release.tag_name.replace(/^v/i, '')} · Windows · ${mb} MB · ${fecha}`;
     }
   } catch {
-    // Falló la red o la API (por ejemplo, cuota anónima agotada). Acá no se
-    // puede saber si el instalador existe, así que el botón se deja con el
-    // fallback a la página de releases en vez de esconderlo.
-    if (info) info.textContent = 'Windows · ver todas las versiones en GitHub';
+    // Sin instalador o sin API: se queda en modo aviso. No se ofrece ninguna
+    // ruta alternativa a GitHub a propósito.
+    bloquear('Descarga temporalmente no disponible');
   }
 }
 

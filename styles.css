@@ -198,6 +198,75 @@ nav ul a:hover { color: var(--green); }
 }
 a[data-descarga] { cursor: pointer; }
 
+/* Botón de descarga sin instalador disponible. Sigue siendo clickeable a
+   propósito: al pulsarlo abre el aviso que invita a pedir acceso. */
+.btn-no-disponible {
+  opacity: 0.55;
+  cursor: pointer;
+}
+
+/* ── Aviso de descarga en mantenimiento (lo inyecta descarga.js) ───────────── */
+.descarga-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.descarga-modal-fondo {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.descarga-modal-caja {
+  position: relative;
+  background: var(--white);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.25rem 2rem 1.75rem;
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+.descarga-modal-icono { font-size: 2.5rem; line-height: 1; margin-bottom: 0.75rem; }
+
+.descarga-modal-caja h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+
+.descarga-modal-caja p {
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: var(--gray-dark);
+  margin-bottom: 0.7rem;
+  line-height: 1.6;
+}
+
+.descarga-modal-btns {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.4rem;
+}
+
+.descarga-modal-btns .btn-secondary {
+  background: transparent;
+  font: inherit;
+  font-size: 0.9rem;
+}
+
 .btn-primary {
   background: var(--green);
   color: var(--on-accent);
