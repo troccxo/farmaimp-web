@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Farma IMP — Software para Farmacias Independientes</title>
+  <title>Software para farmacias en Chile | Farma IMP</title>
 
   <!-- SEO BASE -->
   <meta name="description" content="Software para farmacias y droguerías independientes en Chile. Comparador de precios, inventario por lotes, ventas, facturación SII y reportes financieros en una sola plataforma.">
@@ -14,12 +14,16 @@
   <meta name="geo.region" content="CL">
   <meta name="geo.placename" content="Chile">
   <meta name="language" content="es">
-  <meta name="og:locale" content="es_CL">
+  <meta property="og:locale" content="es_CL">
 
   <!-- OPEN GRAPH -->
   <meta property="og:title" content="Farma IMP — Software para Farmacias y Droguerías en Chile">
   <meta property="og:description" content="Automatiza tu farmacia: comparador de precios, inventario, ventas, SII y reportes en un solo sistema.">
-  <meta property="og:image" content="">
+  <meta property="og:site_name" content="IMP Systems">
+  <meta property="og:image" content="https://impsystems.cl/og-farma.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Software para farmacias en Chile | Farma IMP">
   <meta property="og:url" content="https://impsystems.cl/farma.html">
   <meta property="og:type" content="website">
 
@@ -27,6 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Farma IMP — Software para Farmacias">
   <meta name="twitter:description" content="Sistema completo para gestión de farmacias y droguerías en Chile.">
+  <meta name="twitter:image" content="https://impsystems.cl/og-farma.png">
 
   <!-- BRANDING -->
   <meta name="author" content="IMP Systems">
@@ -43,11 +48,21 @@
     "applicationCategory": "BusinessApplication",
     "description": "Software de gestión para farmacias y droguerías en Chile. Comparador de precios entre proveedores, inventario por lotes con FEFO, POS, facturación SII y reportes financieros.",
     "url": "https://impsystems.cl/farma.html",
-    "image": "",
+    "image": "https://impsystems.cl/og-farma.png",
     "author": {
       "@type": "Organization",
-      "name": "IMP Systems"
+      "name": "IMP Systems",
+      "url": "https://impsystems.cl/",
+      "email": "contacto@impsystems.cl",
+      "telephone": "+56978772578"
     },
+    "provider": {
+      "@type": "Organization",
+      "name": "IMP Systems",
+      "url": "https://impsystems.cl/"
+    },
+    "inLanguage": "es-CL",
+    "softwareRequirements": "Windows 10 o superior",
     "offers": {
       "@type": "Offer",
       "price": "1.5",
@@ -57,7 +72,92 @@
   }
   </script>
 
+  <!-- FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué necesito para usar Farma IMP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un computador con Windows y conexión a internet. Descargas el instalador desde esta misma página y lo abres; nosotros te entregamos las credenciales y te acompañamos en la carga inicial del inventario."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo funciona el comparador de precios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cargas las listas de precios en Excel que te mandan tus proveedores y el sistema las procesa y las compara producto por producto, para que veas de una sola vez cuál te conviene comprar en cada caso."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Controla los vencimientos de los lotes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El inventario se lleva por lote con fecha de vencimiento y el consumo sale siempre por FEFO, es decir, primero el lote que vence antes. Además tienes alertas de vencimiento y de stock bajo."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Sirve si tengo más de una farmacia?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. El sistema es multi-farmacia: cada local mantiene su inventario, sus ventas y su caja por separado, con usuarios y permisos por rol, y el administrador puede cambiar de local desde la misma aplicación."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Emite boletas y facturas electrónicas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, el punto de venta contempla la emisión de documentos tributarios electrónicos ante el SII, con el IVA chileno del 19% y el manejo de exentos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta Farma IMP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El valor referencial parte en torno a 1,5 UF mensuales y se ajusta según el tamaño de la farmacia y los módulos que necesites. Pagas solo por lo que usas."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- MIGA DE PAN -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://impsystems.cl/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Farma IMP",
+        "item": "https://impsystems.cl/farma.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ICONOS -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -266,7 +366,7 @@
         </div>
         <div class="form-group">
           <label>Teléfono</label>
-          <input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" />
+          <input type="tel" name="telefono" placeholder="+56 9 7877 2578" />
         </div>
         <div class="form-group">
           <label>Nombre de la farmacia</label>
@@ -321,6 +421,40 @@
   </div>
 </section>
 
+<!-- PREGUNTAS FRECUENTES -->
+<section class="faq" id="faq">
+  <div class="faq-header fade-up">
+    <div class="section-label">Preguntas frecuentes</div>
+    <div class="section-title">Lo que más nos preguntan</div>
+  </div>
+  <div class="faq-list fade-up">
+    <details class="faq-item">
+      <summary>¿Qué necesito para usar Farma IMP?</summary>
+      <p>Un computador con Windows y conexión a internet. Descargas el instalador desde esta misma página y lo abres; nosotros te entregamos las credenciales y te acompañamos en la carga inicial del inventario.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cómo funciona el comparador de precios?</summary>
+      <p>Cargas las listas de precios en Excel que te mandan tus proveedores y el sistema las procesa y las compara producto por producto, para que veas de una sola vez cuál te conviene comprar en cada caso.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Controla los vencimientos de los lotes?</summary>
+      <p>Sí. El inventario se lleva por lote con fecha de vencimiento y el consumo sale siempre por FEFO, es decir, primero el lote que vence antes. Además tienes alertas de vencimiento y de stock bajo.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Sirve si tengo más de una farmacia?</summary>
+      <p>Sí. El sistema es multi-farmacia: cada local mantiene su inventario, sus ventas y su caja por separado, con usuarios y permisos por rol, y el administrador puede cambiar de local desde la misma aplicación.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Emite boletas y facturas electrónicas?</summary>
+      <p>Sí, el punto de venta contempla la emisión de documentos tributarios electrónicos ante el SII, con el IVA chileno del 19% y el manejo de exentos.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuánto cuesta Farma IMP?</summary>
+      <p>El valor referencial parte en torno a 1,5 UF mensuales y se ajusta según el tamaño de la farmacia y los módulos que necesites. Pagas solo por lo que usas.</p>
+    </details>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section class="contact" id="contact">
   <div class="contact-grid">
@@ -328,6 +462,21 @@
       <div class="section-label">Contacto</div>
       <div class="section-title">¿Tienes preguntas?</div>
       <div class="section-sub">Escríbenos y te respondemos a la brevedad. También puedes usar este formulario para contarnos cómo te enteraste de Farma IMP.</div>
+      <div class="contacto-directo">
+        <a class="contacto-canal" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20Farma%20IMP%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20para%20mi%20farmacia." target="_blank" rel="noopener">
+          <span class="canal-icono" aria-hidden="true">💬</span>
+          <span class="canal-texto"><strong>WhatsApp</strong><span>+56 9 7877 2578</span></span>
+        </a>
+        <a class="contacto-canal" href="tel:+56978772578">
+          <span class="canal-icono" aria-hidden="true">📞</span>
+          <span class="canal-texto"><strong>Teléfono</strong><span>+56 9 7877 2578</span></span>
+        </a>
+        <a class="contacto-canal" href="mailto:contacto@impsystems.cl">
+          <span class="canal-icono" aria-hidden="true">✉️</span>
+          <span class="canal-texto"><strong>Correo</strong><span>contacto@impsystems.cl</span></span>
+        </a>
+      </div>
+      <p class="contacto-nota">Respondemos en menos de 24 horas hábiles. Si prefieres, usa el formulario y te contestamos por el mismo medio.</p>
     </div>
     <div class="contact-form fade-up">
       <form action="https://formspree.io/f/xlgavooz" method="POST" id="form-contacto">
@@ -352,6 +501,10 @@
 <!-- FOOTER -->
 <footer>
   <a href="index.html" class="logo-corp"><span class="imp">IMP</span> <span class="systems">Systems</span></a>
+  <div class="footer-contacto">
+    <a href="mailto:contacto@impsystems.cl">contacto@impsystems.cl</a>
+    <a href="tel:+56978772578">+56 9 7877 2578</a>
+  </div>
   <div class="footer-links">
     <a href="index.html">Inicio</a>
     <a href="quiosco.html">IMP Systems Quiosco</a>
@@ -386,6 +539,13 @@
   handleForm('form-registro', 'registro-ok');
   handleForm('form-contacto', 'contacto-ok');
 </script>
+
+<!-- CONTACTO FLOTANTE -->
+<a class="wa-fab" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a IMP Systems">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
 <script src="theme-picker.js"></script>
 <script src="descarga.js"></script>
 </body>

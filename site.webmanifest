@@ -1,0 +1,14 @@
+{
+  "name": "IMP Systems",
+  "short_name": "IMP",
+  "description": "Software de gestión para negocios en Chile: farmacias, quioscos y empresas de mantención.",
+  "lang": "es-CL",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#1a6b3a",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

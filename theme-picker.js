@@ -346,7 +346,9 @@ function buildUI() {
   const style = document.createElement('style');
   style.textContent = `
     .tp-toggle {
-      position: fixed; bottom: 20px; right: 20px;
+      /* Apilado por encima del botón de WhatsApp, que se queda con la
+         esquina: es el que convierte. Si se mueve uno, mover el otro. */
+      position: fixed; bottom: 84px; right: 22px;
       width: 48px; height: 48px;
       border-radius: 50%;
       background: #1a1a1a; color: white;
@@ -362,8 +364,8 @@ function buildUI() {
     .tp-toggle:hover { transform: scale(1.08) rotate(15deg); }
 
     .tp-panel {
-      position: fixed; bottom: 80px; right: 20px;
-      width: 320px; max-height: 70vh; overflow-y: auto;
+      position: fixed; bottom: 144px; right: 22px;
+      width: 320px; max-width: calc(100vw - 44px); max-height: 70vh; overflow-y: auto;
       background: #1a1a1a;
       color: white;
       border-radius: 14px;
@@ -519,7 +521,8 @@ function buildUI() {
   // Botón flotante
   const toggle = document.createElement('button');
   toggle.className = 'tp-toggle';
-  toggle.title = 'Cambiar paleta de colores';
+  toggle.title = 'Elegir colores';
+  toggle.setAttribute('aria-label', 'Elegir la combinación de colores del sitio');
   toggle.textContent = '🎨';
   document.body.appendChild(toggle);
 
@@ -527,18 +530,18 @@ function buildUI() {
   const panel = document.createElement('div');
   panel.className = 'tp-panel';
   panel.innerHTML = `
-    <div class="tp-header">Paleta de prueba</div>
-    <div class="tp-sub">Tocá un preset o ajustá colores libremente. Tu elección se guarda y se mantiene al navegar entre páginas.</div>
+    <div class="tp-header">Colores</div>
+    <div class="tp-sub">Elige la combinación con la que leas más cómodo. Se guarda en este navegador y te sigue por todo el sitio.</div>
 
-    <div class="tp-section-title">Presets</div>
+    <div class="tp-section-title">Combinaciones</div>
     <div class="tp-grid"></div>
 
-    <div class="tp-section-title">Personalizar</div>
+    <div class="tp-section-title">Ajustar a tu gusto</div>
     <div class="tp-pickers"></div>
 
     <div class="tp-footer">
-      <button class="tp-btn tp-clear-overrides">Limpiar custom</button>
-      <button class="tp-btn tp-reset danger">Reset todo</button>
+      <button class="tp-btn tp-clear-overrides">Deshacer ajustes</button>
+      <button class="tp-btn tp-reset danger">Volver al original</button>
       <button class="tp-btn tp-close">Cerrar</button>
     </div>
   `;
@@ -601,7 +604,9 @@ function buildUI() {
   syncPickers();
 }
 
-// Init
+// Init — el selector es visible para cualquier visitante, a propósito: la idea
+// es que cada uno lea con los colores que le resulten más cómodos. La elección
+// vive en el localStorage de SU navegador, no se comparte con nadie.
 loadSaved();
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', buildUI);

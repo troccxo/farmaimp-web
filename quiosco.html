@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IMP Systems para Quioscos — Software para tu negocio de barrio</title>
+  <title>Software para quioscos y almacenes en Chile | IMP Systems</title>
 
   <!-- SEO BASE -->
   <meta name="description" content="Software de gestión para quioscos, panaderías y almacenes en Chile. Productos por unidad o por peso (kg), POS rápido, caja diaria, boletas SII y reportes.">
@@ -14,12 +14,16 @@
   <meta name="geo.region" content="CL">
   <meta name="geo.placename" content="Chile">
   <meta name="language" content="es">
-  <meta name="og:locale" content="es_CL">
+  <meta property="og:locale" content="es_CL">
 
   <!-- OPEN GRAPH -->
   <meta property="og:title" content="IMP Systems — Software para Quioscos y Almacenes en Chile">
   <meta property="og:description" content="POS rápido, productos por peso, caja diaria y boletas electrónicas SII. Adaptado al ritmo de un quiosco.">
-  <meta property="og:image" content="">
+  <meta property="og:site_name" content="IMP Systems">
+  <meta property="og:image" content="https://impsystems.cl/og-quiosco.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Software para quioscos y almacenes en Chile | IMP Systems">
   <meta property="og:url" content="https://impsystems.cl/quiosco.html">
   <meta property="og:type" content="website">
 
@@ -27,6 +31,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="IMP Systems — Software para Quioscos">
   <meta name="twitter:description" content="POS, caja, productos por peso, boletas SII. Para quioscos, almacenes y panaderías.">
+  <meta name="twitter:image" content="https://impsystems.cl/og-quiosco.png">
 
   <!-- BRANDING -->
   <meta name="author" content="IMP Systems">
@@ -43,11 +48,21 @@
     "applicationCategory": "BusinessApplication",
     "description": "Software de gestión para quioscos, panaderías y almacenes en Chile. Soporta venta por unidad y por peso (gramos/kg), caja diaria con arqueo, boletas SII y reportes adaptados.",
     "url": "https://impsystems.cl/quiosco.html",
-    "image": "",
+    "image": "https://impsystems.cl/og-quiosco.png",
     "author": {
       "@type": "Organization",
-      "name": "IMP Systems"
+      "name": "IMP Systems",
+      "url": "https://impsystems.cl/",
+      "email": "contacto@impsystems.cl",
+      "telephone": "+56978772578"
     },
+    "provider": {
+      "@type": "Organization",
+      "name": "IMP Systems",
+      "url": "https://impsystems.cl/"
+    },
+    "inLanguage": "es-CL",
+    "softwareRequirements": "Windows 10 o superior",
     "offers": {
       "@type": "Offer",
       "price": "1.5",
@@ -57,7 +72,92 @@
   }
   </script>
 
+  <!-- FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Sirve para vender productos por kilo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Puedes vender por unidad o por peso: el stock se lleva en gramos y los precios se manejan por kilo, así que ingresas el peso en la balanza y el sistema calcula el total."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Sirve para un almacén, una panadería o un minimarket?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Es el mismo producto adaptado a negocios de barrio, que suelen mezclar productos envasados por unidad con productos a granel por peso."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito un lector de código de barras?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No es obligatorio, pero está soportado. Con pistola escáner la venta es más rápida; sin ella, buscas el producto por nombre desde el mismo punto de venta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo cuadrar la caja al final del día?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. La caja tiene apertura, cierre y arqueo diario, con el detalle de lo vendido y las diferencias que se produzcan en el turno."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Emite boletas electrónicas?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, el sistema contempla la emisión de boletas electrónicas ante el SII, con IVA chileno y manejo de productos exentos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El valor referencial parte en torno a 1,5 UF mensuales y se ajusta al tamaño del negocio y a los módulos que uses."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- MIGA DE PAN -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://impsystems.cl/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "IMP Systems para Quioscos",
+        "item": "https://impsystems.cl/quiosco.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ICONOS -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -266,7 +366,7 @@
         </div>
         <div class="form-group">
           <label>Teléfono</label>
-          <input type="tel" name="telefono" placeholder="+56 9 XXXX XXXX" />
+          <input type="tel" name="telefono" placeholder="+56 9 7877 2578" />
         </div>
         <div class="form-group">
           <label>Nombre del negocio</label>
@@ -331,6 +431,40 @@
   </div>
 </section>
 
+<!-- PREGUNTAS FRECUENTES -->
+<section class="faq" id="faq">
+  <div class="faq-header fade-up">
+    <div class="section-label">Preguntas frecuentes</div>
+    <div class="section-title">Lo que más nos preguntan</div>
+  </div>
+  <div class="faq-list fade-up">
+    <details class="faq-item">
+      <summary>¿Sirve para vender productos por kilo?</summary>
+      <p>Sí. Puedes vender por unidad o por peso: el stock se lleva en gramos y los precios se manejan por kilo, así que ingresas el peso en la balanza y el sistema calcula el total.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Sirve para un almacén, una panadería o un minimarket?</summary>
+      <p>Sí. Es el mismo producto adaptado a negocios de barrio, que suelen mezclar productos envasados por unidad con productos a granel por peso.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Necesito un lector de código de barras?</summary>
+      <p>No es obligatorio, pero está soportado. Con pistola escáner la venta es más rápida; sin ella, buscas el producto por nombre desde el mismo punto de venta.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Puedo cuadrar la caja al final del día?</summary>
+      <p>Sí. La caja tiene apertura, cierre y arqueo diario, con el detalle de lo vendido y las diferencias que se produzcan en el turno.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Emite boletas electrónicas?</summary>
+      <p>Sí, el sistema contempla la emisión de boletas electrónicas ante el SII, con IVA chileno y manejo de productos exentos.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuánto cuesta?</summary>
+      <p>El valor referencial parte en torno a 1,5 UF mensuales y se ajusta al tamaño del negocio y a los módulos que uses.</p>
+    </details>
+  </div>
+</section>
+
 <!-- CONTACTO -->
 <section class="contact" id="contact">
   <div class="contact-grid">
@@ -338,6 +472,21 @@
       <div class="section-label">Contacto</div>
       <div class="section-title">¿Tienes preguntas?</div>
       <div class="section-sub">Escríbenos y te respondemos a la brevedad. Cuéntanos cómo es tu negocio y qué necesitas resolver.</div>
+      <div class="contacto-directo">
+        <a class="contacto-canal" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n%20para%20mi%20negocio." target="_blank" rel="noopener">
+          <span class="canal-icono" aria-hidden="true">💬</span>
+          <span class="canal-texto"><strong>WhatsApp</strong><span>+56 9 7877 2578</span></span>
+        </a>
+        <a class="contacto-canal" href="tel:+56978772578">
+          <span class="canal-icono" aria-hidden="true">📞</span>
+          <span class="canal-texto"><strong>Teléfono</strong><span>+56 9 7877 2578</span></span>
+        </a>
+        <a class="contacto-canal" href="mailto:contacto@impsystems.cl">
+          <span class="canal-icono" aria-hidden="true">✉️</span>
+          <span class="canal-texto"><strong>Correo</strong><span>contacto@impsystems.cl</span></span>
+        </a>
+      </div>
+      <p class="contacto-nota">Respondemos en menos de 24 horas hábiles. Si prefieres, usa el formulario y te contestamos por el mismo medio.</p>
     </div>
     <div class="contact-form fade-up">
       <form action="https://formspree.io/f/xlgavooz" method="POST" id="form-contacto">
@@ -362,6 +511,10 @@
 <!-- FOOTER -->
 <footer>
   <a href="index.html" class="logo-corp"><span class="imp">IMP</span> <span class="systems">Systems</span></a>
+  <div class="footer-contacto">
+    <a href="mailto:contacto@impsystems.cl">contacto@impsystems.cl</a>
+    <a href="tel:+56978772578">+56 9 7877 2578</a>
+  </div>
   <div class="footer-links">
     <a href="index.html">Inicio</a>
     <a href="farma.html">Farma IMP</a>
@@ -396,6 +549,13 @@
   handleForm('form-registro', 'registro-ok');
   handleForm('form-contacto', 'contacto-ok');
 </script>
+
+<!-- CONTACTO FLOTANTE -->
+<a class="wa-fab" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a IMP Systems">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
 <script src="theme-picker.js"></script>
 <script src="descarga.js"></script>
 </body>
