@@ -348,7 +348,7 @@ function buildUI() {
     .tp-toggle {
       /* Apilado por encima del botón de WhatsApp, que se queda con la
          esquina: es el que convierte. Si se mueve uno, mover el otro. */
-      position: fixed; bottom: 84px; right: 22px;
+      position: fixed; bottom: 72px; right: 22px;
       width: 48px; height: 48px;
       border-radius: 50%;
       background: #1a1a1a; color: white;
@@ -364,7 +364,7 @@ function buildUI() {
     .tp-toggle:hover { transform: scale(1.08) rotate(15deg); }
 
     .tp-panel {
-      position: fixed; bottom: 144px; right: 22px;
+      position: fixed; bottom: 132px; right: 22px;
       width: 320px; max-width: calc(100vw - 44px); max-height: 70vh; overflow-y: auto;
       background: #1a1a1a;
       color: white;
