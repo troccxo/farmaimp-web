@@ -1412,40 +1412,53 @@ footer a:hover { color: rgba(255,255,255,0.9); }
   margin-bottom: 2px;
 }
 
-.carrusel-controles {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 0 5%;
-  margin-top: 4px;
-}
 .carrusel-nav {
-  width: 42px; height: 42px;
-  flex-shrink: 0;
+  /* Flotan SOBRE la imagen, no debajo del carrusel: ahi se veian chicas y
+     desconectadas. La altura sale de la proporcion real de las capturas
+     (756/1400 = 0,54), asi que el boton queda centrado en la imagen y no en
+     el bloque completo, que incluye el texto de abajo. */
+  position: absolute;
+  top: calc(6px + min(1040px, 88vw) * 0.27);
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 54px; height: 54px;
   border-radius: 50%;
   border: 1px solid var(--border);
   background: var(--card-bg);
   color: var(--text);
   display: grid;
   place-items: center;
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   line-height: 1;
-  transition: background .15s, border-color .15s, opacity .15s;
+  box-shadow: 0 8px 24px -6px rgba(0,0,0,.34);
+  transition: background .15s, border-color .15s, color .15s, opacity .15s;
 }
+.carrusel-nav[data-prev] { left: 2.2%; }
+.carrusel-nav[data-next] { right: 2.2%; }
 .carrusel-nav:hover:not(:disabled) { background: var(--green); border-color: var(--green); color: var(--on-accent); }
-.carrusel-nav:disabled { opacity: .35; cursor: default; }
+.carrusel-nav:disabled { opacity: .3; cursor: default; box-shadow: none; }
 
-.carrusel-puntos { display: flex; gap: 8px; }
+/* En pantallas angostas no hay gutter donde ponerlas y taparian la captura:
+   ahi manda el gesto de arrastre, que funciona solo. */
+@media (max-width: 900px) { .carrusel-nav { display: none; } }
+
+.carrusel-puntos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+}
 .carrusel-punto {
-  width: 9px; height: 9px;
+  width: 10px; height: 10px;
   padding: 0;
-  border-radius: 50%;
+  border-radius: 999px;
   border: none;
   background: var(--border);
-  transition: background .15s, transform .15s;
+  transition: background .18s, width .18s;
 }
 .carrusel-punto:hover { background: var(--gray); }
-.carrusel-punto.activo { background: var(--green); transform: scale(1.35); }
+.carrusel-punto.activo { background: var(--green); width: 30px; }
 
 .vistazo-pie {
   padding: 26px 5% 0;
