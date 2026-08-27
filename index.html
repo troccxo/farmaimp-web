@@ -182,62 +182,70 @@
   </div>
 <!-- MOCKUP DE APP -->
   <div class="hero-mock">
-    <div class="mock-win">
-      <div class="mock-bar">
-        <div class="mock-dots"><i></i><i></i><i></i></div>
-        <div class="mock-winname">IMP Systems</div>
-      </div>
-      <div class="mock-body">
-        <div class="mock-side">
-          <b>Menú</b>
-          <span class="on">Inventario</span>
-          <span>Ventas</span>
-          <span>Caja</span>
-          <span>Alertas</span>
-          <span>Facturación</span>
-          <span>Reportes</span>
-        </div>
-        <div class="mock-main">
-          <div class="mock-head"><b>Inventario</b><em>412 productos</em></div>
-          <div class="mock-kpis">
-            <div class="mock-kpi"><u>Stock total</u><b>412</b></div>
-            <div class="mock-kpi acento"><u>Por vencer</u><b>7</b></div>
-            <div class="mock-kpi"><u>Bajo mínimo</u><b>3</b></div>
-          </div>
-          <div class="mock-tabla">
-            <div class="mock-tr th" style="grid-template-columns:1fr 44px 62px 68px">
-              <span>Producto</span><span class="num">Stock</span><span class="num">Vence</span><span>Estado</span>
-            </div>
-            <div class="mock-tr" style="grid-template-columns:1fr 44px 62px 68px">
-              <span><strong>Producto A 500 mg</strong><br><span class="men">Lote 24-118</span></span>
-              <span class="num">48</span><span class="num">12/26</span><span class="mock-tag ok">OK</span>
-            </div>
-            <div class="mock-tr" style="grid-template-columns:1fr 44px 62px 68px">
-              <span><strong>Producto B 20 mg</strong><br><span class="men">Lote 24-092</span></span>
-              <span class="num">6</span><span class="num">09/26</span><span class="mock-tag aten">Vence</span>
-            </div>
-            <div class="mock-tr" style="grid-template-columns:1fr 44px 62px 68px">
-              <span><strong>Producto C 1 L</strong><br><span class="men">Lote 25-004</span></span>
-              <span class="num">124</span><span class="num">04/27</span><span class="mock-tag ok">OK</span>
-            </div>
-            <div class="mock-tr" style="grid-template-columns:1fr 44px 62px 68px">
-              <span><strong>Producto D x30</strong><br><span class="men">Lote 24-231</span></span>
-              <span class="num">2</span><span class="num">11/26</span><span class="mock-tag aten">Mínimo</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <figure class="hero-shot">
+      <img src="img/app-pos-hero.webp"
+           width="1240" height="1190" loading="eager" decoding="async"
+           alt="Punto de venta de IMP Systems: accesos rápidos a productos con su precio por kilo, buscador con lector de código de barras y caja del día abierta.">
+    </figure>
     <div class="mock-flota">
-      <span class="mock-flota-ico" aria-hidden="true">📦</span>
+      <span class="mock-flota-ico" aria-hidden="true">⚖️</span>
       <div>
-        <b>3 productos por vencer</b>
-        <span>Alerta automática · 30 días</span>
+        <b>Venta por kilo</b>
+        <span>El precio se calcula solo</span>
       </div>
     </div>
-    <p class="mock-pie">Vista del módulo de inventario. Datos de demostración.</p>
+    <p class="mock-pie">Punto de venta de IMP Systems, en uso real.</p>
   </div>
   <!-- /MOCKUP DE APP -->
+</section>
+
+<!-- CAPTURAS -->
+<section class="vistazo" id="vistazo">
+  <div class="vistazo-cabecera fade-up">
+    <div class="section-label">Por dentro</div>
+    <div class="section-title">Así se ve trabajando</div>
+    <div class="section-sub">Capturas de la aplicación real, no maquetas. Arrastra o usa las flechas.</div>
+  </div>
+
+  <div class="carrusel" data-carrusel>
+    <div class="carrusel-pista" data-pista tabindex="0" role="group" aria-label="Capturas de la aplicación">
+      <figure class="carrusel-slide">
+        <img src="img/app-tickets-kanban.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Tablero de tickets agrupados por estado, con el cliente, la tienda y los servicios de cada uno.">
+        <figcaption><strong>Tickets en tablero</strong>Cada requerimiento avanza por estados —borrador, en cotización, en trabajo, facturado— y el color dice de quién es la pelota: tuya, del cliente o de terreno.</figcaption>
+      </figure>
+      <figure class="carrusel-slide">
+        <img src="img/app-cliente-tiendas.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Ficha de cliente con ocho tiendas en tarjetas, cada una con su comuna, región y módulos.">
+        <figcaption><strong>Un cliente, todas sus tiendas</strong>La ficha del cliente muestra sus locales con región, contacto y los módulos de marca que hay dentro de cada uno. Los contratos y su próxima visita, abajo.</figcaption>
+      </figure>
+      <figure class="carrusel-slide">
+        <img src="img/app-ticket-detalle.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Detalle de un ticket con sus servicios, el próximo paso y el historial de estados.">
+        <figcaption><strong>El detalle de un trabajo</strong>Datos, servicios asociados, el próximo paso que corresponde y el historial completo de estados. La app te dice qué falta antes de poder avanzar.</figcaption>
+      </figure>
+      <figure class="carrusel-slide">
+        <img src="img/app-costeo.webp" width="1400" height="757" loading="lazy" decoding="async" alt="Pantalla de costeo con el costo de producción por hora, la capacidad del equipo y los parámetros de margen y recargos.">
+        <figcaption><strong>Cuánto cuesta de verdad</strong>El motor de costeo calcula el costo de producción por hora a partir de tu planilla, tus gastos generales y la capacidad real del equipo. El margen y los recargos se aplican encima, y el precio deja de ser una estimación.</figcaption>
+      </figure>
+      <figure class="carrusel-slide">
+        <img src="img/app-reportes.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Reporte de stock valorizado con gráfico de los productos de mayor valor y su detalle.">
+        <figcaption><strong>Reportes financieros</strong>Stock valorizado a costo y a precio de venta, compras del período, márgenes por ticket, factoring vigente y antigüedad de cuentas por cobrar.</figcaption>
+      </figure>
+      <figure class="carrusel-slide">
+        <img src="img/app-clientes.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Listado de clientes con RUT, giro, contacto y cantidad de tiendas.">
+        <figcaption><strong>Tu cartera completa</strong>Razón social, RUT, giro y contacto de cada cliente, con la cuenta de tiendas y de contratos activos al lado.</figcaption>
+      </figure>
+      <figure class="carrusel-slide">
+        <img src="img/app-pos-quiosco.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Punto de venta con accesos rápidos a productos y su precio por kilo.">
+        <figcaption><strong>Punto de venta</strong>En la versión para quioscos y almacenes: accesos rápidos, búsqueda con lector de código de barras y venta por kilo con el precio calculado solo.</figcaption>
+      </figure>
+    </div>
+    <div class="carrusel-controles">
+      <button type="button" class="carrusel-nav" data-prev aria-label="Captura anterior">&#8592;</button>
+      <button type="button" class="carrusel-nav" data-next aria-label="Captura siguiente">&#8594;</button>
+      <div class="carrusel-puntos" data-puntos></div>
+    </div>
+  </div>
+
+  <p class="vistazo-pie">Los datos que aparecen son de una empresa de demostración.</p>
 </section>
 
 <!-- PRODUCTOS -->
@@ -486,5 +494,6 @@
 </a>
 
 <script src="theme-picker.js"></script>
+<script src="carrusel.js"></script>
 </body>
 </html>

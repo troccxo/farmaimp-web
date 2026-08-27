@@ -1338,3 +1338,125 @@ footer a:hover { color: rgba(255,255,255,0.9); }
 
 .mock-main { min-height: 316px; }
 @media (max-width: 900px) { .mock-main { min-height: 0; } }
+
+/* ─── Captura real en el hero ──────────────────────────────────────────────
+   Reemplaza al mockup dibujado donde hay una captura publicable. Solo se usan
+   capturas SIN datos de clientes: el repo es publico. La de mantencion no
+   puede ir nunca — lleva a CELA, SEI y Beauty Plus con sus tiendas.
+   ────────────────────────────────────────────────────────────────────────── */
+.hero-shot { margin: 0; }
+.hero-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 70px -22px rgba(0,0,0,.42), 0 8px 22px -10px rgba(0,0,0,.18);
+}
+
+/* ─── Carrusel de capturas ─────────────────────────────────────────────────
+   Va justo despues del hero. Las capturas son densas (un kanban de tickets,
+   una ficha de cliente con 8 tiendas): en la columna estrecha del hero no se
+   leerian, por eso esta seccion es ancha.
+
+   TODAS las capturas son de la empresa DEMO ("Servicios Andinos SpA"), con
+   clientes y tiendas inventados. Ninguna captura con datos de un cliente real
+   puede entrar aca: el repo es publico.
+   ────────────────────────────────────────────────────────────────────────── */
+.vistazo { padding: 90px 0 100px; background: var(--off-white); overflow: hidden; }
+.vistazo-cabecera { padding: 0 5%; max-width: 780px; margin: 0 0 34px; }
+
+.carrusel { position: relative; }
+
+.carrusel-pista {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 6px 5% 26px;
+  /* Firefox y el resto: sin barra visible, el carrusel ya tiene sus controles */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carrusel-pista::-webkit-scrollbar { display: none; }
+.carrusel-pista:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+
+.carrusel-slide {
+  flex: 0 0 min(1040px, 88vw);
+  scroll-snap-align: start;
+  margin: 0;
+}
+.carrusel-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #10131a;
+  box-shadow: 0 26px 60px -24px rgba(0,0,0,.45), 0 6px 18px -8px rgba(0,0,0,.16);
+}
+.carrusel-slide figcaption {
+  margin-top: 14px;
+  font-size: .92rem;
+  color: var(--gray);
+  line-height: 1.5;
+  max-width: 62ch;
+}
+.carrusel-slide figcaption strong {
+  display: block;
+  color: var(--text);
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.carrusel-controles {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 5%;
+  margin-top: 4px;
+}
+.carrusel-nav {
+  width: 42px; height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  font-size: 1.05rem;
+  line-height: 1;
+  transition: background .15s, border-color .15s, opacity .15s;
+}
+.carrusel-nav:hover:not(:disabled) { background: var(--green); border-color: var(--green); color: var(--on-accent); }
+.carrusel-nav:disabled { opacity: .35; cursor: default; }
+
+.carrusel-puntos { display: flex; gap: 8px; }
+.carrusel-punto {
+  width: 9px; height: 9px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: var(--border);
+  transition: background .15s, transform .15s;
+}
+.carrusel-punto:hover { background: var(--gray); }
+.carrusel-punto.activo { background: var(--green); transform: scale(1.35); }
+
+.vistazo-pie {
+  padding: 26px 5% 0;
+  font-size: .85rem;
+  color: var(--gray);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrusel-pista { scroll-behavior: auto; }
+}
+@media (max-width: 700px) {
+  .vistazo { padding: 64px 0 72px; }
+  .carrusel-slide { flex-basis: 90vw; }
+}
