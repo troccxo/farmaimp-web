@@ -1101,3 +1101,240 @@ footer a:hover { color: rgba(255,255,255,0.9); }
   .wa-fab-txt-corto { display: inline; }
 }
 @media print { .wa-fab { display: none; } }
+
+/* ─── MOCKUP DE APP EN EL HERO ─────────────────────────────────────────────
+   El hero era una sola columna de texto sobre 100vh: en pantallas anchas la
+   mitad derecha quedaba vacia. Esto la llena con una vista de la aplicacion.
+
+   Se dibuja con HTML y variables del sitio, NO es una captura:
+     · sigue cualquier tema del selector de colores sin exportar imagenes,
+     · se ve nitido en cualquier pantalla y pesa cero,
+     · y sobre todo: no puede filtrar datos de un cliente real. El repo es
+       publico y las capturas de la app llevan clientes, tiendas y montos
+       reales, asi que no pueden vivir aca (ver la regla de la presentacion).
+   Los datos de adentro son inventados y el pie lo dice.
+   ────────────────────────────────────────────────────────────────────────── */
+
+.hero { gap: clamp(1.5rem, 4vw, 3.5rem); flex-wrap: wrap; }
+.hero-content { flex: 1 1 380px; }
+
+.hero-mock {
+  --mock-accent: var(--green);
+  --mock-accent-pale: var(--green-pale);
+  flex: 1 1 430px;
+  min-width: 0;
+  max-width: 580px;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 0.8s 0.15s ease both;
+}
+.hero-mock.quiosco    { --mock-accent: var(--quiosco-accent);    --mock-accent-pale: var(--quiosco-accent-pale); }
+.hero-mock.mantencion { --mock-accent: var(--mantencion-accent); --mock-accent-pale: var(--mantencion-accent-pale); }
+
+.mock-win {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px -22px rgba(0,0,0,.38), 0 8px 22px -10px rgba(0,0,0,.16);
+}
+
+.mock-bar {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .6rem .85rem;
+  background: var(--gray-light);
+  border-bottom: 1px solid var(--border);
+}
+.mock-dots { display: flex; gap: 5px; }
+.mock-dots i { display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--border); }
+.mock-winname { font-size: .7rem; color: var(--gray); font-weight: 500; margin-left: .35rem; }
+
+.mock-body { display: grid; grid-template-columns: 134px minmax(0, 1fr); }
+
+.mock-side {
+  background: var(--off-white);
+  border-right: 1px solid var(--border);
+  padding: .8rem .55rem;
+  display: grid;
+  gap: 2px;
+  align-content: start;
+}
+.mock-side b {
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 600;
+  padding: .15rem .5rem .5rem;
+}
+.mock-side span {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .72rem;
+  color: var(--gray-dark);
+  padding: .34rem .5rem;
+  border-radius: 6px;
+}
+.mock-side span.on { background: var(--mock-accent-pale); color: var(--mock-accent); font-weight: 600; }
+
+.mock-main {
+  padding: .9rem 1rem 1.1rem;
+  display: grid;
+  gap: .65rem;
+  align-content: start;
+  min-height: 296px;
+}
+.mock-head { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; }
+.mock-head b { font-family: 'Fraunces', serif; font-size: .95rem; font-weight: 600; }
+.mock-head em { font-style: normal; font-size: .65rem; color: var(--gray); }
+
+.mock-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
+.mock-kpi { border: 1px solid var(--border); border-radius: 8px; padding: .45rem .55rem; }
+.mock-kpi u {
+  display: block;
+  text-decoration: none;
+  font-size: .55rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 600;
+}
+.mock-kpi b { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 600; }
+.mock-kpi.acento b { color: var(--mock-accent); }
+
+.mock-tabla {
+  display: grid;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.mock-tr {
+  display: grid;
+  align-items: center;
+  gap: .5rem;
+  background: var(--card-bg);
+  padding: .42rem .6rem;
+  font-size: .72rem;
+  line-height: 1.35;
+}
+.mock-tr.th {
+  background: var(--gray-light);
+  font-size: .55rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-weight: 600;
+}
+.mock-tr.sel { background: var(--mock-accent-pale); }
+.mock-tr .num { text-align: right; font-variant-numeric: tabular-nums; }
+.mock-tr .men { color: var(--gray); font-size: .65rem; }
+.mock-tr strong { font-weight: 600; }
+.mock-tr .mejor { color: var(--mock-accent); font-weight: 700; }
+
+.mock-tag {
+  justify-self: start;
+  font-size: .58rem;
+  font-weight: 700;
+  padding: .1rem .45rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  background: var(--gray-light);
+  color: var(--gray);
+}
+.mock-tag.ok   { background: var(--green-pale);            color: var(--green); }
+.mock-tag.aten { background: var(--quiosco-accent-pale);   color: var(--quiosco-accent); }
+.mock-tag.info { background: var(--mantencion-accent-pale); color: var(--mantencion-accent); }
+
+.mock-total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: .6rem;
+  border-top: 2px solid var(--border);
+  padding-top: .55rem;
+  margin-top: .1rem;
+}
+.mock-total span { font-size: .68rem; color: var(--gray); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.mock-total b { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; color: var(--mock-accent); font-variant-numeric: tabular-nums; }
+
+.mock-btns { display: flex; gap: .4rem; }
+.mock-btn {
+  font-size: .66rem;
+  font-weight: 600;
+  padding: .34rem .7rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--gray-dark);
+}
+.mock-btn.pri { background: var(--mock-accent); border-color: var(--mock-accent); color: var(--on-accent); }
+
+.mock-pie { text-align: center; font-size: .68rem; color: var(--gray); margin-top: .75rem; }
+
+@media (max-width: 900px) {
+  .hero-mock { max-width: 560px; margin: 0 auto; }
+  .mock-main { min-height: 0; }
+}
+@media (max-width: 620px) {
+  .mock-body { grid-template-columns: minmax(0, 1fr); }
+  .mock-side { display: none; }
+  .mock-kpis { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ─── Hero a dos columnas de verdad ────────────────────────────────────────
+   Con flex-wrap el ancho de las dos columnas dependia de como cayeran los
+   flex-basis, y en pantallas de 1280-1366 el mockup podia bajarse solo,
+   dejando el lado derecho vacio otra vez. En grilla las dos columnas son
+   deterministas: siempre mitad y mitad, sin importar el ancho.
+   ────────────────────────────────────────────────────────────────────────── */
+@media (min-width: 1000px) {
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    column-gap: clamp(2rem, 5vw, 4.5rem);
+  }
+  .hero-content { max-width: 660px; justify-self: start; }
+  .hero-mock    { max-width: 620px; justify-self: end; width: 100%; }
+}
+
+/* Tarjeta flotante: le da profundidad al mockup y termina de llenar el hueco.
+   Se esconde en pantallas angostas, donde solo estorbaria. */
+.hero-mock { position: relative; }
+
+.mock-flota {
+  position: absolute;
+  left: -20px;
+  bottom: 52px;
+  display: none;
+  align-items: center;
+  gap: .65rem;
+  max-width: 236px;
+  padding: .65rem .85rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 16px 38px -14px rgba(0,0,0,.34);
+  animation: fadeUp 0.8s 0.45s ease both;
+}
+@media (min-width: 1000px) { .mock-flota { display: flex; } }
+
+.mock-flota-ico {
+  width: 30px; height: 30px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: .85rem;
+  background: var(--mock-accent-pale);
+  color: var(--mock-accent);
+}
+.mock-flota b { display: block; font-size: .74rem; line-height: 1.3; }
+.mock-flota span { display: block; font-size: .64rem; color: var(--gray); line-height: 1.35; }
+
+.mock-main { min-height: 316px; }
+@media (max-width: 900px) { .mock-main { min-height: 0; } }
