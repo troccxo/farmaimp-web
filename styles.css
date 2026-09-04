@@ -346,6 +346,65 @@ section { padding: 100px 5%; }
   font-weight: 300;
 }
 
+/* ─── HUB: CLIENTES EN PRODUCCIÓN ───────────────────────────────────────── */
+/* Banda angosta entre el hero y las capturas. Es una prueba, no un capítulo:
+   por eso va con padding corto y bordes en vez de fondo propio. */
+.clientes {
+  padding: 38px 5%;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.clientes-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px 26px;
+}
+
+/* Logotipo del cliente. Es un bloque rojo sin transparencia, así que se le dan
+   esquinas para que no choque contra el borde recto de la banda. */
+.clientes-logo {
+  width: 94px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+.clientes-texto { max-width: 640px; }
+
+.clientes-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--green);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.clientes-frase {
+  max-width: 700px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--gray-dark);
+}
+
+.clientes-frase strong { color: var(--text); font-weight: 600; }
+
+.clientes-frase a {
+  color: var(--green);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.clientes-frase a:hover { color: var(--green-light); }
+
 /* ─── HUB: PRODUCTOS ────────────────────────────────────────────────────── */
 .products { background: var(--white); }
 
