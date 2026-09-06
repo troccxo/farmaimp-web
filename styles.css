@@ -119,6 +119,19 @@ nav ul a:hover { color: var(--green); }
 }
 .nav-cta:hover { background: var(--green-dark) !important; color: var(--on-accent) !important; }
 
+/* Acceso al Portal de Clientes. Delineado y no relleno: el verde relleno es el
+   llamado a la accion comercial ("Ver soluciones"), y esto es otra cosa — es la
+   puerta de entrada de alguien que YA es cliente y viene a trabajar, no a
+   comprar. Si los dos fueran iguales, competirian por la misma mirada. */
+.nav-portal {
+  border: 1px solid var(--green);
+  color: var(--green) !important;
+  padding: 0.45rem 1.1rem;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s !important;
+}
+.nav-portal:hover { background: var(--green); color: var(--on-accent) !important; }
+
 .nav-back {
   font-size: 0.82rem !important;
   color: var(--gray) !important;

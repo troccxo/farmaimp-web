@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# El Portal de Clientes es una pantalla de acceso para clientes de MBA Retail.
+# No tiene nada que indexar y sus paginas internas no son publicas.
+Disallow: /portal/
+Disallow: /d/
+
 Sitemap: https://impsystems.cl/sitemap.xml
