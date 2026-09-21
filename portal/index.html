@@ -2,6 +2,39 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Política de seguridad de contenido.
+
+         Va en <meta> y no como cabecera HTTP porque el portal se publica en
+         GitHub Pages, que no deja configurar cabeceras. Tiene que ir ACÁ
+         ARRIBA: una CSP en meta sólo rige para lo que viene después de ella.
+
+         Lo que esta vía NO puede dar, porque el navegador lo ignora en meta:
+         `frame-ancestors`, `report-to` y `sandbox`. El único que importa es el
+         primero —evitar que alguien empotre el portal en un iframe— y por eso
+         más abajo hay un guard en JavaScript que lo cubre a mano.
+
+         `style-src` lleva 'unsafe-inline' y no hay forma de evitarlo: las
+         pantallas usan `style={{...}}` de React, que son atributos style en el
+         DOM. Sacarlo obligaría a reescribir todo a clases. No es el vector que
+         importa: el peligroso es el script, y ése queda sin excepciones.
+
+         Si algún día se usa Realtime hay que sumar `wss://…supabase.co` a
+         connect-src, y si se muestran miniaturas desde Storage, el dominio a
+         img-src. Hoy no aplica ninguna de las dos. -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none';
+               script-src 'self';
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+               font-src https://fonts.gstatic.com;
+               img-src 'self' data:;
+               connect-src 'self' https://opqevxlhtrzlsuksggzi.supabase.co;
+               base-uri 'none';
+               form-action 'none';
+               object-src 'none'"
+    />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Portal de Clientes · MBA Retail</title>
@@ -17,8 +50,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     />
-    <script type="module" crossorigin src="./assets/index-DtIxQpe_.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-UGavJ_j0.css">
+    <script type="module" crossorigin src="./assets/index-zFRv182T.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-ImyhLISL.css">
   </head>
   <body>
     <div id="root"></div>
