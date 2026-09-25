@@ -2,9 +2,9 @@
 //
 // Dos comportamientos, según lo que declare el HTML:
 //
-//   · Descarga habilitada (hoy sólo Mantención): consulta el último release y
-//     el botón baja el .exe directamente.
-//   · Descarga bloqueada (Farma y Quiosco): el botón no descarga nada, abre un
+//   · Descarga habilitada (hoy Mantención y Quiosco): busca el release más
+//     reciente que traiga el .exe del vertical y el botón lo baja directamente.
+//   · Descarga bloqueada (hoy Farma): el botón no descarga nada, abre un
 //     aviso que invita a pedir acceso.
 //
 // REGLA: nunca se manda al visitante al repositorio de GitHub. Si la API falla
@@ -92,15 +92,23 @@ async function resolverDescarga() {
   bloquear('Windows · buscando la última versión…');
 
   try {
-    const res = await fetch(`https://api.github.com/repos/${DESCARGA_REPO}/releases/latest`, {
+    // Cada vertical publica por su cuenta (hay releases sólo de quiosco o sólo
+    // de mantención), así que no sirve /releases/latest: se recorre la lista,
+    // que viene de la más nueva a la más vieja, y se toma el primer release
+    // que traiga el .exe de este vertical.
+    const res = await fetch(`https://api.github.com/repos/${DESCARGA_REPO}/releases?per_page=50`, {
       headers: { Accept: 'application/vnd.github+json' },
     });
     if (!res.ok) throw new Error(`GitHub respondió ${res.status}`);
 
-    const release = await res.json();
-    const asset = (release.assets || [])
-      .find(a => a.name.startsWith(prefijo) && a.name.endsWith('.exe'));
-    if (!asset) throw new Error(`el release ${release.tag_name} no trae ${prefijo}*.exe`);
+    let release = null;
+    let asset = null;
+    for (const r of await res.json()) {
+      if (r.draft || r.prerelease) continue;
+      asset = (r.assets || []).find(a => a.name.startsWith(prefijo) && a.name.endsWith('.exe'));
+      if (asset) { release = r; break; }
+    }
+    if (!asset) throw new Error(`ningún release reciente trae ${prefijo}*.exe`);
 
     // Sin atributo `download`: es cross-origin y el navegador lo ignora.
     // GitHub sirve el .exe con Content-Disposition: attachment, así que baja igual.
