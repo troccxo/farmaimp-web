@@ -189,6 +189,9 @@ nav ul a:hover { color: var(--green); }
   margin-bottom: 1.5rem;
 }
 .hero h1 em { font-style: italic; color: var(--green); }
+/* Título de la portada: nombra los tres públicos y con el tamaño de las otras
+   páginas ocupaba cinco líneas. */
+.hero h1.h1-largo { font-size: clamp(2.2rem, 3.7vw, 3.15rem); }
 
 .hero p {
   font-size: 1.1rem;
@@ -1545,3 +1548,84 @@ footer a:hover { color: rgba(255,255,255,0.9); }
   .vistazo { padding: 64px 0 72px; }
   .carrusel-slide { flex-basis: 90vw; }
 }
+
+/* ── Adicional: Portal de Clientes (mantencion.html) ─────────────────────
+   Capturas de una empresa de demostración con datos inventados: el portal
+   real muestra datos de clientes y NUNCA se captura para la web. */
+.portal-adicional { padding: 90px 5% 100px; background: var(--off-white); }
+.portal-adicional-cabecera { max-width: 780px; margin: 0 0 36px; }
+.portal-adicional-cabecera .section-title { margin-top: 0; }
+.portal-adicional-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+.portal-shot { margin: 0; }
+.portal-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: 0 26px 60px -24px rgba(0,0,0,.35), 0 6px 18px -8px rgba(0,0,0,.12);
+}
+.portal-shot figcaption { margin-top: 14px; font-size: .92rem; color: var(--gray); line-height: 1.5; }
+.portal-shot figcaption strong {
+  display: block;
+  color: var(--text);
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.portal-adicional-puntos {
+  list-style: none;
+  padding: 0;
+  margin: 40px 0 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 32px;
+}
+.portal-adicional-puntos li {
+  font-size: .95rem;
+  color: var(--gray-dark);
+  line-height: 1.55;
+  padding-left: 18px;
+  border-left: 3px solid var(--mantencion-accent);
+}
+.portal-adicional-puntos strong { color: var(--text); }
+.portal-adicional-pie { margin-top: 28px; font-size: .85rem; color: var(--gray); }
+@media (max-width: 800px) {
+  .portal-adicional { padding: 64px 16px 72px; }
+  .portal-adicional-grid, .portal-adicional-puntos { grid-template-columns: 1fr; }
+}
+
+/* ── Rubros (index.html) ──────────────────────────────────────────────── */
+.rubros { padding: 90px 5% 80px; background: var(--white); }
+.rubros-cabecera { max-width: 780px; margin: 0 0 36px; }
+.rubros-cabecera .section-title { margin-top: 0; }
+.rubros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+.rubro {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 22px;
+}
+.rubro-ico { font-size: 1.6rem; line-height: 1; margin-bottom: 12px; }
+.rubro h3 { font-family: 'Fraunces', serif; font-size: 1.12rem; margin: 0 0 8px; color: var(--text); }
+.rubro p { font-size: .92rem; color: var(--gray); line-height: 1.55; margin: 0 0 12px; }
+.rubro a { font-size: .9rem; font-weight: 500; color: var(--green); text-decoration: none; }
+.rubro a:hover { text-decoration: underline; }
+.rubros-resumen {
+  margin-top: 36px;
+  max-width: 820px;
+  font-size: .98rem;
+  color: var(--gray-dark);
+  line-height: 1.65;
+}
+@media (max-width: 700px) { .rubros { padding: 64px 16px 60px; } }
