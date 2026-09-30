@@ -62,10 +62,10 @@ p{margin:0 0 1em}
   backdrop-filter:blur(8px);border-bottom:1px solid var(--borde);
 }
 .header-in{
-  max-width:var(--max);margin:0 auto;padding:0 24px;height:88px;
+  max-width:var(--max);margin:0 auto;padding:0 24px;height:98px;
   display:flex;align-items:center;gap:28px;
 }
-.logo img{width:212px;height:auto}
+.logo img{width:265px;height:auto}
 .nav{display:flex;align-items:center;gap:26px;margin-left:auto}
 .nav a{
   text-decoration:none;font-size:15px;font-weight:500;color:var(--navy);
@@ -432,7 +432,7 @@ p{margin:0 0 1em}
 @media (max-width:760px){
   .seccion{padding:52px 0}
   .nav{
-    position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;
+    position:absolute;top:80px;left:0;right:0;background:#fff;flex-direction:column;
     align-items:stretch;gap:0;padding:8px 24px 20px;border-bottom:1px solid var(--borde);
     box-shadow:var(--sombra);display:none;
   }
@@ -441,8 +441,8 @@ p{margin:0 0 1em}
   .nav a.activo{border-bottom-color:var(--borde);color:var(--verde)}
   .nav .btn{margin:14px 0 0;justify-content:center}
   .hamburguesa{display:block}
-  .header-in{position:relative;height:72px}
-  .logo img{width:164px}
+  .header-in{position:relative;height:80px}
+  .logo img{width:205px}
   .col-2,.col-3,.col-4,.col-5,.rejilla{grid-template-columns:1fr}
   .marcas-grid{grid-template-columns:repeat(2,1fr)}
   .franja-benef{grid-template-columns:repeat(2,1fr)}
@@ -522,4 +522,30 @@ p{margin:0 0 1em}
   .foto-medio .foto{aspect-ratio:16/10}
   .hero-grid-foto{grid-template-columns:1fr}
   .hero-grid-foto .hero-visual .foto + aside{width:100%;margin-left:0}
+}
+
+/* Pantallas medianas: el logo grande no deja espacio al menú completo */
+@media (min-width:761px) and (max-width:1120px){
+  .logo img{width:200px}
+  .nav{gap:18px}
+}
+
+/* Inicio: foto a todo el ancho de la columna y la tarjeta azul debajo */
+.hero-visual-apilado{flex-direction:column;align-items:stretch}
+.hero-visual-apilado .foto{flex:none;align-self:stretch}
+.hero-grid-foto .hero-visual-apilado .foto + aside{
+  width:auto;margin:-46px 0 0 48px;align-self:stretch;padding:24px 26px;
+}
+.hero-visual-apilado .panel-navy h3{font-size:20px;margin-bottom:14px}
+.hero-visual-apilado .panel-navy .checks{grid-template-columns:1fr 1fr;gap:10px 22px}
+.hero-visual-apilado .panel-navy .checks li{font-size:14px}
+
+/* Inicio: la foto del centro un 20% más grande */
+.foto-medio-grande{grid-template-columns:1fr 1.07fr 1fr;gap:24px}
+@media (max-width:1024px){
+  .hero-grid-foto .hero-visual-apilado .foto + aside{margin:16px 0 0}
+  .foto-medio-grande{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .hero-visual-apilado .panel-navy .checks{grid-template-columns:1fr}
 }
