@@ -10,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/estilos.css">
-<link rel="icon" href="img/favicon.png">
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 <!--SPRITE-->
@@ -62,7 +64,7 @@
 
 <header class="header">
   <div class="header-in">
-    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología"></a>
+    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología" width="212" height="58"></a>
     <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false"><svg><use href="#i-menu"></use></svg></button>
     <nav class="nav">
       <a href="index.html">Inicio</a>
@@ -80,7 +82,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="contenedor hero-grid">
+    <div class="contenedor hero-grid hero-grid-foto">
       <div>
         <h1>Cómo funciona</h1>
         <h2 style="margin-top:-.2em">Nosotros nos encargamos de todo.</h2>
@@ -91,33 +93,7 @@
       </div>
 
       <div class="hero-visual">
-        <div>
-          <div class="mock">
-            <div class="mock-top">
-              <span class="mock-lineas"><i></i><i></i><i></i></span>
-              <span class="mock-buscar">Buscar productos…</span>
-              <span class="mock-cart"><svg><use href="#i-carro"></use></svg></span>
-            </div>
-            <div class="mock-banner">
-              <b>Tecnología sin límites</b>
-              <span>Las mejores marcas, ahora en tu tienda.</span>
-              <i>Ver productos</i>
-            </div>
-            <div class="mock-grid">
-              <div class="mock-item"><svg><use href="#i-notebook"></use></svg><span>Notebooks</span></div>
-              <div class="mock-item"><svg><use href="#i-torre"></use></svg><span>PC de escritorio</span></div>
-              <div class="mock-item"><svg><use href="#i-monitor"></use></svg><span>Monitores</span></div>
-              <div class="mock-item"><svg><use href="#i-impresora"></use></svg><span>Impresoras</span></div>
-              <div class="mock-item"><svg><use href="#i-accesorios"></use></svg><span>Accesorios</span></div>
-              <div class="mock-item"><svg><use href="#i-audio"></use></svg><span>Audio</span></div>
-              <div class="mock-item"><svg><use href="#i-router"></use></svg><span>Redes</span></div>
-              <div class="mock-item"><svg><use href="#i-almacenamiento"></use></svg><span>Almacenamiento</span></div>
-              <div class="mock-item"><svg><use href="#i-componentes"></use></svg><span>Componentes</span></div>
-              <div class="mock-item"><svg><use href="#i-gaming"></use></svg><span>Gaming</span></div>
-            </div>
-          </div>
-          <div class="mock-base"></div>
-        </div>
+        <img class="foto" src="img/notebook-tu-tienda.jpg" alt="Notebook con una tienda online que vende tecnología" width="949" height="633">
         <aside class="panel-blanco">
           <ul class="checks">
             <li><svg><use href="#i-check"></use></svg> Tu marca</li>

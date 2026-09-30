@@ -10,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/estilos.css">
-<link rel="icon" href="img/favicon.png">
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 <!--SPRITE-->
@@ -62,7 +64,7 @@
 
 <header class="header">
   <div class="header-in">
-    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología"></a>
+    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología" width="212" height="58"></a>
     <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false"><svg><use href="#i-menu"></use></svg></button>
     <nav class="nav">
       <a href="index.html">Inicio</a>
@@ -80,7 +82,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="contenedor hero-grid">
+    <div class="contenedor hero-grid hero-grid-foto">
       <div>
         <h1>Las mejores marcas<br>de tecnología, <span class="ac">en tu tienda</span></h1>
         <p class="sub">Trabajamos con marcas líderes y mayoristas especializados para llevar a tu e-commerce o marketplace un catálogo amplio, confiable y siempre actualizado.</p>
@@ -105,27 +107,7 @@
       </div>
 
       <div class="hero-visual">
-        <div>
-          <div class="mock">
-            <div class="mock-top">
-              <span class="mock-lineas"><i></i><i></i><i></i></span>
-              <span class="mock-buscar">Buscar productos…</span>
-              <span class="mock-cart"><svg><use href="#i-carro"></use></svg></span>
-            </div>
-            <div class="mock-banner">
-              <b>Tecnología sin límites</b>
-              <span>Las mejores marcas, ahora en tu tienda.</span>
-              <i>Ver productos</i>
-            </div>
-            <div class="mock-grid" style="grid-template-columns:repeat(4,1fr)">
-              <div class="mock-item"><svg><use href="#i-torre"></use></svg><span>Computadores</span></div>
-              <div class="mock-item"><svg><use href="#i-monitor"></use></svg><span>Monitores</span></div>
-              <div class="mock-item"><svg><use href="#i-impresora"></use></svg><span>Impresoras</span></div>
-              <div class="mock-item"><svg><use href="#i-accesorios"></use></svg><span>Accesorios</span></div>
-            </div>
-          </div>
-          <div class="mock-base"></div>
-        </div>
+        <img class="foto" src="img/productos-foto.jpg" alt="Impresora, notebook, monitor, audífonos, mouse, teclado y cámara web" width="1400" height="700">
         <aside class="panel-navy">
           <h3>Las marcas que tus clientes quieren, con el respaldo de GoChannel.</h3>
         </aside>
@@ -198,7 +180,7 @@
   <!-- Marcas que impulsan tu negocio -->
   <section class="seccion">
     <div class="contenedor">
-      <div class="banner">
+      <div class="banner banner-foto">
         <div>
           <h2>Marcas que impulsan tu negocio</h2>
           <p>En GoChannel seleccionamos cuidadosamente nuestras marcas y mayoristas para asegurar calidad, disponibilidad y el mejor mix de productos. Tú te enfocas en tus clientes, nosotros en el resto.</p>
@@ -209,6 +191,7 @@
           <li><svg><use href="#i-acuerdo"></use></svg> Relación directa con mayoristas oficiales</li>
           <li><svg><use href="#i-grafico"></use></svg> Análisis de desempeño y oportunidades de crecimiento</li>
         </ul>
+        <img class="foto" src="img/cajas-marcas.jpg" alt="Cajas de productos HP, Lenovo, Dell y Samsung" width="1400" height="887" loading="lazy">
       </div>
     </div>
   </section>

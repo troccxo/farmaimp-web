@@ -10,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/estilos.css">
-<link rel="icon" href="img/favicon.png">
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 <!--SPRITE-->
@@ -62,7 +64,7 @@
 
 <header class="header">
   <div class="header-in">
-    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología"></a>
+    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología" width="212" height="58"></a>
     <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false"><svg><use href="#i-menu"></use></svg></button>
     <nav class="nav">
       <a href="index.html" class="activo">Inicio</a>
@@ -80,7 +82,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="contenedor hero-grid">
+    <div class="contenedor hero-grid hero-grid-foto">
       <div>
         <h1>Llevamos la tecnología<br>a tu negocio, <span class="ac">sin complicaciones.</span></h1>
         <p class="sub">Incorporamos la categoría de tecnología y computación a tu e-commerce o marketplace, y la administramos por ti.</p>
@@ -96,29 +98,7 @@
       </div>
 
       <div class="hero-visual">
-        <div>
-          <div class="mock">
-            <div class="mock-top">
-              <span class="mock-lineas"><i></i><i></i><i></i></span>
-              <span class="mock-buscar">Buscar productos de tecnología…</span>
-              <span class="mock-cart"><svg><use href="#i-carro"></use></svg></span>
-            </div>
-            <h3>Tecnología</h3>
-            <div class="mock-grid">
-              <div class="mock-item"><svg><use href="#i-torre"></use></svg><span>Computadores</span></div>
-              <div class="mock-item"><svg><use href="#i-notebook"></use></svg><span>Notebooks</span></div>
-              <div class="mock-item"><svg><use href="#i-monitor"></use></svg><span>Monitores</span></div>
-              <div class="mock-item"><svg><use href="#i-impresora"></use></svg><span>Impresoras</span></div>
-              <div class="mock-item"><svg><use href="#i-accesorios"></use></svg><span>Accesorios</span></div>
-              <div class="mock-item"><svg><use href="#i-componentes"></use></svg><span>Componentes</span></div>
-              <div class="mock-item"><svg><use href="#i-router"></use></svg><span>Redes</span></div>
-              <div class="mock-item"><svg><use href="#i-almacenamiento"></use></svg><span>Almacenamiento</span></div>
-              <div class="mock-item"><svg><use href="#i-audio"></use></svg><span>Audio</span></div>
-              <div class="mock-item"><svg><use href="#i-gaming"></use></svg><span>Gaming</span></div>
-            </div>
-          </div>
-          <div class="mock-base"></div>
-        </div>
+        <img class="foto" src="img/notebook-tecnologia.jpg" alt="Notebook mostrando la categoría Tecnología en una tienda online" width="1400" height="832">
         <aside class="panel-navy">
           <h3>Las mejores marcas de tecnología en tu tienda online</h3>
           <ul class="checks">
@@ -159,12 +139,14 @@
 
   <!-- Una nueva categoría -->
   <section class="seccion">
-    <div class="contenedor tri-col">
+    <div class="contenedor foto-medio">
       <div class="caja-navy">
         <h2>Una nueva categoría para hacer crecer tu negocio</h2>
         <p>La tecnología es una de las categorías más demandadas. Con GoChannel puedes ofrecer un gran mix de productos, sin compras de stock, sin análisis complejo y sin riesgos.</p>
         <a class="btn btn-verde" href="#contacto">Conversemos <svg><use href="#i-flecha"></use></svg></a>
       </div>
+
+      <img class="foto" src="img/mujer-notebook.jpg" alt="Emprendedora revisando su tienda online en un notebook" width="893" height="687" loading="lazy">
 
       <div>
         <h3 style="margin-bottom:16px">¿Por qué trabajar con GoChannel?</h3>
@@ -179,11 +161,10 @@
           <li><svg><use href="#i-check"></use></svg> Formamos parte de la administración de la categoría</li>
           <li><svg><use href="#i-check"></use></svg> Análisis conjunto de costo, margen y venta</li>
         </ul>
-      </div>
-
-      <div class="tarjeta">
-        <svg class="ico ico-g"><use href="#i-tienda"></use></svg>
-        <h3>Cualquier empresa o cadena de tiendas puede vender tecnología con GoChannel</h3>
+        <div class="tarjeta tarjeta-fila">
+          <svg class="ico ico-g"><use href="#i-tienda"></use></svg>
+          <h3>Cualquier empresa o cadena de tiendas puede vender tecnología con GoChannel</h3>
+        </div>
       </div>
     </div>
   </section>
@@ -217,7 +198,7 @@
           </div>
         </div>
       </div>
-      <img src="img/productos.png" alt="Notebook, monitor, impresora, audífonos y accesorios de tecnología" width="334" height="170" style="width:100%;max-width:400px;margin-left:auto">
+      <img class="foto" src="img/productos-foto.jpg" alt="Notebook, monitor, impresora, audífonos y accesorios de tecnología" width="1400" height="700" loading="lazy" style="max-width:460px;margin-left:auto">
     </div>
   </section>
 

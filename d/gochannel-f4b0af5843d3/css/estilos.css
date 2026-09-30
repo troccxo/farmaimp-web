@@ -62,10 +62,10 @@ p{margin:0 0 1em}
   backdrop-filter:blur(8px);border-bottom:1px solid var(--borde);
 }
 .header-in{
-  max-width:var(--max);margin:0 auto;padding:0 24px;height:76px;
+  max-width:var(--max);margin:0 auto;padding:0 24px;height:88px;
   display:flex;align-items:center;gap:28px;
 }
-.logo img{width:158px}
+.logo img{width:212px;height:auto}
 .nav{display:flex;align-items:center;gap:26px;margin-left:auto}
 .nav a{
   text-decoration:none;font-size:15px;font-weight:500;color:var(--navy);
@@ -432,7 +432,7 @@ p{margin:0 0 1em}
 @media (max-width:760px){
   .seccion{padding:52px 0}
   .nav{
-    position:absolute;top:76px;left:0;right:0;background:#fff;flex-direction:column;
+    position:absolute;top:72px;left:0;right:0;background:#fff;flex-direction:column;
     align-items:stretch;gap:0;padding:8px 24px 20px;border-bottom:1px solid var(--borde);
     box-shadow:var(--sombra);display:none;
   }
@@ -441,7 +441,8 @@ p{margin:0 0 1em}
   .nav a.activo{border-bottom-color:var(--borde);color:var(--verde)}
   .nav .btn{margin:14px 0 0;justify-content:center}
   .hamburguesa{display:block}
-  .header-in{position:relative}
+  .header-in{position:relative;height:72px}
+  .logo img{width:164px}
   .col-2,.col-3,.col-4,.col-5,.rejilla{grid-template-columns:1fr}
   .marcas-grid{grid-template-columns:repeat(2,1fr)}
   .franja-benef{grid-template-columns:repeat(2,1fr)}
@@ -491,3 +492,34 @@ p{margin:0 0 1em}
   background:rgba(30,166,47,.22);border-color:rgba(30,166,47,.55);
 }
 .visual-modelo .chip-grande svg{width:62px;height:62px;color:#4ade6a}
+
+/* ---------- Fotografías (cambios v1, 30-sep) ---------- */
+.foto{width:100%;height:auto;border-radius:var(--r);box-shadow:var(--sombra-f);object-fit:cover}
+.hero-visual .foto{flex:1;min-width:0;align-self:center}
+.hero-grid-foto{grid-template-columns:.9fr 1.25fr;gap:40px}
+.hero-grid-foto .hero-visual .foto + aside{width:220px;margin-left:-80px}
+
+/* Bloque azul | foto | texto */
+.foto-medio{display:grid;grid-template-columns:1fr .82fr 1fr;gap:30px;align-items:center}
+.foto-medio .foto{aspect-ratio:4/3.6}
+.tarjeta-fila{display:flex;align-items:center;gap:14px;text-align:left;margin-top:22px;padding:16px 18px}
+.tarjeta-fila .ico-g{margin:0}
+.tarjeta-fila h3{margin:0;font-size:14.5px}
+
+/* Banner con foto a la derecha */
+.banner-foto{grid-template-columns:1.05fr .9fr 1fr;gap:34px}
+.banner-foto .foto{box-shadow:0 10px 30px rgba(0,0,0,.28)}
+
+/* Foto montada sobre el bloque azul (Modelo de Negocio) */
+.tarjeta-foto{border-radius:var(--r);overflow:hidden;box-shadow:var(--sombra-f)}
+.tarjeta-foto img{width:100%;height:auto}
+.tarjeta-foto .caja-navy{border-radius:0}
+
+.visual-modelo-bajo{max-width:340px;margin:16px 0 0 auto;padding:20px;gap:10px}
+
+@media (max-width:1024px){
+  .foto-medio,.banner-foto{grid-template-columns:1fr}
+  .foto-medio .foto{aspect-ratio:16/10}
+  .hero-grid-foto{grid-template-columns:1fr}
+  .hero-grid-foto .hero-visual .foto + aside{width:100%;margin-left:0}
+}

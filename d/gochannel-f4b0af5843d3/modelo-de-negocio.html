@@ -10,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/estilos.css">
-<link rel="icon" href="img/favicon.png">
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 <!--SPRITE-->
@@ -62,7 +64,7 @@
 
 <header class="header">
   <div class="header-in">
-    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología"></a>
+    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología" width="212" height="58"></a>
     <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false"><svg><use href="#i-menu"></use></svg></button>
     <nav class="nav">
       <a href="index.html">Inicio</a>
@@ -88,7 +90,9 @@
           <a class="btn btn-verde" href="#contacto">Quiero incorporar tecnología <svg><use href="#i-flecha"></use></svg></a>
         </div>
       </div>
-      <div class="visual-modelo" aria-hidden="true">
+      <div>
+        <img class="foto" src="img/manos-celular.jpg" alt="Manos con un celular del que surgen un carro de compras e íconos de marcas y productos de tecnología" width="1098" height="564">
+        <div class="visual-modelo visual-modelo-bajo" aria-hidden="true">
         <div class="chip"><svg><use href="#i-notebook"></use></svg></div>
         <div class="chip"><svg><use href="#i-monitor"></use></svg></div>
         <div class="chip chip-grande"><svg><use href="#i-carro"></use></svg></div>
@@ -98,6 +102,7 @@
         <div class="chip"><svg><use href="#i-router"></use></svg></div>
         <div class="chip"><svg><use href="#i-almacenamiento"></use></svg></div>
         <div class="chip"><svg><use href="#i-camara"></use></svg></div>
+        </div>
       </div>
     </div>
   </section>
@@ -187,9 +192,12 @@
       <div class="inv" style="margin-top:28px">
         <p style="margin:0">El catálogo se alimenta desde proveedores y mayoristas conectados. Stock, disponibilidad, precios y pedidos se sincronizan con el canal de venta, reduciendo inversión en inventario y riesgo de obsolescencia.</p>
 
-        <div class="caja-navy" style="text-align:center;padding:28px 22px">
-          <svg class="ico ico-g" style="color:#4ade6a;width:44px;height:44px;margin:0 auto 12px"><use href="#i-caja"></use></svg>
-          <h3 style="margin:0">Tecnología sin límites para tu negocio</h3>
+        <div class="tarjeta-foto">
+          <img src="img/caja-bodega.jpg" alt="Caja con el texto Tecnología sin límites para tu negocio sobre una cinta transportadora en una bodega" width="673" height="307" loading="lazy">
+          <div class="caja-navy" style="text-align:center;padding:24px 22px">
+            <svg class="ico ico-g" style="color:#4ade6a;width:44px;height:44px;margin:0 auto 12px"><use href="#i-caja"></use></svg>
+            <h3 style="margin:0">Tecnología sin límites para tu negocio</h3>
+          </div>
         </div>
 
         <ul class="checks">

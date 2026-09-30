@@ -10,7 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/estilos.css">
-<link rel="icon" href="img/favicon.png">
+<link rel="icon" href="img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 </head>
 <body>
 <!--SPRITE-->
@@ -62,7 +64,7 @@
 
 <header class="header">
   <div class="header-in">
-    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología"></a>
+    <a class="logo" href="index.html"><img src="img/logo.png" alt="GoChannel — activamos la venta de tecnología" width="212" height="58"></a>
     <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false"><svg><use href="#i-menu"></use></svg></button>
     <nav class="nav">
       <a href="index.html">Inicio</a>
@@ -79,10 +81,13 @@
 <main>
 
   <!-- Hero -->
-  <section class="hero" style="padding:52px 0 44px">
-    <div class="contenedor">
-      <h1>Principales beneficios</h1>
-      <p class="sub">Tú te enfocas en tu negocio. Nosotros nos encargamos de la tecnología.</p>
+  <section class="hero" style="padding:52px 0 52px">
+    <div class="contenedor hero-grid">
+      <div>
+        <h1>Principales beneficios</h1>
+        <p class="sub">Tú te enfocas en tu negocio. Nosotros nos encargamos de la tecnología.</p>
+      </div>
+      <img class="foto" src="img/notebook-tecnologia.jpg" alt="Notebook mostrando la categoría Tecnología en una tienda online" width="1400" height="832" style="max-width:560px;margin-left:auto">
     </div>
   </section>
 
@@ -146,12 +151,13 @@
 
   <!-- Categoría relevante / Ideal para -->
   <section class="seccion" style="padding-top:0">
-    <div class="contenedor dos-col">
+    <div class="contenedor foto-medio">
       <div class="caja-navy">
         <h2>Una categoría relevante, con gran potencial.</h2>
         <p>La tecnología y computación es una de las categorías más demandadas y de mayor crecimiento en el comercio electrónico. Con GoChannel, puedes ofrecerla de forma simple, segura y rentable.</p>
         <a class="btn btn-verde" href="#contacto">Hablemos de tu proyecto <svg><use href="#i-flecha"></use></svg></a>
       </div>
+      <img class="foto" src="img/hombre-notebook.jpg" alt="Profesional sonriendo mientras trabaja en su notebook" width="858" height="784" loading="lazy">
       <div class="caja-sup">
         <h3 style="margin-bottom:18px">Ideal para:</h3>
         <ul class="checks">
