@@ -20,6 +20,16 @@
 //
 // El prefijo es el del .exe de cada vertical:
 //   farma-imp-  ·  imp-quiosco-  ·  mantencion-imp-
+//
+// Otras versiones de Windows (hoy sólo Mantención): links chicos bajo el botón,
+// cada uno con el prefijo de su instalador. Si el release no lo trae, el link
+// se quita; si no queda ninguno, la línea entera queda oculta.
+//   <p data-descarga-otras hidden>¿Otro Windows?
+//     <a data-descarga-alt="mantencion-imp-32bits-">Windows 10 de 32 bits</a> …</p>
+//
+// El nombre del .exe es exactamente <prefijo><versión>.exe (versión x.y.z):
+// así "mantencion-imp-" no confunde el instalador de 64 bits con
+// "mantencion-imp-32bits-2.15.0.exe" ni con el legacy.
 
 const DESCARGA_REPO = 'troccxo/farma-imp-releases';
 
@@ -61,6 +71,37 @@ function mostrarAvisoDescarga(nombre) {
 
 // ─── Resolución del botón ────────────────────────────────────────────────────
 
+// El primer release (de más nuevo a más viejo) que traiga <prefijo>x.y.z.exe.
+function buscarInstalador(releases, prefijo) {
+  for (const r of releases) {
+    const asset = (r.assets || []).find(a =>
+      a.name.startsWith(prefijo) && /^\d+\.\d+\.\d+\.exe$/i.test(a.name.slice(prefijo.length)));
+    if (asset) return { release: r, asset };
+  }
+  return { release: null, asset: null };
+}
+
+// Links a los instaladores de otras versiones de Windows. Los que no estén
+// publicados se quitan, para no ofrecer nada que no se pueda bajar.
+function resolverOtrasVersiones(releases) {
+  const linea = document.querySelector('[data-descarga-otras]');
+  if (!linea) return;
+  let alguno = false;
+  linea.querySelectorAll('[data-descarga-alt]').forEach(a => {
+    const { release, asset } = buscarInstalador(releases, a.dataset.descargaAlt);
+    if (!asset) { a.remove(); return; }
+    a.href = asset.browser_download_url;
+    a.title = `Versión ${release.tag_name.replace(/^v/i, '')} · ${Math.round(asset.size / (1024 * 1024))} MB`;
+    alguno = true;
+  });
+  // Separadores que quedaron colgando si se quitó algún link.
+  linea.querySelectorAll('.sep').forEach(sep => {
+    const antes = sep.previousElementSibling, despues = sep.nextElementSibling;
+    if (!antes?.matches('a') || !despues?.matches('a')) sep.remove();
+  });
+  if (alguno) linea.hidden = false;
+}
+
 async function resolverDescarga() {
   const boton = document.querySelector('[data-descarga]');
   if (!boton) return;
@@ -101,14 +142,10 @@ async function resolverDescarga() {
     });
     if (!res.ok) throw new Error(`GitHub respondió ${res.status}`);
 
-    let release = null;
-    let asset = null;
-    for (const r of await res.json()) {
-      if (r.draft || r.prerelease) continue;
-      asset = (r.assets || []).find(a => a.name.startsWith(prefijo) && a.name.endsWith('.exe'));
-      if (asset) { release = r; break; }
-    }
+    const releases = (await res.json()).filter(r => !r.draft && !r.prerelease);
+    const { release, asset } = buscarInstalador(releases, prefijo);
     if (!asset) throw new Error(`ningún release reciente trae ${prefijo}*.exe`);
+    resolverOtrasVersiones(releases);
 
     // Sin atributo `download`: es cross-origin y el navegador lo ignora.
     // GitHub sirve el .exe con Content-Disposition: attachment, así que baja igual.
@@ -120,7 +157,8 @@ async function resolverDescarga() {
       const fecha = new Date(release.published_at)
         .toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
       // El tag se ha escrito como v2.6.0 y como V2.6.0; se acepta cualquiera.
-      info.textContent = `Versión ${release.tag_name.replace(/^v/i, '')} · Windows · ${mb} MB · ${fecha}`;
+      const windows = document.querySelector('[data-descarga-otras]') ? 'Windows 10 y 11 (64 bits)' : 'Windows';
+      info.textContent = `Versión ${release.tag_name.replace(/^v/i, '')} · ${windows} · ${mb} MB · ${fecha}`;
     }
   } catch {
     // Sin instalador o sin API: se queda en modo aviso. No se ofrece ninguna

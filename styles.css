@@ -214,6 +214,10 @@ nav ul a:hover { color: var(--green); }
 }
 a[data-descarga] { cursor: pointer; }
 
+/* Links a los instaladores de otras versiones de Windows (32 bits, legacy). */
+.hero-descarga-otras { margin-top: 0.35rem; }
+.hero-descarga-otras a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
 /* Botón de descarga sin instalador disponible. Sigue siendo clickeable a
    propósito: al pulsarlo abre el aviso que invita a pedir acceso. */
 .btn-no-disponible {
