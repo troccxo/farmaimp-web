@@ -20,7 +20,7 @@
       var q = buscarMarca.value.trim().toLowerCase();
       var visibles = 0;
       marcas.forEach(function (m) {
-        var calza = m.textContent.toLowerCase().indexOf(q) !== -1;
+        var calza = (m.getAttribute('data-marca') || m.textContent).toLowerCase().indexOf(q) !== -1;
         m.style.display = calza ? '' : 'none';
         if (calza) visibles++;
       });
