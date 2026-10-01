@@ -198,6 +198,16 @@ p{margin:0 0 1em}
   letter-spacing:-.01em;opacity:.78;transition:.2s;
 }
 .marca:hover{opacity:1}
+.marcas-fila .marca{opacity:1}
+.marcas-fila{gap:18px}
+.marcas-fila .marca img{width:88px;height:30px;object-fit:contain}
+.marcas-fila .marca-ico img{height:38px}
+@media (max-width:1024px){
+  .marcas-fila{display:grid;grid-template-columns:repeat(6,1fr);justify-items:center;gap:22px 12px}
+}
+@media (max-width:760px){
+  .marcas-fila{grid-template-columns:repeat(3,1fr)}
+}
 .marcas-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
 .marcas-grid .marca{
   background:#fff;border:1px solid var(--borde);border-radius:var(--r-s);
