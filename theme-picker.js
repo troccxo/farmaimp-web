@@ -53,6 +53,18 @@ function light(name, desc, p) {
       '--card-bg':    p.white,
       '--input-bg':   p.white,
       '--on-accent':  '#ffffff',
+      // Diseño nuevo (sitio.css)
+      '--acento':       p.green,
+      '--acento-hover': p.greenDark,
+      '--acento-vivo':  p.greenLight,
+      '--acento-suave': p.greenPale,
+      '--tinta':        p.text,
+      '--fondo':        p.offWhite,
+      '--superficie':   p.white,
+      '--neutro':       p.gray,
+      '--linea':        p.border,
+      '--sobre-acento': '#ffffff',
+      '--plancha':      p.text,   // la franja oscura sale de la tinta de cada combinación
     },
   };
 }
@@ -97,12 +109,31 @@ function dark(name, desc, p) {
       '--card-bg':    p.surfaceLow,
       '--input-bg':   p.surfaceLow,
       '--on-accent':  p.bg,    // texto sobre acento brillante = bg oscuro (mejor que blanco)
+      // Diseño nuevo (sitio.css)
+      '--acento':       p.accent,
+      '--acento-hover': p.accentLight,
+      '--acento-vivo':  p.accent,
+      '--acento-suave': p.surfaceLow,
+      '--tinta':        p.text,
+      '--fondo':        p.bg,
+      '--superficie':   p.surfaceLow,
+      '--neutro':       p.muted,
+      '--linea':        p.border,
+      '--sobre-acento': p.bg,
+      '--plancha':      p.surfaceHigh,
     },
   };
 }
 
 const PRESETS = [
-  light('Verde Clásico', 'Default actual', {
+  light('Marca IMP', 'Verde pino de la marca, el original', {
+    id: 'marca',
+    green: '#0E6B4F', greenLight: '#4FB58E', greenPale: '#E4EFEA', greenDark: '#0B5A42',
+    white: '#FFFFFF', offWhite: '#F7F8F7',
+    gray: '#5E6D66', grayDark: '#3B4843',
+    text: '#14201C', border: '#D6DDD9',
+  }),
+  light('Verde Clásico', 'El verde de la web anterior', {
     id: 'verde-clasico',
     green: '#1a6b3a', greenLight: '#2d9e57', greenPale: '#e8f5ed', greenDark: '#0f4424',
     white: '#ffffff', offWhite: '#f8faf9',
@@ -227,9 +258,9 @@ const STORAGE_OVERRIDES = 'imp-theme-overrides';
 // --off-white (sección alterna) a un tono levemente distinto para no perder
 // el contraste entre secciones.
 const CUSTOM_VARS = {
-  text:    { label: 'Color de la fuente', vars: ['--text'] },
-  header:  { label: 'Color del header',   vars: ['--header-bg'] },
-  bg:      { label: 'Color del fondo',    vars: ['--white'] },
+  text:    { label: 'Color de la fuente', vars: ['--text', '--tinta'] },
+  header:  { label: 'Color del header',   vars: ['--header-bg', '--nav-fondo'] },
+  bg:      { label: 'Color del fondo',    vars: ['--white', '--fondo'] },
 };
 
 function getOverrides() {
@@ -283,7 +314,7 @@ function setOverride(key, color) {
 function clearOverrides() {
   setOverrides({});
   // Re-aplica el preset actual para limpiar los overrides aplicados
-  const saved = localStorage.getItem(STORAGE_KEY) || 'verde-clasico';
+  const saved = localStorage.getItem(STORAGE_KEY) || 'marca';
   const preset = PRESETS.find(p => p.id === saved) || PRESETS[0];
   applyPreset(preset);
   syncPickers();
@@ -298,7 +329,7 @@ function resetTheme() {
   localStorage.removeItem(STORAGE_KEY);
   localStorage.removeItem(STORAGE_OVERRIDES);
   document.querySelectorAll('.tp-preset').forEach(el => el.classList.remove('active'));
-  document.querySelector('.tp-preset[data-id="verde-clasico"]')?.classList.add('active');
+  document.querySelector('.tp-preset[data-id="marca"]')?.classList.add('active');
   syncPickers();
 }
 
@@ -348,8 +379,8 @@ function buildUI() {
     .tp-toggle {
       /* Apilado por encima del botón de WhatsApp, que se queda con la
          esquina: es el que convierte. Si se mueve uno, mover el otro. */
-      position: fixed; bottom: 72px; right: 22px;
-      width: 48px; height: 48px;
+      position: fixed; bottom: 66px; right: 18px;
+      width: 44px; height: 44px;
       border-radius: 50%;
       background: #1a1a1a; color: white;
       border: 2px solid rgba(255,255,255,0.15);
@@ -364,7 +395,7 @@ function buildUI() {
     .tp-toggle:hover { transform: scale(1.08) rotate(15deg); }
 
     .tp-panel {
-      position: fixed; bottom: 132px; right: 22px;
+      position: fixed; bottom: 120px; right: 18px;
       width: 320px; max-width: calc(100vw - 44px); max-height: 70vh; overflow-y: auto;
       background: #1a1a1a;
       color: white;
@@ -599,7 +630,7 @@ function buildUI() {
   });
 
   // Marcar el preset actual y sincronizar pickers
-  const current = localStorage.getItem(STORAGE_KEY) || 'verde-clasico';
+  const current = localStorage.getItem(STORAGE_KEY) || 'marca';
   document.querySelector(`.tp-preset[data-id="${current}"]`)?.classList.add('active');
   syncPickers();
 }

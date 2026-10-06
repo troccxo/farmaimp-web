@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="IMP Systems">
+  <title>IMP Systems — isotipo</title>
+  <!-- Tres barras verticales de distinta altura: los verticales del producto
+       (farmacia, mantención, quiosco, minera) sobre una misma base. -->
+  <rect width="64" height="64" rx="14" fill="#0E6B4F"/>
+  <g fill="#F7F8F7">
+    <rect x="15" y="32" width="8" height="18" rx="4"/>
+    <rect x="28" y="14" width="8" height="36" rx="4"/>
+    <rect x="41" y="25" width="8" height="25" rx="4"/>
+  </g>
+</svg>
