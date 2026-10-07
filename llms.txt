@@ -8,7 +8,7 @@ Datos clave:
 - Cómo funciona: se instala en computadores con Windows 10 o superior, guarda la información en la nube y se actualiza sola.
 - Boleta electrónica: en la versión para quioscos y almacenes, la boleta se emite sola al cerrar cada venta, en el sistema gratuito de boletas del SII y con la cuenta del propio negocio, afecta o exenta según el producto. Si el SII o internet fallan, la venta se hace igual y la boleta queda pendiente para emitirse después.
 - Venta por peso: los productos se venden por unidad o por kilo, con el precio calculado solo y el stock llevado en kilos.
-- Precio: valor referencial desde 1,5 UF mensuales para almacenes, quioscos y farmacias, ajustado al tamaño del negocio. La versión para servicios en terreno se cotiza según la operación.
+- Precio: valor referencial de aprox. 0,7 UF mensuales para quioscos y almacenes y aprox. 1,22 UF para farmacias, ajustado al tamaño del negocio. La versión para servicios en terreno se cotiza según la operación.
 - Contacto: contacto@impsystems.cl · WhatsApp y teléfono +56 9 7877 2578 · Santiago, Chile.
 
 ## Productos

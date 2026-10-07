@@ -116,7 +116,7 @@
         "name": "¿Cuánto cuesta?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Farma IMP e IMP Systems para quioscos parten en torno a 1,5 UF mensuales como valor referencial, que se ajusta al tamaño del negocio y a los módulos que uses. Mantención IMP se cotiza según el tamaño de la cartera de clientes, la cantidad de maestros y el volumen mensual de tickets."
+          "text": "IMP Systems para quioscos y almacenes parte en aprox. 0,7 UF mensuales y Farma IMP en aprox. 1,22 UF mensuales, como valor referencial que se ajusta al tamaño del negocio y a los módulos que uses. Mantención IMP se cotiza según el tamaño de la cartera de clientes, la cantidad de maestros y el volumen mensual de tickets."
         }
       },
       {
@@ -146,246 +146,291 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="sitio.css">
 </head>
 <body>
 
 <header class="nav">
   <div class="envoltura">
-    <a href="index.html" class="marca" aria-label="IMP Systems, inicio">
-      <img src="img/imp-isotipo.svg" width="30" height="30" alt="">
-      <span class="marca-texto"><b>IMP</b><span>SYSTEMS</span></span>
-    </a>
-    <ul>
-      <li class="nav-opcional"><a href="#productos">Productos</a></li>
-      <li class="nav-opcional"><a href="#precio">Precio</a></li>
-      <li class="nav-opcional"><a href="#nosotros">Quiénes somos</a></li>
-      <li class="nav-opcional"><a href="portal/">Portal de clientes</a></li>
-      <li><a href="#contacto" class="btn">Contacto</a></li>
-    </ul>
+    <div class="nav-izq">
+      <a href="index.html" class="marca" aria-label="IMP Systems, inicio">
+        <img src="img/imp-isotipo.svg" width="30" height="30" alt=""><b>IMP</b><span>Systems</span>
+      </a>
+      <ul>
+        <li><a href="quiosco.html">Quioscos y almacenes</a></li>
+        <li><a href="farma.html">Farmacias</a></li>
+        <li><a href="mantencion.html">Servicios en terreno</a></li>
+        <li><a href="portal/">Portal de clientes</a></li>
+      </ul>
+    </div>
+    <div class="nav-der">
+      <a href="#contacto" class="btn btn-borde">Contacto</a>
+      <a href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20una%20demostraci%C3%B3n." target="_blank" rel="noopener" class="btn">Solicitar demostración</a>
+    </div>
   </div>
 </header>
 
 <main>
 
-<!-- 1. PORTADA — el título a lo ancho y el producto explicado como figura de manual -->
+<!-- 1. PORTADA -->
 <section class="portada">
-  <div class="envoltura portada-cabeza">
+  <div class="portada-texto">
+    <span class="antetitulo">IMP Systems</span>
     <h1>Software de gestión para pymes, negocios de barrio y farmacias</h1>
-    <div>
-      <p>Punto de venta, inventario, caja diaria, boleta electrónica del SII y reportes en una sola aplicación, ajustada a cómo trabaja cada rubro.</p>
-      <a class="btn" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg> Pide una demostración</a>
-      <p class="dato">Windows 10 y 11 · se actualiza solo · hecho en Santiago</p>
+    <p>Punto de venta, inventario, caja diaria, boleta electrónica del SII y reportes en una sola aplicación, ajustada a cómo trabaja cada rubro. Hecho en Chile.</p>
+    <div class="acciones">
+      <a class="btn btn-claro" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20una%20demostraci%C3%B3n." target="_blank" rel="noopener">Solicitar demostración</a>
+      <a class="btn btn-linea-clara" href="#precio">Cotizar</a>
     </div>
   </div>
-  <div class="portada-plancha">
-    <figure class="envoltura figura">
-      <div class="figura-marco">
-        <img src="img/app-pos-quiosco.webp" width="1400" height="756" loading="eager" decoding="async"
-             alt="Punto de venta de IMP Systems en un quiosco: buscador con lector de código de barras, accesos rápidos con precio por kilo, ventas del día y la caja abierta.">
-        <span class="pin" style="--x:21.4%;--y:14.6%;--xm:53.6%;--ym:14.3%" aria-hidden="true">1</span>
-        <span class="pin" style="--x:35.5%;--y:20.2%;--xm:88%;--ym:20.2%" aria-hidden="true">2</span>
-        <span class="pin" style="--x:30.7%;--y:30.4%;--xm:76.8%;--ym:30.4%" aria-hidden="true">3</span>
-        <span class="pin solo-ancho" style="--x:92%;--y:14.6%" aria-hidden="true">4</span>
-      </div>
-      <figcaption>
-        <p class="dato figura-pie">FIG. 01 — Punto de venta de un quiosco que lo usa todos los días</p>
-        <ol class="leyenda">
-          <li><span class="pin">1</span><div><b>Ventas de hoy</b><span class="suave">Cuántas llevas y el total, sin salir de la caja.</span></div></li>
-          <li><span class="pin">2</span><div><b>Escaneas o buscas</b><span class="suave">El lector de código de barras escribe aquí. Lo que no tiene código, se busca por nombre.</span></div></li>
-          <li><span class="pin">3</span><div><b>Accesos rápidos</b><span class="suave">Lo que más vendes, a un toque. Los de kilo muestran su precio por kilo.</span></div></li>
-          <li class="solo-ancho"><span class="pin">4</span><div><b>Caja del día</b><span class="suave">El efectivo con que abriste y el cierre, siempre a la vista.</span></div></li>
-        </ol>
-      </figcaption>
-    </figure>
+  <div class="portada-imagen">
+    <img src="img/app-pos-hero.webp" width="1240" height="1190" loading="eager" decoding="async"
+         alt="Punto de venta de IMP Systems: buscador con lector de código de barras y accesos rápidos con precio por kilo.">
   </div>
 </section>
 
-<!-- 2. EN USO — frase en dos tonos y un libro con quién lo usa -->
-<section class="en-uso" id="clientes">
+<!-- NAVEGACIÓN INTERNA -->
+<nav class="subnav" aria-label="Secciones de la página">
   <div class="envoltura">
-    <p class="frase">Un solo sistema para vender, llevar el stock y cuadrar la caja. <span>Hoy lo usan una empresa que mantiene tiendas a lo largo de Chile y un quiosco de barrio que vende por unidad y por kilo.</span></p>
-    <table class="libro">
-      <thead><tr><th>Negocio</th><th>Qué hace con IMP Systems</th><th>Producto</th><th>En uso desde</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><img src="img/mba-retail.webp" width="281" height="180" loading="lazy" decoding="async" alt="">MBA Retail</td>
-          <td class="suave">Mantención de locales comerciales en todo Chile: del levantamiento en terreno a la cotización, el trabajo y la facturación.</td>
-          <td><a href="mantencion.html">Mantención IMP</a></td>
-          <td class="dato">ago 2026</td>
-        </tr>
-        <tr>
-          <td>Quiosco de barrio<br><span class="dato">Quilicura</span></td>
-          <td class="suave">Más de mil productos, por unidad y por kilo. La boleta del SII se emite sola en cada venta.</td>
-          <td><a href="quiosco.html">IMP Systems</a></td>
-          <td class="dato">sep 2026</td>
-        </tr>
-      </tbody>
-    </table>
+    <ul>
+      <li><a href="#resumen">Resumen</a></li>
+      <li><a href="#funciones">Funciones</a></li>
+      <li><a href="#rubros">Rubros</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#precio">Precio</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+    </ul>
+    <a href="#contacto" class="btn">Contáctanos</a>
   </div>
-</section>
+</nav>
 
-<!-- 3. PRODUCTOS — grilla editorial, con recortes de la aplicación en vez de íconos -->
-<section class="productos" id="productos">
+<!-- 2. QUÉ ES -->
+<section class="seccion" id="resumen">
   <div class="envoltura">
-    <div class="productos-cabeza">
-      <h2>Tres versiones, un mismo motor</h2>
-      <p>Cada una trae sólo lo que su rubro usa. Si cambias de giro, tus datos se quedan.</p>
-    </div>
-    <div class="grilla">
-      <article class="celda principal">
-        <div class="recorte pos"><img src="img/app-pos-hero.webp" width="1240" height="1190" loading="lazy" decoding="async" alt="Accesos rápidos del punto de venta con precios por kilo."></div>
-        <span class="dato">Quioscos · almacenes · minimarkets · panaderías · verdulerías</span>
-        <h3>IMP Systems</h3>
-        <p>Para el negocio de barrio: caja rápida, venta por unidad o por kilo y la boleta del SII que se emite sola.</p>
+    <h2>¿Qué es IMP Systems?</h2>
+    <p class="bajada">Un software de gestión chileno para pymes, negocios de barrio y farmacias. Se instala en computadores con Windows, guarda la información en la nube, se actualiza solo y tiene un valor referencial de aprox. 0,7 UF mensuales para quioscos y almacenes, y aprox. 1,22 UF para farmacias.</p>
+    <div class="quees-media">
+      <div class="captura"><img src="img/app-reportes.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Reporte de stock valorizado con gráfico de los productos de mayor valor y su detalle."></div>
+      <div>
+        <h3>Todo el negocio en un solo lugar</h3>
+        <p>Ventas, stock, caja y boletas conectados entre sí: cada venta descuenta inventario, suma a la caja del día y queda en los reportes.</p>
         <ul>
-          <li>Productos por unidad o por peso</li>
-          <li>Lector de código de barras</li>
-          <li>Caja con apertura, cierre y arqueo</li>
-          <li>Boleta del SII, afecta o exenta</li>
-          <li>Lo que se vende y lo que se agota</li>
-          <li>Márgenes y flujo de caja</li>
+          <li>Un mismo motor, ajustado a cada rubro</li>
+          <li>Boleta electrónica del SII integrada</li>
+          <li>Roles y permisos por usuario</li>
+          <li>Actualizaciones automáticas</li>
         </ul>
-        <a href="quiosco.html" class="flecha">Conocer IMP Systems →</a>
-      </article>
-      <article class="celda">
-        <div class="recorte kanban"><img src="img/app-tickets-kanban.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Tablero de tickets por estado."></div>
-        <span class="dato">Pymes de servicios en terreno</span>
-        <h3>Mantención IMP</h3>
-        <p>Para quien mantiene locales comerciales: tickets por tienda, cotizaciones con costeo real, bodega y facturación.</p>
-        <a href="mantencion.html" class="flecha">Conocer Mantención IMP →</a>
-      </article>
-      <article class="celda abajo">
-        <span class="dato">Farmacias y droguerías independientes</span>
-        <h3>Farma IMP</h3>
-        <p>Nació junto a un químico farmacéutico: lotes con vencimiento, compras comparando el Excel de cada proveedor y control de mermas.</p>
-        <a href="farma.html" class="flecha">Conocer Farma IMP →</a>
-      </article>
+        <a href="#funciones" class="enlace">Ver las funciones</a>
+      </div>
     </div>
-    <p class="resumen"><strong>En resumen:</strong> IMP Systems es un software de gestión chileno para pymes, negocios de barrio y farmacias. Se instala en computadores con Windows, guarda la información en la nube, se actualiza solo y tiene un valor referencial desde 1,5 UF mensuales para almacenes, quioscos y farmacias. ¿Tu rubro no está? <a href="#contacto">Cuéntanos cómo trabajas</a>.</p>
   </div>
 </section>
 
-<!-- 4. UN DÍA EN EL MOSTRADOR — el producto contado por la hora del día -->
-<section class="dia-seccion">
+<!-- 3. FUNCIONES -->
+<section class="seccion gris" id="funciones">
   <div class="envoltura">
-    <div class="dia-cabeza">
-      <h2>Un día en el mostrador</h2>
-      <p>Así trabaja el quiosco que lo usa, desde que abre hasta que cierra.</p>
+    <span class="antetitulo">Funciones</span>
+    <h2>Lo que resuelve en el día a día</h2>
+    <div class="pestanas" role="tablist" aria-label="Áreas del sistema">
+      <button class="pestana" role="tab" aria-selected="true" aria-controls="p-vender" id="t-vender">Vender</button>
+      <button class="pestana" role="tab" aria-selected="false" aria-controls="p-stock" id="t-stock">Inventario y reportes</button>
+      <button class="pestana" role="tab" aria-selected="false" aria-controls="p-terreno" id="t-terreno">Servicios en terreno</button>
     </div>
-    <ol class="dia">
-      <li><time>08:30</time><h3>Abres la caja</h3><p>Cuentas el efectivo inicial y lo anotas. Desde ahí, cada venta suma.</p></li>
-      <li><time>11:40</time><h3>Pesas el pan</h3><p>650 g de pan amasado: ingresas el peso y el precio sale solo.</p></li>
-      <li><time>11:40</time><h3>La boleta sale sola</h3><p>Se emite en el SII mientras atiendes al siguiente. Si se cae internet, queda pendiente y se emite después.</p></li>
-      <li><time>21:00</time><h3>Cierras</h3><p>Cuentas lo que hay y lo anotas. La diferencia la ve el dueño, no quien cierra.</p></li>
-    </ol>
-    <!-- FOTO PENDIENTE: el mostrador del quiosco con la caja funcionando. Reemplazar este div por <img>. -->
-    <div class="foto-pendiente">Foto pendiente: el mostrador del quiosco con la caja funcionando</div>
+
+    <div class="panel" id="p-vender" role="tabpanel" aria-labelledby="t-vender">
+      <div class="acordeon">
+        <details name="vender" open><summary>Venta por unidad o por kilo</summary><p>Pan, queso, fiambre o verduras: ingresas el peso y el precio sale solo. El stock se lleva en gramos.</p></details>
+        <details name="vender"><summary>Lector de código de barras y accesos rápidos</summary><p>Escaneas y el producto entra a la venta. Lo que más vendes queda a un toque.</p></details>
+        <details name="vender"><summary>Boleta del SII automática</summary><p>Se emite sola al cerrar la venta, en el sistema gratuito del SII, afecta o exenta según el producto. Si se cae internet, queda pendiente y se emite después.</p></details>
+        <details name="vender"><summary>Caja diaria con arqueo</summary><p>Apertura, cierre y arqueo. La diferencia la ve el dueño, no quien cierra.</p></details>
+        <a href="quiosco.html" class="enlace">IMP Systems para quioscos y almacenes</a>
+      </div>
+      <figure>
+        <div class="captura"><img src="img/app-pos-quiosco.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Punto de venta con accesos rápidos y precios por kilo."></div>
+        <figcaption>Punto de venta de un quiosco de Quilicura.</figcaption>
+      </figure>
+    </div>
+
+    <div class="panel" id="p-stock" role="tabpanel" aria-labelledby="t-stock" hidden>
+      <div class="acordeon">
+        <details name="stock" open><summary>Stock valorizado</summary><p>Cuánto tienes y cuánto vale, a costo y a precio de venta, con los productos de mayor valor arriba.</p></details>
+        <details name="stock"><summary>Lo que se vende y lo que se agota</summary><p>Lo más vendido, lo que está por agotarse y lo que lleva tiempo sin moverse.</p></details>
+        <details name="stock"><summary>Lotes con vencimiento</summary><p>En Farma IMP, cada lote lleva su vencimiento y se vende primero el que vence antes.</p></details>
+        <details name="stock"><summary>Compras comparando proveedores</summary><p>Farma IMP lee el Excel de cada proveedor y te muestra quién tiene el mejor precio.</p></details>
+        <a href="farma.html" class="enlace">Farma IMP para farmacias</a>
+      </div>
+      <figure>
+        <div class="captura"><img src="img/app-reportes.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Reporte de stock valorizado."></div>
+        <figcaption>Reporte de stock valorizado. Datos de demostración.</figcaption>
+      </figure>
+    </div>
+
+    <div class="panel" id="p-terreno" role="tabpanel" aria-labelledby="t-terreno" hidden>
+      <div class="acordeon">
+        <details name="terreno" open><summary>Tickets por cliente y por tienda</summary><p>Cada requerimiento avanza por estados y el color dice de quién es la pelota: tuya, del cliente o de terreno.</p></details>
+        <details name="terreno"><summary>Cotizaciones con costeo real</summary><p>Materiales, mano de obra y recargos, a partir del costo real de tu equipo.</p></details>
+        <details name="terreno"><summary>Bodega y facturación</summary><p>Reservas y salidas de bodega por trabajo, facturación de venta, factoring y pagos.</p></details>
+        <details name="terreno"><summary>Portal para tus clientes</summary><p>Un portal web donde tus clientes siguen sus trabajos y cotizaciones (adicional).</p></details>
+        <a href="mantencion.html" class="enlace">Mantención IMP para servicios en terreno</a>
+      </div>
+      <figure>
+        <div class="captura"><img src="img/app-tickets-kanban.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Tablero de tickets por estado."></div>
+        <figcaption>Tablero de tickets. Datos de demostración.</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
-<!-- 5. POR DENTRO — figuras numeradas sobre la plancha oscura -->
-<section class="por-dentro" id="vistazo">
+<!-- 4. RUBROS -->
+<section class="seccion" id="rubros">
+  <div class="envoltura">
+    <span class="antetitulo">Rubros</span>
+    <h2>Una versión para cada tipo de negocio</h2>
+    <div class="rubros">
+      <article class="rubro">
+        <span class="marca-rubro"></span>
+        <h3>Almacenes, quioscos y minimarkets</h3>
+        <p>Punto de venta rápido, caja diaria con arqueo y boleta electrónica que se emite sola.</p>
+        <a href="quiosco.html" class="enlace">IMP Systems</a>
+      </article>
+      <article class="rubro">
+        <span class="marca-rubro"></span>
+        <h3>Panaderías y verdulerías</h3>
+        <p>Venta por kilo con el precio calculado solo y stock en kilos.</p>
+        <a href="quiosco.html" class="enlace">Venta por peso</a>
+      </article>
+      <article class="rubro">
+        <span class="marca-rubro"></span>
+        <h3>Farmacias y droguerías</h3>
+        <p>Lotes con vencimiento, comparador de precios entre proveedores y control de mermas.</p>
+        <a href="farma.html" class="enlace">Farma IMP</a>
+      </article>
+      <article class="rubro">
+        <span class="marca-rubro"></span>
+        <h3>Servicios en terreno</h3>
+        <p>Tickets por local, cotizaciones con costeo real, bodega y facturación.</p>
+        <a href="mantencion.html" class="enlace">Mantención IMP</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<hr class="separador">
+
+<!-- 5. CLIENTES -->
+<section class="seccion" id="clientes">
+  <div class="envoltura">
+    <h2>Negocios que ya trabajan con IMP Systems</h2>
+    <div class="clientes">
+      <article class="cliente">
+        <div class="cliente-logo"><img src="img/mba-retail.webp" width="281" height="180" loading="lazy" decoding="async" alt="MBA Retail"></div>
+        <span class="dato">Mantención de locales comerciales · todo Chile · desde agosto de 2026</span>
+        <h3>Del levantamiento en terreno a la factura</h3>
+        <p>MBA Retail lleva con Mantención IMP la mantención de los locales de sus clientes: levantamiento, cotización, trabajo y facturación.</p>
+        <a href="mantencion.html" class="enlace">Ver Mantención IMP</a>
+      </article>
+      <article class="cliente">
+        <!-- FOTO PENDIENTE: el mostrador del quiosco -->
+        <div class="foto-pendiente">Foto pendiente: el mostrador del quiosco</div>
+        <span class="dato">Quiosco de barrio · Quilicura · desde septiembre de 2026</span>
+        <h3>Más de mil productos, por unidad y por kilo</h3>
+        <p>Un quiosco de Quilicura vende con IMP Systems todos los días. La boleta del SII se emite sola en cada venta.</p>
+        <a href="quiosco.html" class="enlace">Ver IMP Systems para quioscos</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. POR DENTRO -->
+<section class="seccion gris" id="vistazo">
   <div data-carrusel>
     <div class="envoltura por-dentro-cabeza">
-      <div>
-        <h2>Por dentro</h2>
-        <p class="suave">Capturas de la aplicación, no maquetas. Los datos son de una empresa de demostración.</p>
-      </div>
-      <div class="carrusel-controles">
-        <button type="button" class="carrusel-nav" data-prev aria-label="Captura anterior">&#8592;</button>
-        <button type="button" class="carrusel-nav" data-next aria-label="Captura siguiente">&#8594;</button>
-        <div class="carrusel-puntos" data-puntos></div>
-      </div>
+      <h2>Por dentro</h2>
+      <p>Capturas de la aplicación, no maquetas. Los datos son de una empresa de demostración.</p>
     </div>
     <div class="carrusel">
       <div class="carrusel-pista" data-pista tabindex="0" role="group" aria-label="Capturas de la aplicación">
         <figure class="carrusel-slide">
           <img src="img/app-tickets-kanban.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Tablero de tickets agrupados por estado, con el cliente, la tienda y los servicios de cada uno.">
-          <figcaption><span class="fig">FIG. 02</span><span><strong>Tickets en tablero</strong>Cada requerimiento avanza por estados —borrador, en cotización, en trabajo, facturado— y el color dice de quién es la pelota: tuya, del cliente o de terreno.</span></figcaption>
+          <figcaption><strong>Tickets en tablero</strong>Cada requerimiento avanza por estados —borrador, en cotización, en trabajo, facturado— y el color dice de quién es la pelota: tuya, del cliente o de terreno.</figcaption>
         </figure>
         <figure class="carrusel-slide">
           <img src="img/app-cliente-tiendas.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Ficha de cliente con ocho tiendas en tarjetas, cada una con su comuna, región y módulos.">
-          <figcaption><span class="fig">FIG. 03</span><span><strong>Un cliente, todas sus tiendas</strong>La ficha del cliente muestra sus locales con región, contacto y los módulos de marca que hay dentro de cada uno. Los contratos y su próxima visita, abajo.</span></figcaption>
+          <figcaption><strong>Un cliente, todas sus tiendas</strong>La ficha del cliente muestra sus locales con región, contacto y los módulos de marca que hay dentro de cada uno. Los contratos y su próxima visita, abajo.</figcaption>
         </figure>
         <figure class="carrusel-slide">
           <img src="img/app-ticket-detalle.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Detalle de un ticket con sus servicios, el próximo paso y el historial de estados.">
-          <figcaption><span class="fig">FIG. 04</span><span><strong>El detalle de un trabajo</strong>Datos, servicios asociados, el próximo paso que corresponde y el historial completo de estados. La app te dice qué falta antes de poder avanzar.</span></figcaption>
+          <figcaption><strong>El detalle de un trabajo</strong>Datos, servicios asociados, el próximo paso que corresponde y el historial completo de estados. La app te dice qué falta antes de poder avanzar.</figcaption>
         </figure>
         <figure class="carrusel-slide">
           <img src="img/app-costeo.webp" width="1400" height="757" loading="lazy" decoding="async" alt="Pantalla de costeo con el costo de producción por hora, la capacidad del equipo y los parámetros de margen y recargos.">
-          <figcaption><span class="fig">FIG. 05</span><span><strong>Cuánto cuesta de verdad</strong>El motor de costeo calcula el costo de producción por hora a partir de tu planilla, tus gastos generales y la capacidad real del equipo. El margen y los recargos se aplican encima, y el precio deja de ser una estimación.</span></figcaption>
+          <figcaption><strong>Cuánto cuesta de verdad</strong>El motor de costeo calcula el costo de producción por hora a partir de tu planilla, tus gastos generales y la capacidad real del equipo. El margen y los recargos se aplican encima, y el precio deja de ser una estimación.</figcaption>
         </figure>
         <figure class="carrusel-slide">
           <img src="img/app-reportes.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Reporte de stock valorizado con gráfico de los productos de mayor valor y su detalle.">
-          <figcaption><span class="fig">FIG. 06</span><span><strong>Reportes financieros</strong>Stock valorizado a costo y a precio de venta, compras del período, márgenes por ticket, factoring vigente y antigüedad de cuentas por cobrar.</span></figcaption>
+          <figcaption><strong>Reportes financieros</strong>Stock valorizado a costo y a precio de venta, compras del período, márgenes por ticket, factoring vigente y antigüedad de cuentas por cobrar.</figcaption>
         </figure>
         <figure class="carrusel-slide">
           <img src="img/app-clientes.webp" width="1400" height="756" loading="lazy" decoding="async" alt="Listado de clientes con RUT, giro, contacto y cantidad de tiendas.">
-          <figcaption><span class="fig">FIG. 07</span><span><strong>Tu cartera completa</strong>Razón social, RUT, giro y contacto de cada cliente, con la cuenta de tiendas y de contratos activos al lado.</span></figcaption>
+          <figcaption><strong>Tu cartera completa</strong>Razón social, RUT, giro y contacto de cada cliente, con la cuenta de tiendas y de contratos activos al lado.</figcaption>
         </figure>
+      </div>
+    </div>
+    <div class="carrusel-controles">
+      <button type="button" class="carrusel-nav" data-prev aria-label="Captura anterior">&#8592;</button>
+      <div class="carrusel-puntos" data-puntos></div>
+      <button type="button" class="carrusel-nav" data-next aria-label="Captura siguiente">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- 7. SIGUIENTE PASO -->
+<section class="seccion" id="precio">
+  <div class="envoltura">
+    <span class="antetitulo">Precio</span>
+    <h2>Da el siguiente paso</h2>
+    <p class="bajada">Pagas sólo los módulos que usas. El valor final se conversa según el tamaño de tu negocio.</p>
+    <div class="paso-siguiente">
+      <div class="tarifa">
+        <div class="tarifa-fila"><div><b>IMP Systems</b><span class="suave">Quioscos, almacenes y panaderías</span></div><div class="valor"><small>aprox.</small>0,7 UF<small>al mes</small></div></div>
+        <div class="tarifa-fila"><div><b>Farma IMP</b><span class="suave">Farmacias y droguerías</span></div><div class="valor"><small>aprox.</small>1,22 UF<small>al mes</small></div></div>
+        <div class="tarifa-fila"><div><b>Mantención IMP</b><span class="suave">Según clientes, maestros y tickets</span></div><div class="valor">A cotizar</div></div>
+        <div class="tarifa-pie">Valores referenciales, sujetos a evaluación del negocio.</div>
+      </div>
+      <div>
+        <h3>Cómo se empieza</h3>
+        <ol class="pasos">
+          <li><div><b>Nos escribes</b><span>Por WhatsApp o el formulario, y nos cuentas cómo trabaja tu negocio.</span></div></li>
+          <li><div><b>Te contactamos</b><span>En menos de 24 horas hábiles, para coordinar la activación.</span></div></li>
+          <li><div><b>Instalas la aplicación</b><span>La descargas y entras con tus credenciales.</span></div></li>
+          <li><div><b>Empiezas a vender</b><span>Con caja y punto de venta desde el primer día.</span></div></li>
+        </ol>
+        <a href="#contacto" class="btn">Solicitar una cotización</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 6. PRECIO — la boleta y los pasos para empezar -->
-<section class="precio" id="precio">
-  <div class="envoltura">
-    <div class="boleta" role="img" aria-label="Valor referencial: IMP Systems y Farma IMP desde 1,5 UF al mes; Mantención IMP a cotizar.">
-      <div class="boleta-cabeza"><b>IMP SYSTEMS</b>Valor referencial mensual</div>
-      <hr>
-      <div class="renglon"><span>IMP Systems</span><span class="relleno"></span><span class="monto">1,5 UF</span></div>
-      <p class="sub">quioscos y almacenes · desde, por mes</p>
-      <div class="renglon"><span>Farma IMP</span><span class="relleno"></span><span class="monto">1,5 UF</span></div>
-      <p class="sub">farmacias · desde, por mes</p>
-      <div class="renglon"><span>Mantención IMP</span><span class="relleno"></span><span class="monto">a cotizar</span></div>
-      <p class="sub">según clientes, maestros y tickets</p>
-      <hr>
-      <div class="renglon total"><span>Pagas</span><span class="relleno"></span><span class="monto">sólo lo que usas</span></div>
-      <hr>
-      <p class="boleta-pie">Valor final según el tamaño del negocio<br>y los módulos que necesites.</p>
-    </div>
+<!-- 8. QUIÉNES SOMOS -->
+<section class="seccion gris" id="nosotros">
+  <div class="envoltura nosotros">
+    <!-- FOTO PENDIENTE: retrato de Ignacio -->
+    <div class="foto-pendiente">Foto pendiente: tu retrato</div>
     <div>
-      <h2>Cuánto cuesta y cómo se empieza</h2>
-      <p class="suave" style="margin-top:12px;max-width:52ch">Empiezas con lo esencial y agregas módulos cuando los necesites. El valor se conversa según tu negocio.</p>
-      <ol class="pasos">
-        <li><div><b>Nos escribes</b><span>Por WhatsApp o el formulario, y nos cuentas cómo trabaja tu negocio.</span></div></li>
-        <li><div><b>Te contactamos</b><span>En menos de 24 horas hábiles, para coordinar la activación.</span></div></li>
-        <li><div><b>Instalas la aplicación</b><span>La descargas y entras con tus credenciales.</span></div></li>
-        <li><div><b>Empiezas a vender</b><span>Con caja y punto de venta desde el primer día.</span></div></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- 7. QUIÉNES SOMOS -->
-<section class="nosotros" id="nosotros">
-  <div class="envoltura">
-    <!-- FOTO PENDIENTE: retrato de Ignacio. Reemplazar este div por <img>. -->
-    <div class="foto-pendiente">Foto pendiente: tu retrato (o trabajando en un negocio)</div>
-    <div>
-      <h2>Quiénes somos</h2>
+      <span class="antetitulo">Quiénes somos</span>
+      <h2>Hecho en Chile, con quienes lo usan</h2>
+      <p class="destacado">Cuando escribes al WhatsApp, te contesta quien hace el sistema.</p>
       <p>IMP Systems lo desarrolla Ignacio Morales Pérez, ingeniero en informática, en Santiago. Partió en una farmacia de barrio, junto a un químico farmacéutico, y de ahí pasó a la mantención de locales y a los quioscos.</p>
-      <p>Cada función se prueba primero con alguien que la usa de verdad.</p>
-      <p class="cita">Cuando escribes al WhatsApp, te contesta quien hace el sistema.</p>
-      <ul class="hechos">
-        <li><b>Tu información, en la nube</b>Si el computador se echa a perder, instalas la aplicación en otro y sigues donde quedaste.</li>
-        <li><b>Se actualiza sola</b>Cuando hay una versión nueva, te avisa y se instala.</li>
-        <li><b>Hecha para el SII</b>IVA chileno, RUT y boleta en el sistema gratuito del SII.</li>
-      </ul>
+      <p>Cada función se prueba primero con alguien que la usa de verdad. Tu información queda en la nube: si el computador se echa a perder, instalas la aplicación en otro y sigues donde quedaste.</p>
     </div>
   </div>
 </section>
 
-<!-- 8. PREGUNTAS -->
-<section class="preguntas-seccion" id="faq">
+<!-- 9. PREGUNTAS -->
+<section class="seccion" id="faq">
   <div class="envoltura">
-    <div>
-      <h2>Preguntas frecuentes</h2>
-      <p>¿No está la tuya? Escríbenos al <a href="https://wa.me/56978772578" target="_blank" rel="noopener">WhatsApp</a>.</p>
-    </div>
+    <h2>Preguntas frecuentes sobre IMP Systems</h2>
     <div class="preguntas">
       <details>
         <summary>¿Qué es IMP Systems?</summary>
@@ -405,7 +450,7 @@
       </details>
       <details>
         <summary>¿Cuánto cuesta?</summary>
-        <p>Farma IMP e IMP Systems para quioscos parten en torno a 1,5 UF mensuales como valor referencial, que se ajusta al tamaño del negocio y a los módulos que uses. Mantención IMP se cotiza según el tamaño de la cartera de clientes, la cantidad de maestros y el volumen mensual de tickets.</p>
+        <p>IMP Systems para quioscos y almacenes parte en aprox. 0,7 UF mensuales y Farma IMP en aprox. 1,22 UF mensuales, como valor referencial que se ajusta al tamaño del negocio y a los módulos que uses. Mantención IMP se cotiza según el tamaño de la cartera de clientes, la cantidad de maestros y el volumen mensual de tickets.</p>
       </details>
       <details>
         <summary>¿Emite boleta electrónica del SII?</summary>
@@ -419,23 +464,25 @@
   </div>
 </section>
 
-<!-- 9. CONTACTO — el número es el protagonista -->
-<section class="contacto" id="contacto">
-  <div class="envoltura">
+<hr class="separador">
+
+<!-- 10. CONTACTO -->
+<section class="seccion" id="contacto">
+  <div class="envoltura contacto">
     <div>
-      <h2>¿Lo quieres ver funcionando?</h2>
-      <p>Te lo mostramos por videollamada o en tu negocio, sin compromiso. También puedes cotizar o contarnos de tu rubro.</p>
-      <a class="numero" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">+56 9 7877 2578</a>
-      <p class="dato">WhatsApp o llamada · respondemos en menos de 24 horas hábiles</p>
-      <div class="otros-canales">
-        <a href="mailto:contacto@impsystems.cl">contacto@impsystems.cl</a>
-        <a href="tel:+56978772578">Llamar</a>
-      </div>
+      <span class="antetitulo">Contacto</span>
+      <h2>Conversemos sobre tu negocio</h2>
+      <p class="bajada">Te mostramos el sistema por videollamada o en tu negocio, sin compromiso. Respondemos en menos de 24 horas hábiles.</p>
+      <ul class="canales">
+        <li><span>WhatsApp</span><a href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">+56 9 7877 2578</a></li>
+        <li><span>Teléfono</span><a href="tel:+56978772578">+56 9 7877 2578</a></li>
+        <li><span>Correo</span><a href="mailto:contacto@impsystems.cl">contacto@impsystems.cl</a></li>
+      </ul>
     </div>
     <form action="https://formspree.io/f/xlgavooz" method="POST" id="form-contacto">
       <label>Nombre<input type="text" name="nombre" required></label>
       <label>Correo<input type="email" name="email" required></label>
-      <label>¿Qué te interesa?
+      <label class="ancho">¿Qué te interesa?
         <select name="interes">
           <option value="">Elige una opción</option>
           <option>Farma IMP (farmacia)</option>
@@ -445,7 +492,7 @@
           <option>Solo quiero información</option>
         </select>
       </label>
-      <label>Cuéntanos de tu negocio<textarea name="mensaje" required></textarea></label>
+      <label class="ancho">Cuéntanos de tu negocio<textarea name="mensaje" required></textarea></label>
       <button type="submit" class="btn">Enviar mensaje</button>
       <p id="contacto-ok" class="form-ok" hidden>Mensaje enviado. Te responderemos pronto.</p>
     </form>
@@ -456,21 +503,39 @@
 
 <footer class="pie">
   <div class="envoltura">
-    <div>
-      <a href="index.html" class="marca" aria-label="IMP Systems, inicio">
-        <img src="img/imp-isotipo.svg" width="30" height="30" alt="">
-        <span class="marca-texto"><b>IMP</b><span>SYSTEMS</span></span>
-      </a>
-      <div>contacto@impsystems.cl · +56 9 7877 2578</div>
-      <div>© 2026 IMP Systems · Santiago, Chile</div>
+    <div class="pie-columnas">
+      <div>
+        <a href="index.html" class="marca"><img src="img/imp-isotipo.svg" width="30" height="30" alt=""><b>IMP</b><span>Systems</span></a>
+        <span class="telefono">+56 9 7877 2578</span>
+        <a href="mailto:contacto@impsystems.cl">contacto@impsystems.cl</a>
+      </div>
+      <div>
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="quiosco.html">IMP Systems para quioscos</a></li>
+          <li><a href="farma.html">Farma IMP</a></li>
+          <li><a href="mantencion.html">Mantención IMP</a></li>
+          <li><a href="portal/">Portal de clientes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Quiénes somos</a></li>
+          <li><a href="#clientes">Clientes</a></li>
+          <li><a href="#precio">Precio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <ul>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="privacidad.html">Privacidad</a></li>
+        </ul>
+      </div>
     </div>
-    <nav aria-label="Pie de página">
-      <a href="quiosco.html">IMP Systems para quioscos</a>
-      <a href="farma.html">Farma IMP</a>
-      <a href="mantencion.html">Mantención IMP</a>
-      <a href="portal/">Portal de clientes</a>
-      <a href="privacidad.html">Privacidad</a>
-    </nav>
+    <div class="pie-legal">© 2026 IMP Systems · Santiago, Chile</div>
   </div>
 </footer>
 
@@ -481,6 +546,18 @@
 </a>
 
 <script>
+  // Pestañas de "Funciones"
+  (function () {
+    const tabs = document.querySelectorAll('.pestana');
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      tabs.forEach(t => {
+        const activa = t === tab;
+        t.setAttribute('aria-selected', activa ? 'true' : 'false');
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !activa;
+      });
+    }));
+  })();
+
   // Formulario de contacto (Formspree)
   (function () {
     const form = document.getElementById('form-contacto');

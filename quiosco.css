@@ -1,5 +1,5 @@
 /* ============================================================================
-   PROPUESTA B — "Cartel de almacén"
+   IMP SYSTEMS PARA QUIOSCOS (quiosco.html) — estilo "cartel de almacén"
    Bloques de color de la marca, títulos condensados en mayúsculas como la
    señalética de un local, y el amarillo de las etiquetas de precio usado sólo
    donde hay un precio o una acción. Fondo crema de papel, sin sombras.
@@ -258,7 +258,7 @@ h3 { font-size: 1.15rem; font-weight: 700; line-height: 1.25; }
 .wa-fab-txt-corto { display: none; }
 @media (max-width: 640px) { .wa-fab-txt { display: none; } .wa-fab-txt-corto { display: inline; } }
 
-/* ═══ Piezas de las páginas de producto (quiosco-b.html) ═══════════════════ */
+/* ═══ Piezas propias de quiosco.html ═════════════════════════════════════ */
 
 .cartel .acciones { display: flex; gap: 10px; flex-wrap: wrap; }
 .cartel .btn-tinta { border-color: var(--crema); }
