@@ -27,9 +27,14 @@
 //   <p data-descarga-otras hidden>¿Otro Windows?
 //     <a data-descarga-alt="mantencion-imp-32bits-">Windows 10 de 32 bits</a> …</p>
 //
-// El nombre del .exe es exactamente <prefijo><versión>.exe (versión x.y.z):
-// así "mantencion-imp-" no confunde el instalador de 64 bits con
-// "mantencion-imp-32bits-2.15.0.exe" ni con el legacy.
+// Mac (hoy sólo Mantención, de prueba) va en su propia línea con el mismo
+// atributo; ahí el archivo es un .zip:
+//   <p data-descarga-otras hidden>¿Usas Mac?
+//     <a data-descarga-alt="mantencion-imp-mac-">Chip Apple</a> …</p>
+//
+// El nombre del instalador es exactamente <prefijo><versión>.exe o .zip
+// (versión x.y.z): así "mantencion-imp-" no confunde el instalador de 64 bits
+// con "mantencion-imp-32bits-2.15.0.exe", con el legacy ni con los de Mac.
 
 const DESCARGA_REPO = 'troccxo/farma-imp-releases';
 
@@ -71,21 +76,25 @@ function mostrarAvisoDescarga(nombre) {
 
 // ─── Resolución del botón ────────────────────────────────────────────────────
 
-// El primer release (de más nuevo a más viejo) que traiga <prefijo>x.y.z.exe.
+// El primer release (de más nuevo a más viejo) que traiga <prefijo>x.y.z.exe
+// (o .zip, que es como va la app de Mac).
 function buscarInstalador(releases, prefijo) {
   for (const r of releases) {
     const asset = (r.assets || []).find(a =>
-      a.name.startsWith(prefijo) && /^\d+\.\d+\.\d+\.exe$/i.test(a.name.slice(prefijo.length)));
+      a.name.startsWith(prefijo) && /^\d+\.\d+\.\d+\.(exe|zip)$/i.test(a.name.slice(prefijo.length)));
     if (asset) return { release: r, asset };
   }
   return { release: null, asset: null };
 }
 
-// Links a los instaladores de otras versiones de Windows. Los que no estén
-// publicados se quitan, para no ofrecer nada que no se pueda bajar.
+// Links a los instaladores de otras versiones de Windows y de Mac, una línea
+// por grupo. Los que no estén publicados se quitan, para no ofrecer nada que no
+// se pueda bajar; la línea que quede sin ninguno sigue oculta.
 function resolverOtrasVersiones(releases) {
-  const linea = document.querySelector('[data-descarga-otras]');
-  if (!linea) return;
+  document.querySelectorAll('[data-descarga-otras]').forEach(resolverLinea.bind(null, releases));
+}
+
+function resolverLinea(releases, linea) {
   let alguno = false;
   linea.querySelectorAll('[data-descarga-alt]').forEach(a => {
     const { release, asset } = buscarInstalador(releases, a.dataset.descargaAlt);
