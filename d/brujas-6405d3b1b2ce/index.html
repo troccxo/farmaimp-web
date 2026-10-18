@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Página NO listada: descarga del escritorio de La Casa de las Brujas
+       (encargo, vertical `brujas` de farma-comparador2). No va en el menú, ni
+       en el sitemap; robots.txt ya bloquea /d/. El link se comparte a mano. -->
+  <title>La Casa de las Brujas · Escritorio</title>
+  <link rel="icon" href="icono.png">
+  <style>
+    :root {
+      --fondo: #120E1C;
+      --superficie: #1D1630;
+      --linea: #3B2E5A;
+      --texto: #F3EBDD;
+      --texto2: #B9AECF;
+      --texto3: #9A8FB3;
+      --acento: #D4AF6A;
+      --acento-hover: #B8924F;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+    .caja {
+      width: 100%;
+      max-width: 520px;
+      background: var(--superficie);
+      border: 1px solid var(--linea);
+      border-radius: 12px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+    .caja img { width: 88px; height: 88px; }
+    h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: normal;
+      font-size: 1.7rem;
+      margin: 12px 0 4px;
+    }
+    .sub { color: var(--texto2); margin: 0 0 24px; }
+    .boton {
+      display: inline-block;
+      background: var(--acento);
+      color: #1D1630;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+    }
+    .boton:hover { background: var(--acento-hover); }
+    .boton.no-disponible { opacity: .5; pointer-events: none; }
+    .info { color: var(--texto3); font-size: .85rem; margin: 10px 0 0; min-height: 1.2em; }
+    .pasos {
+      text-align: left;
+      margin: 28px 0 0;
+      padding: 18px 20px 18px 38px;
+      border-top: 1px solid var(--linea);
+      color: var(--texto2);
+      font-size: .92rem;
+      line-height: 1.5;
+    }
+    .pasos li + li { margin-top: 6px; }
+    .pasos strong { color: var(--texto); }
+    .pie { color: var(--texto3); font-size: .8rem; margin: 18px 0 0; }
+  </style>
+</head>
+<body>
+  <main class="caja">
+    <img src="icono.png" alt="">
+    <h1>La Casa de las Brujas</h1>
+    <p class="sub">Aplicación de escritorio para el equipo</p>
+
+    <a class="boton no-disponible" data-descarga>Descargar para Windows</a>
+    <p class="info" data-info>Buscando la última versión…</p>
+
+    <ol class="pasos">
+      <li>Abre el archivo descargado. La instalación termina sola y abre la aplicación.</li>
+      <li>Si Windows muestra <strong>"Windows protegió su PC"</strong>, presiona
+        <strong>Más información</strong> y después <strong>Ejecutar de todas formas</strong>.</li>
+      <li>Entra con el mismo correo y contraseña de la app del teléfono.</li>
+    </ol>
+    <p class="pie">Windows 10 y 11 · Hecho por IMP Systems</p>
+  </main>
+
+  <script>
+    // Toma el instalador más nuevo de casa-brujas-x.y.z.exe en las releases, para
+    // no tener que editar esta página en cada versión. Si la API falla, se queda
+    // el aviso: nunca se manda a la página del repositorio.
+    (async () => {
+      const boton = document.querySelector('[data-descarga]');
+      const info = document.querySelector('[data-info]');
+      try {
+        const res = await fetch('https://api.github.com/repos/troccxo/farma-imp-releases/releases?per_page=50',
+          { headers: { Accept: 'application/vnd.github+json' } });
+        if (!res.ok) throw new Error(`GitHub respondió ${res.status}`);
+        const releases = (await res.json()).filter(r => !r.draft && !r.prerelease);
+        for (const r of releases) {
+          const asset = (r.assets || []).find(a => /^casa-brujas-\d+\.\d+\.\d+\.exe$/i.test(a.name));
+          if (!asset) continue;
+          const version = asset.name.match(/(\d+\.\d+\.\d+)/)[1];
+          const mb = Math.round(asset.size / (1024 * 1024));
+          const fecha = new Date(r.published_at)
+            .toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+          boton.href = asset.browser_download_url;
+          boton.classList.remove('no-disponible');
+          info.textContent = `Versión ${version} · ${mb} MB · ${fecha}`;
+          return;
+        }
+        throw new Error('sin instalador');
+      } catch {
+        info.textContent = 'Descarga no disponible en este momento. Inténtalo de nuevo en unos minutos.';
+      }
+    })();
+  </script>
+</body>
+</html>
