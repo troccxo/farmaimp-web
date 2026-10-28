@@ -158,7 +158,8 @@ h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; line-height: 
 
 /* ─── 5. CLIENTES ─────────────────────────────────────────────────────────── */
 .clientes { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); margin-top: 40px; }
-.cliente-logo { height: 56px; display: flex; align-items: center; margin-bottom: 18px; }
+.cliente-logo { min-height: 56px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 18px; }
+.cliente-logo img { max-width: 100%; }
 .cliente-logo img { height: 52px; width: auto; border-radius: 3px; }
 .cliente-logo .sin-logo { font-weight: 600; font-size: 1.1rem; border: 1px solid var(--linea); padding: 10px 14px; border-radius: 4px; color: var(--acento); }
 .cliente h3 { font-size: 1.3rem; font-weight: 500; margin-bottom: 8px; }
