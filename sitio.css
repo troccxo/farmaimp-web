@@ -157,8 +157,8 @@ h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; line-height: 
 }
 
 /* ─── 5. CLIENTES ─────────────────────────────────────────────────────────── */
-/* 4 tarjetas: 2 × 2 (con 3 columnas la cuarta quedaba sola) */
-.clientes { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(28px, 5vw, 64px); margin-top: 40px; }
+/* 5 tarjetas: 3 + 2 (con 4 eran 2 × 2: en 3 columnas la cuarta quedaba sola) */
+.clientes { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 5vw, 64px); margin-top: 40px; }
 .cliente-logo { min-height: 56px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-bottom: 18px; }
 .cliente-logo img { max-width: 100%; }
 .cliente-logo img { height: 52px; width: auto; border-radius: 3px; }
