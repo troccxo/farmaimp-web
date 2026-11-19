@@ -16,6 +16,7 @@ Datos clave:
 - [IMP Systems para quioscos y almacenes](https://impsystems.cl/quiosco.html): punto de venta rápido con lector de código de barras, venta por kilo, caja diaria con arqueo y boleta electrónica automática del SII.
 - [Farma IMP](https://impsystems.cl/farma.html): software para farmacias y droguerías independientes, con inventario por lotes y vencimiento, comparador de precios entre proveedores, mermas y reportes financieros.
 - [Mantención IMP](https://impsystems.cl/mantencion.html): software para pymes de servicios en terreno que mantienen locales comerciales: tickets u órdenes de trabajo por cliente y tienda, cotizaciones con costeo real, bodega con código de barras, facturación y factoring. Adicional: Portal de Clientes web donde el cliente sigue sus trabajos y aprueba cotizaciones en línea.
+- [IMP Systems para tarot](https://impsystems.cl/tarot.html): app de teléfono con la marca de cada tarotista o centro de tarot (Android y iPhone) y aplicación de escritorio (Windows y Mac): carta del día, preguntas pagadas con respuesta en texto, audio o video, reservas de hora, diario personal, academia de clases grabadas, tienda, finanzas y avisos al teléfono de las clientas.
 
 ## Más información
 

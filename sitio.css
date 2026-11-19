@@ -141,15 +141,15 @@ h3 { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.01em; line-height: 
 @media (max-width: 900px) { .panel { grid-template-columns: 1fr; } }
 
 /* ─── 4. RUBROS: grilla con divisiones finas ──────────────────────────────── */
-.rubros { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 40px; }
-.rubro { padding: 4px 28px 8px 0; }
-.rubro + .rubro { border-left: 1px solid var(--linea); padding-left: 28px; }
+.rubros { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); margin-top: 40px; }
+.rubro { padding: 4px 22px 8px 0; }
+.rubro + .rubro { border-left: 1px solid var(--linea); padding-left: 22px; }
 .rubro .marca-rubro { display: block; width: 28px; height: 3px; background: var(--acento); margin-bottom: 18px; }
 .rubro h3 { margin-bottom: 10px; }
 .rubro p { color: var(--neutro); font-size: 0.95rem; margin-bottom: 14px; }
 @media (max-width: 980px) {
   .rubros { grid-template-columns: 1fr 1fr; gap: 32px 0; }
-  .rubro:nth-child(3) { border-left: none; padding-left: 0; }
+  .rubro:nth-child(odd) { border-left: none; padding-left: 0; }
 }
 @media (max-width: 560px) {
   .rubros { grid-template-columns: 1fr; }

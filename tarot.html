@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App propia para tarotistas y centros de tarot en Chile | IMP Systems</title>
+
+  <!-- SEO BASE -->
+  <meta name="description" content="Tu propia app de tarot con tu nombre y tu logo, para Android y iPhone, más una aplicación de escritorio para administrar tu negocio. Carta del día, preguntas pagadas con respuesta en audio o video, reservas, diario, academia, tienda y avisos al teléfono de tus clientas.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://impsystems.cl/tarot.html">
+
+  <!-- SEO LOCAL -->
+  <meta name="geo.region" content="CL">
+  <meta name="geo.placename" content="Chile">
+  <meta name="language" content="es">
+  <meta property="og:locale" content="es_CL">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Tu propia app de tarot, con tu nombre — IMP Systems">
+  <meta property="og:description" content="Tus seguidoras te encuentran en TikTok. En tu app te reservan hora, te pagan sus preguntas y vuelven cada día por su carta.">
+  <meta property="og:site_name" content="IMP Systems">
+  <meta property="og:image" content="https://impsystems.cl/og-imp.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="App propia para tarotistas y centros de tarot | IMP Systems">
+  <meta property="og:url" content="https://impsystems.cl/tarot.html">
+  <meta property="og:type" content="website">
+
+  <!-- TWITTER -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tu propia app de tarot, con tu nombre">
+  <meta name="twitter:description" content="Carta del día, preguntas pagadas, reservas, diario, academia y tienda, con tu marca en Android y iPhone.">
+  <meta name="twitter:image" content="https://impsystems.cl/og-imp.png">
+
+  <!-- BRANDING -->
+  <meta name="author" content="IMP Systems">
+  <meta name="theme-color" content="#110E1C">
+
+  <!-- SCHEMA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "IMP Systems para tarot",
+    "operatingSystem": "Android, iOS, Windows, macOS",
+    "applicationCategory": "LifestyleApplication",
+    "description": "Plataforma con la marca de cada tarotista o centro de tarot: app de teléfono para sus clientas (carta del día, preguntas pagadas con respuesta en texto, audio o video, reservas de hora, diario personal, academia de clases grabadas y tienda) y aplicación de escritorio para el equipo (agenda, preguntas pendientes, clientas, servicios, inventario, ventas, finanzas y avisos al teléfono).",
+    "url": "https://impsystems.cl/tarot.html",
+    "author": { "@type": "Organization", "name": "IMP Systems", "url": "https://impsystems.cl/", "email": "contacto@impsystems.cl", "telephone": "+56978772578" },
+    "inLanguage": "es-CL"
+  }
+  </script>
+  <!-- MIGA DE PAN -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://impsystems.cl/" },
+      { "@type": "ListItem", "position": 2, "name": "IMP Systems para tarot", "item": "https://impsystems.cl/tarot.html" }
+    ]
+  }
+  </script>
+
+  <!-- ICONOS -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tarot.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="envoltura">
+    <a href="index.html" class="marca" aria-label="IMP Systems, inicio">
+      <img src="img/imp-isotipo.svg" width="30" height="30" alt="">
+      <b>IMP</b><span>Systems</span>
+    </a>
+    <ul>
+      <li class="opcional"><a href="index.html" class="volver">← Inicio</a></li>
+      <li class="opcional"><a href="#clientas">Qué trae</a></li>
+      <li class="opcional"><a href="#precio">Precio</a></li>
+      <li class="opcional"><a href="#preguntas">Preguntas</a></li>
+      <li><a href="#quiero" class="btn">Quiero mi app</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+
+<!-- 1. HERO -->
+<section class="hero">
+  <div class="envoltura">
+    <div>
+      <span class="insignia">Para tarotistas y centros de tarot</span>
+      <h1>Tu propia app de tarot, <em>con tu nombre y tu logo</em></h1>
+      <p class="bajada">Tus seguidoras te encuentran en TikTok o Instagram. En tu app te reservan hora, te pagan sus preguntas y vuelven cada día a sacar su carta. Ellas te siguen a ti, no al algoritmo.</p>
+      <div class="acciones">
+        <a class="btn" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20mi%20app%20de%20tarot." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg> Quiero mi app</a>
+        <a class="btn btn-borde" href="#clientas">Ver qué trae</a>
+      </div>
+      <span class="dato">Android y iPhone · escritorio Windows y Mac</span>
+    </div>
+    <div class="telefonos" aria-hidden="false">
+      <div class="telefono"><img src="img/tarot-inicio.webp" width="600" height="1067" loading="eager" decoding="async" alt="Inicio de la app para las clientas: tu marca arriba, la carta del día y los accesos a servicios, preguntas, reservas, tienda, academia y diario."></div>
+      <div class="telefono"><img src="img/tarot-carta.webp" width="600" height="1067" loading="eager" decoding="async" alt="Carta del día: la clienta elige una de tres cartas boca abajo y ve las cartas que sacó en el mes."></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. DEL LIVE A TU APP -->
+<section class="seccion alterna">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div class="adorno">✦ ☾ ✦</div>
+      <h2>Del live a tu agenda</h2>
+      <p>Las redes te traen gente nueva. Lo difícil es lo que viene después: ordenar las preguntas, cobrar y que vuelvan.</p>
+    </div>
+    <div class="comparacion">
+      <div class="columna sin">
+        <h3>Hoy, sólo con redes y WhatsApp</h3>
+        <ul>
+          <li>Las preguntas llegan mezcladas entre chats, comentarios y mensajes directos.</li>
+          <li>Revisas transferencias a mano y anotas las horas en una libreta o en el calendario.</li>
+          <li>Si el algoritmo no te muestra, tus seguidoras no se enteran de tu próximo live.</li>
+          <li>Tus cursos y videos quedan en grupos donde cualquiera los reenvía.</li>
+        </ul>
+      </div>
+      <div class="columna con">
+        <h3>Con tu app</h3>
+        <ul>
+          <li>Cada pregunta llega pagada, con su plazo, y la respondes en texto, audio o video.</li>
+          <li>Tus clientas reservan su hora y queda en tu agenda, presencial o a distancia.</li>
+          <li>Les avisas al teléfono cuando quieras: un live, una promoción o la luna llena.</li>
+          <li>Tus clases grabadas se ven sólo dentro de la app y no se pueden grabar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PARA TUS CLIENTAS -->
+<section class="seccion" id="clientas">
+  <div class="envoltura">
+    <div class="bloque">
+      <div class="telefono"><img src="img/tarot-inicio.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Inicio de la app con la marca del negocio y sus secciones."></div>
+      <div>
+        <div class="adorno izq">✦ ☾ ✦</div>
+        <h2>Lo que ven tus clientas</h2>
+        <p>Una app con tu nombre en Google Play y en la App Store, que tus clientas instalan y abren todos los días.</p>
+        <ul class="funciones">
+          <li><h3>Carta del día</h3><p>Eligen una carta boca abajo y reciben tu mensaje. Es la excusa para abrir tu app cada mañana.</p></li>
+          <li><h3>Pregúntale a una tarotista</h3><p>Eligen a quién, eligen el plan y pagan en la app. Respondes en texto, audio o video.</p></li>
+          <li><h3>Reserva de hora</h3><p>Lecturas, limpiezas y cursos, presencial, por videollamada o por WhatsApp.</p></li>
+          <li><h3>Mi diario</h3><p>Intenciones, sueños y emociones. Lo lees sólo si ella te elige, para acompañarla mejor.</p></li>
+          <li><h3>Academia</h3><p>Tus clases grabadas, protegidas contra la grabación de pantalla.</p></li>
+          <li><h3>Tienda y testimonios</h3><p>Velas, amuletos y joyas, y lo que dicen de ti quienes ya se atendieron.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PARA TI Y TU EQUIPO -->
+<section class="seccion alterna" id="equipo">
+  <div class="envoltura">
+    <div class="bloque invertido">
+      <div class="telefono"><img src="img/tarot-panel.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Panel del equipo en el teléfono: agenda, preguntas de clientas, clientas, servicios, planes de preguntas, tarotistas, tienda e inventario."></div>
+      <div>
+        <div class="adorno izq">✦ ☾ ✦</div>
+        <h2>Lo que manejas tú</h2>
+        <p>Desde la misma app, con tu cuenta, o desde el computador. Sirve si trabajas sola y también si tienes un equipo de tarotistas.</p>
+        <ul class="funciones">
+          <li><h3>Agenda y preguntas</h3><p>Las horas del día y las preguntas pendientes, con el plazo de 24 horas a la vista.</p></li>
+          <li><h3>Tus clientas</h3><p>Su perfil, su diario y sus cartas, cuando ellas lo comparten contigo.</p></li>
+          <li><h3>Servicios y planes</h3><p>Tú decides qué ofreces, cuánto cuesta y cuántas preguntas trae cada plan.</p></li>
+          <li><h3>Tu equipo</h3><p>La ficha de cada tarotista y qué puede ver o hacer cada una.</p></li>
+          <li><h3>Ventas y finanzas</h3><p>Lo que vendiste, tus gastos y las comisiones de cada tarotista.</p></li>
+          <li><h3>Avisos al teléfono</h3><p>Escribes el mensaje y les llega a tus clientas, ahora o a la hora que elijas.</p></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. CAPTURAS -->
+<section class="seccion">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div class="adorno">✦ ☾ ✦</div>
+      <h2>Por dentro</h2>
+      <p>Capturas de la app funcionando, con datos de prueba. Tu versión lleva tu nombre, tu logo y tus colores.</p>
+    </div>
+    <div class="galeria">
+      <figure><div class="telefono"><img src="img/tarot-inicio.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Inicio de la app de las clientas."></div><figcaption><b>Inicio</b>Tu marca y todo a un toque.</figcaption></figure>
+      <figure><div class="telefono"><img src="img/tarot-carta.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Carta del día con tres cartas boca abajo."></div><figcaption><b>Carta del día</b>Una carta por día.</figcaption></figure>
+      <figure><div class="telefono"><img src="img/tarot-diario.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Diario de la clienta con entradas de intención, sueño y afirmación."></div><figcaption><b>Mi diario</b>Lo comparte sólo con quien elige.</figcaption></figure>
+      <figure><div class="telefono"><img src="img/tarot-panel.webp" width="600" height="1067" loading="lazy" decoding="async" alt="Panel del equipo en el teléfono."></div><figcaption><b>Tu panel</b>Agenda, preguntas y negocio.</figcaption></figure>
+    </div>
+
+    <div class="escritorio-bloque">
+      <div class="escritorio-texto">
+        <div class="adorno izq">✦ ☾ ✦</div>
+        <h2>Y en el computador</h2>
+        <p>Una aplicación para Windows y Mac con todo el negocio: agenda, preguntas, clientas, tienda, inventario, ventas, deudas, finanzas, academia y tu equipo.</p>
+        <ul class="escritorio-lista">
+          <li><h3>Agenda con calendario</h3><p>Abres tus horarios y tus clientas toman hora solas. Las que llegan por WhatsApp las anotas tú.</p></li>
+          <li><h3>Conectada a tu web</h3><p>Si ya vendes en tu página, los productos y pedidos se ven en el mismo lugar.</p></li>
+          <li><h3>Ventas, deudas y finanzas</h3><p>Lo que vendiste, quién te debe y con cuánto quedaste cada mes.</p></li>
+        </ul>
+      </div>
+      <figure class="ventana">
+        <img src="img/tarot-esc-agenda.webp" width="1142" height="910" loading="lazy" decoding="async" alt="Aplicación de escritorio: agenda con el calendario del mes, horarios de atención y botón para agendar a una clienta por WhatsApp.">
+      </figure>
+    </div>
+    <div class="galeria-escritorio">
+      <figure><div class="ventana"><img src="img/tarot-esc-avisos.webp" width="1142" height="1150" loading="lazy" decoding="async" alt="Nueva notificación: título, mensaje, a quién le llega y cada cuánto sale."></div><figcaption><b>Avisos al teléfono</b>Escribes el mensaje, eliges a quién le llega y cuándo sale.</figcaption></figure>
+      <figure><div class="ventana"><img src="img/tarot-esc-carta.webp" width="1142" height="1010" loading="lazy" decoding="async" alt="Carta del día: los arcanos con el mensaje que recibe la clienta."></div><figcaption><b>Carta del día</b>Tú escribes el mensaje de cada arcano.</figcaption></figure>
+      <figure><div class="ventana"><img src="img/tarot-esc-academia.webp" width="1142" height="855" loading="lazy" decoding="async" alt="Academia: lista de clases grabadas con su categoría y duración."></div><figcaption><b>Academia</b>Subes tus clases grabadas y se ven sólo dentro de la app.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6. TU MARCA -->
+<section class="seccion alterna">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div class="adorno">✦ ☾ ✦</div>
+      <h2>Tu marca, no la nuestra</h2>
+      <p>Tus clientas ven tu nombre en la tienda de aplicaciones, en el ícono y en cada pantalla.</p>
+    </div>
+    <ol class="marca-pasos">
+      <li><h3>Nos cuentas tu negocio</h3><p>Qué ofreces, cómo atiendes y cómo cobras hoy.</p></li>
+      <li><h3>Ponemos tu marca</h3><p>Tu nombre, tu logo, tus colores y tus servicios.</p></li>
+      <li><h3>La publicamos</h3><p>En Google Play y la App Store, a tu nombre. Nosotros hacemos el trámite.</p></li>
+      <li><h3>La compartes</h3><p>El enlace va en tu bio y en tus lives. Desde ahí, tus seguidoras son tus clientas.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7. CASO -->
+<section class="seccion" id="caso">
+  <div class="envoltura">
+    <div class="caso">
+      <div class="caso-logo"><img src="img/casa-brujas.webp" width="398" height="142" loading="lazy" decoding="async" alt="La Casa de las Brujas"></div>
+      <div>
+        <h2>Ya la usa La Casa de las Brujas</h2>
+        <p>Un centro de tarot con varias tarotistas, tienda y cursos. Usa esta misma plataforma con su marca: la app para sus clientas y su equipo, y la aplicación de escritorio conectada a su tienda web.</p>
+        <a href="https://www.lacasadelasbrujas.cl" target="_blank" rel="noopener">Ver lacasadelasbrujas.cl</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PRECIO -->
+<section class="seccion alterna" id="precio">
+  <div class="envoltura">
+    <div class="precio">
+      <div class="carta-precio" role="img" aria-label="Precio de lanzamiento: 50.000 pesos más IVA al mes los primeros seis meses; después, 4,9 UF más IVA al mes.">
+        <div>
+          <small>Precio de lanzamiento</small>
+          <div class="monto">$50.000</div>
+          <div class="suave">+ IVA al mes, los primeros 6 meses</div>
+          <div class="luego">Desde el séptimo mes, <b>4,9 UF + IVA</b> al mes</div>
+        </div>
+      </div>
+      <div>
+        <div class="adorno izq">✦ ☾ ✦</div>
+        <h2>Qué incluye</h2>
+        <ul class="incluye">
+          <li>App de teléfono con tu marca <span>para Android y iPhone.</span></li>
+          <li>Aplicación de escritorio <span>para Windows y Mac, en todos los computadores que quieras.</span></li>
+          <li>Clientas y equipo sin límite <span>no pagas más por crecer.</span></li>
+          <li>Publicación en las tiendas <span>y cada versión nueva, sin costo extra.</span></li>
+          <li>Base de datos, respaldo y soporte <span>nosotros nos encargamos de que funcione.</span></li>
+        </ul>
+        <p class="nota">Aparte, y directo a cada tienda: la cuenta de desarrollador de Google Play (US$25, una sola vez) y la de Apple (US$99 al año), que quedan a tu nombre. Lo que tus clientas pagan dentro de la app lo cobran Google y Apple, que descuentan su comisión (normalmente 15 %) y te depositan el resto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. QUIERO MI APP -->
+<section class="seccion" id="quiero">
+  <div class="envoltura">
+    <div class="registro">
+      <div class="formulario">
+        <h2>Quiero mi app</h2>
+        <p>Déjanos tus datos y te escribimos para mostrártela por videollamada, sin compromiso.</p>
+        <form action="https://formspree.io/f/xlgavooz" method="POST" id="form-registro">
+          <input type="hidden" name="producto" value="IMP Systems Tarot">
+          <label>Nombre<input type="text" name="nombre" required></label>
+          <label>Teléfono o WhatsApp<input type="tel" name="telefono" placeholder="+56 9 ..." required></label>
+          <label class="ancho">Correo<input type="email" name="email" placeholder="tucorreo@ejemplo.cl" required></label>
+          <label class="ancho">Tu cuenta de TikTok o Instagram<input type="text" name="redes" placeholder="@tutarot"></label>
+          <label>¿Trabajas sola o con equipo?
+            <select name="equipo">
+              <option value="">Elige una opción</option>
+              <option>Sola</option><option>Con 2 a 5 tarotistas</option><option>Con más de 5</option>
+            </select>
+          </label>
+          <label>¿Cómo nos conociste?
+            <select name="como_nos_conociste">
+              <option value="">Elige una opción</option>
+              <option>TikTok</option><option>Instagram</option><option>Recomendación</option><option>Búsqueda en Google</option><option>Otro</option>
+            </select>
+          </label>
+          <label class="ancho">¿Qué ofreces hoy? (opcional)<textarea name="mensaje" placeholder="Lecturas, limpiezas, cursos, tienda..."></textarea></label>
+          <button type="submit" class="btn">Enviar</button>
+          <p id="registro-ok" class="form-ok" hidden>Listo. Te escribimos en menos de 24 horas hábiles.</p>
+        </form>
+      </div>
+      <div>
+        <h2>Cómo sigue</h2>
+        <ol class="pasos" style="margin-top: 18px">
+          <li><div><b>Te escribimos</b><span>Por WhatsApp, en menos de 24 horas hábiles.</span></div></li>
+          <li><div><b>Te la mostramos</b><span>Por videollamada, funcionando de verdad.</span></div></li>
+          <li><div><b>La armamos con tu marca</b><span>Con tus servicios, tus precios y tu equipo.</span></div></li>
+          <li><div><b>La compartes</b><span>Y tus seguidoras la descargan desde tu bio.</span></div></li>
+        </ol>
+        <div class="contacto-directo">
+          <a class="numero" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20mi%20app%20de%20tarot." target="_blank" rel="noopener">+56 9 7877 2578</a>
+          <p class="dato" style="margin-top:6px">WhatsApp o llamada · <a href="mailto:contacto@impsystems.cl">contacto@impsystems.cl</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. PREGUNTAS -->
+<section class="seccion alterna" id="preguntas">
+  <div class="envoltura">
+    <div class="cabeza">
+      <div class="adorno">✦ ☾ ✦</div>
+      <h2>Preguntas frecuentes</h2>
+    </div>
+    <div class="preguntas">
+      <details>
+        <summary>¿Sirve si trabajo sola?</summary>
+        <p>Sí. Puedes ser la única tarotista de tu app. Si después sumas a más personas, las agregas con su ficha y sus permisos, sin pagar más.</p>
+      </details>
+      <details>
+        <summary>¿Tengo que saber de tecnología?</summary>
+        <p>No. Nosotros configuramos la app, la publicamos y te enseñamos a usarla. Tú cargas tus servicios y respondes a tus clientas, como en cualquier aplicación.</p>
+      </details>
+      <details>
+        <summary>¿Cómo me pagan mis clientas?</summary>
+        <p>Las preguntas se pagan dentro de la app con Google Play o Apple, y ellos te depositan descontando su comisión. Las horas reservadas se pueden pagar por transferencia, y la app te ayuda a confirmarlas.</p>
+      </details>
+      <details>
+        <summary>¿La app queda a mi nombre?</summary>
+        <p>Se publica en tus cuentas de Google Play y de Apple, con tu nombre y tu logo, y los pagos llegan a ti. Tu marca, tu contenido y los datos de tus clientas son tuyos. El software es de IMP Systems y lo usas con una licencia mensual, que incluye las mejoras que vamos haciendo.</p>
+      </details>
+      <details>
+        <summary>¿Quién ve el diario de mis clientas?</summary>
+        <p>Sólo las tarotistas que cada clienta elige: al reservar con ella, preguntarle o marcarla como favorita. Ella puede dejar de compartirlo cuando quiera. Ni el resto del equipo ni nosotros lo leemos.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto cuesta?</summary>
+        <p>Precio de lanzamiento: $50.000 + IVA al mes los primeros 6 meses; desde el séptimo mes, 4,9 UF + IVA al mes. Aparte van las cuentas de desarrollador de Google Play (US$25, una vez) y de Apple (US$99 al año).</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    <div>
+      <a href="index.html" class="marca"><img src="img/imp-isotipo.svg" width="30" height="30" alt=""><b>IMP</b><span>Systems</span></a>
+      <div>contacto@impsystems.cl · +56 9 7877 2578</div>
+      <div>© 2026 IMP Systems · Santiago, Chile</div>
+    </div>
+    <nav aria-label="Pie de página">
+      <a href="index.html">Inicio</a>
+      <a href="quiosco.html">Quioscos</a>
+      <a href="farma.html">Farma IMP</a>
+      <a href="mantencion.html">Mantención IMP</a>
+      <a href="privacidad.html">Privacidad</a>
+    </nav>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/56978772578?text=Hola%2C%20vi%20la%20web%20de%20IMP%20Systems%20y%20quiero%20mi%20app%20de%20tarot." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a IMP Systems">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.38-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.15h-.01c-1.52 0-3.02-.41-4.32-1.18l-.31-.18-3.21.84.86-3.13-.2-.32a8.2 8.2 0 01-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 012.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+  <span class="wa-fab-txt">Escríbenos por WhatsApp</span>
+  <span class="wa-fab-txt-corto">WhatsApp</span>
+</a>
+
+<script>
+  // Formulario (Formspree): solicitud de la app
+  (function () {
+    const form = document.getElementById('form-registro');
+    if (!form) return;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      if (res.ok) { form.reset(); document.getElementById('registro-ok').hidden = false; }
+    });
+  })();
+</script>
+</body>
+</html>
